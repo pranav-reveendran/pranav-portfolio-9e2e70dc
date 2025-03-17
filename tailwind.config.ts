@@ -101,6 +101,28 @@ export default {
 				'float': {
 					'0%, 100%': { transform: 'translateY(0)' },
 					'50%': { transform: 'translateY(-10px)' }
+				},
+				'pulse-glow': {
+					'0%, 100%': { 
+						opacity: '1',
+						boxShadow: '0 0 5px hsla(var(--primary), 0.5)' 
+					},
+					'50%': { 
+						opacity: '0.7',
+						boxShadow: '0 0 15px hsla(var(--primary), 0.8)' 
+					}
+				},
+				'data-flow': {
+					'0%': { left: '-30%' },
+					'100%': { left: '100%' }
+				},
+				'glitch': {
+					'0%': { transform: 'translate(0)' },
+					'20%': { transform: 'translate(-2px, 2px)' },
+					'40%': { transform: 'translate(-2px, -2px)' },
+					'60%': { transform: 'translate(2px, 2px)' },
+					'80%': { transform: 'translate(2px, -2px)' },
+					'100%': { transform: 'translate(0)' }
 				}
 			},
 			animation: {
@@ -114,11 +136,14 @@ export default {
 				'fade-in-left': 'fade-in-left 0.7s ease-out',
 				'scale-in': 'scale-in 0.7s ease-out',
 				'blur-in': 'blur-in 0.7s ease-out',
-				'float': 'float 6s ease-in-out infinite'
+				'float': 'float 6s ease-in-out infinite',
+				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+				'data-flow': 'data-flow 3s infinite linear',
+				'glitch': 'glitch 0.3s ease-in-out'
 			},
 			fontFamily: {
 				sans: ['SF Pro Display', 'Inter', 'system-ui', 'sans-serif'],
-				mono: ['SF Mono', 'JetBrains Mono', 'monospace']
+				mono: ['Fira Code', 'Space Mono', 'JetBrains Mono', 'monospace']
 			}
 		}
 	},
