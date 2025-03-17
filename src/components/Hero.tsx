@@ -23,7 +23,7 @@ export function Hero() {
           
           {/* Main headline */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-balance opacity-0 animate-fade-in leading-tight">
-            Pranay Raveendran
+            Pranav Reveendran
           </h1>
           
           {/* Description */}
@@ -35,12 +35,12 @@ export function Hero() {
           <div className="mt-6 flex flex-col space-y-2 opacity-0 animate-fade-in-delayed-2">
             <div className="flex items-center text-muted-foreground">
               <PhoneIcon className="w-4 h-4 mr-2" />
-              <span>+1 669-335-7762</span>
+              <span>+1 660-335-7762</span>
             </div>
             <div className="flex items-center text-muted-foreground">
               <MailIcon className="w-4 h-4 mr-2" />
-              <a href="mailto:pranav.rveendran@sjsu.edu" className="hover:text-primary transition-colors">
-                pranav.rveendran@sjsu.edu
+              <a href="mailto:pranav.reveendran@sjsu.edu" className="hover:text-primary transition-colors">
+                pranav.reveendran@sjsu.edu
               </a>
             </div>
             <div className="flex items-center text-muted-foreground">
