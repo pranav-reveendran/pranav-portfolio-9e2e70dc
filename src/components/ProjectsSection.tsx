@@ -5,40 +5,40 @@ import { ExternalLinkIcon, GithubIcon } from "lucide-react";
 
 const projects = [
   {
-    title: "Real-time Data Processing Platform",
-    description: "Engineered a high-throughput stream processing system handling 1TB+ daily data with Apache Kafka and Spark Streaming, reducing latency by 70%.",
+    title: "Predictive Analytics for Employee Attrition",
+    description: "Built an ETL pipeline to process HR data with data cleaning and feature engineering, implementing Random Forest and Gradient Boosting models that achieved 91% accuracy in predicting employee attrition.",
     image: "photo-1488590528505-98d2b5aba04b",
-    tags: ["Apache Kafka", "Spark Streaming", "AWS", "Real-time Analytics"],
+    tags: ["Python", "scikit-learn", "SQL", "Tableau", "Random Forest", "Gradient Boosting", "K-means Clustering"],
     links: {
       demo: "#",
       github: "#"
     }
   },
   {
-    title: "Distributed ML Training Framework",
-    description: "Built a distributed machine learning training system capable of scaling to 100+ nodes with automated hyperparameter tuning and model versioning.",
+    title: "Citibike Data Pipeline & Analytics",
+    description: "Designed an end-to-end ETL pipeline processing 5+ years of Citibike rideshare data with weather and traffic patterns, implementing Snowflake data warehouse with optimized schema design reducing query execution by 40%.",
     image: "photo-1518770660439-4636190af475",
-    tags: ["PyTorch", "Kubernetes", "MLflow", "Distributed Training"],
+    tags: ["Python", "Airflow", "Snowflake", "SQL", "Predictive Models"],
     links: {
       demo: "#",
       github: "#"
     }
   },
   {
-    title: "Predictive Maintenance AI",
-    description: "Developed an industrial predictive maintenance solution using time-series forecasting and anomaly detection, reducing equipment downtime by 35%.",
+    title: "TaxAssist Bot Agent",
+    description: "Developed an ETL pipeline processing 10,000+ tax regulations into vector embeddings with LangChain and Pinecone, implementing data validation with 95% accuracy that reduced tax research time by 40%.",
     image: "photo-1461749280684-dccba630e2f6",
-    tags: ["Time Series", "Anomaly Detection", "IoT", "Predictive Models"],
+    tags: ["Python", "LangChain", "Pinecone", "AWS Lambda", "Vector Embeddings"],
     links: {
       demo: "#",
       github: "#"
     }
   },
   {
-    title: "Serverless Data Lake",
-    description: "Designed a cost-effective serverless data lake architecture processing 5PB of data with automated governance and data quality monitoring.",
+    title: "Food Delivery Platform (UberEats Clone)",
+    description: "Built a full-stack application with React/Redux frontend and Node.js microservices architecture, containerized with Docker and Kubernetes for scalability and using Kafka for asynchronous order processing.",
     image: "photo-1526374965328-7f61d4dc18c5",
-    tags: ["AWS Lambda", "S3", "Data Lake", "Athena", "Glue"],
+    tags: ["React", "Redux", "Node.js", "Docker", "Kubernetes", "Kafka", "AWS Aurora"],
     links: {
       demo: "#",
       github: "#"
@@ -94,7 +94,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0], index: n
         </p>
         
         <div className="flex flex-wrap gap-2 mb-5">
-          {project.tags.map((tag, i) => (
+          {project.tags.slice(0, 4).map((tag, i) => (
             <span 
               key={i} 
               className="inline-block text-xs py-1 px-2 bg-accent text-accent-foreground rounded-full"
@@ -102,6 +102,11 @@ function ProjectCard({ project, index }: { project: typeof projects[0], index: n
               {tag}
             </span>
           ))}
+          {project.tags.length > 4 && (
+            <span className="inline-block text-xs py-1 px-2 bg-primary/10 text-primary rounded-full">
+              +{project.tags.length - 4} more
+            </span>
+          )}
         </div>
         
         <div className="flex space-x-3">
@@ -138,7 +143,7 @@ export function ProjectsSection() {
           </div>
           <h2 className="text-3xl md:text-4xl font-semibold mb-4">Featured Projects</h2>
           <p className="text-muted-foreground text-lg">
-            A collection of my most significant work in data engineering, distributed systems, and machine learning.
+            A collection of my most significant projects in data engineering, machine learning, and data analytics.
           </p>
         </div>
         

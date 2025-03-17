@@ -1,5 +1,6 @@
 
 import { cn } from "@/lib/utils";
+import { MapPinIcon, LinkedinIcon, MailIcon, PhoneIcon } from "lucide-react";
 
 export function Hero() {
   return (
@@ -16,20 +17,43 @@ export function Hero() {
           {/* Caption/Badge */}
           <div className="inline-block opacity-0 animate-fade-in-delayed mb-4">
             <div className="bg-accent text-accent-foreground text-xs font-medium py-1 px-3 rounded-full">
-              Data Engineer • ML Specialist • Distributed Systems
+              Data Engineer • ML Specialist • Data Scientist
             </div>
           </div>
           
           {/* Main headline */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-balance opacity-0 animate-fade-in leading-tight">
-            Turning complex data <br className="hidden md:block" />
-            <span className="text-primary">into valuable insights</span>
+            Pranay Raveendran
           </h1>
           
           {/* Description */}
           <p className="mt-6 text-lg text-muted-foreground text-balance max-w-2xl opacity-0 animate-fade-in-delayed-2">
-            I design, build, and optimize high-performance systems that transform raw data into actionable intelligence, powering the future of data-driven decision making.
+            I develop data engineering solutions, ML models, and data pipelines that transform complex datasets into valuable business insights.
           </p>
+          
+          {/* Contact information */}
+          <div className="mt-6 flex flex-col space-y-2 opacity-0 animate-fade-in-delayed-2">
+            <div className="flex items-center text-muted-foreground">
+              <PhoneIcon className="w-4 h-4 mr-2" />
+              <span>+1 669-335-7762</span>
+            </div>
+            <div className="flex items-center text-muted-foreground">
+              <MailIcon className="w-4 h-4 mr-2" />
+              <a href="mailto:pranav.rveendran@sjsu.edu" className="hover:text-primary transition-colors">
+                pranav.rveendran@sjsu.edu
+              </a>
+            </div>
+            <div className="flex items-center text-muted-foreground">
+              <LinkedinIcon className="w-4 h-4 mr-2" />
+              <a href="https://linkedin.com/in/" className="hover:text-primary transition-colors">
+                LinkedIn
+              </a>
+            </div>
+            <div className="flex items-center text-muted-foreground">
+              <MapPinIcon className="w-4 h-4 mr-2" />
+              <span>San Jose, CA (Available from May 19, 2025)</span>
+            </div>
+          </div>
           
           {/* CTA buttons */}
           <div className="mt-8 flex flex-wrap gap-4 opacity-0 animate-fade-in-delayed-3">
@@ -54,13 +78,13 @@ export function Hero() {
           </div>
         </div>
         
-        {/* Stats/Quick facts */}
+        {/* Education/Experience quick facts */}
         <div className="mt-16 md:mt-24 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
           {[
-            { value: "5+", label: "Years Experience" },
-            { value: "20+", label: "Projects Delivered" },
-            { value: "15+", label: "Tech Stack" },
-            { value: "3", label: "Industry Sectors" }
+            { value: "M.S. in Data Science", label: "SJSU (Expected 2026)" },
+            { value: "B.E. in Computer Science", label: "Christ University (2020)" },
+            { value: "3+ Years", label: "Industry Experience" },
+            { value: "AWS Certified", label: "Data Engineer (2024)" }
           ].map((stat, index) => (
             <div 
               key={index}
@@ -70,7 +94,7 @@ export function Hero() {
               )}
               style={{ animationDelay: `${(index * 0.1) + 0.8}s` }}
             >
-              <div className="text-3xl font-bold text-primary">{stat.value}</div>
+              <div className="text-xl font-bold text-primary">{stat.value}</div>
               <div className="text-sm text-muted-foreground mt-1">{stat.label}</div>
             </div>
           ))}

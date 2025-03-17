@@ -3,48 +3,49 @@ import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { 
   DatabaseIcon, 
-  NetworkIcon, 
-  BrainIcon, 
   ServerIcon, 
-  CodeIcon 
+  BrainIcon, 
+  CodeIcon,
+  BarChartIcon,
+  TableIcon
 } from "lucide-react";
 
 const skills = [
   {
     category: "Data Engineering",
     icon: DatabaseIcon,
-    description: "Building robust pipelines and infrastructure for handling large-scale data workflows.",
-    items: ["ETL/ELT", "Data Warehousing", "Apache Spark", "Kafka", "Airflow", "Streaming", "Data Modeling"]
+    description: "Building robust ETL/ELT pipelines and data workflows for processing large-scale data.",
+    items: ["ETL/ELT Pipeline Development", "Data Integration", "Query Optimization", "Data Modeling", "Apache Airflow", "AWS Lambda", "SQL"]
   },
   {
-    category: "Distributed Systems",
-    icon: NetworkIcon,
-    description: "Designing scalable and resilient distributed architectures that process data efficiently.",
-    items: ["Kubernetes", "Docker", "Microservices", "Consensus Protocols", "Scheduling", "Load Balancing", "Fault Tolerance"]
+    category: "Data Warehousing",
+    icon: ServerIcon,
+    description: "Designing optimized data warehouses with efficient schema designs for analytics and reporting.",
+    items: ["Star/Snowflake Schema Design", "Dimensional Modeling", "Data Assets Management", "AWS S3", "Snowflake", "AWS Redshift"]
   },
   {
     category: "Machine Learning",
     icon: BrainIcon,
-    description: "Developing models that extract meaningful patterns and predictions from complex datasets.",
-    items: ["Supervised/Unsupervised Learning", "Deep Learning", "NLP", "Feature Engineering", "Model Deployment", "MLOps", "Time Series"]
+    description: "Developing predictive models and implementing ML pipelines for business insights.",
+    items: ["Feature Engineering", "Predictive Analytics", "Data Preprocessing", "scikit-learn", "Random Forest", "Gradient Boosting", "K-means Clustering"]
   },
   {
-    category: "AI Systems",
-    icon: BrainIcon,
-    description: "Creating intelligent systems that can reason, learn, and automate complex tasks.",
-    items: ["LLMs", "Reinforcement Learning", "Computer Vision", "Neural Networks", "Transformers", "Generative AI", "Embeddings"]
+    category: "Data Governance",
+    icon: TableIcon,
+    description: "Implementing data quality, lineage tracking, and security controls for trusted data management.",
+    items: ["Data Quality", "Data Lineage", "Metadata Management", "Data Security", "Git Version Control", "Documentation"]
   },
   {
-    category: "Cloud & Infrastructure",
+    category: "Cloud Technologies",
     icon: ServerIcon,
-    description: "Leveraging cloud services to build scalable, efficient, and cost-effective solutions.",
-    items: ["AWS", "GCP", "Azure", "Terraform", "CI/CD", "Monitoring", "Security", "Performance Optimization"]
+    description: "Leveraging cloud services to build scalable, efficient, and cost-effective data solutions.",
+    items: ["AWS S3", "AWS Lambda", "AWS Aurora", "Snowflake", "Serverless Architecture", "Infrastructure Cost Optimization"]
   },
   {
-    category: "Software Engineering",
+    category: "Programming",
     icon: CodeIcon,
-    description: "Building reliable, maintainable, and efficient code with best practices.",
-    items: ["Python", "Java", "Scala", "SQL", "API Design", "System Design", "Testing", "Documentation"]
+    description: "Writing efficient code in multiple languages for data processing and automation.",
+    items: ["Python (Advanced)", "SQL (Advanced)", "Git (Proficient)", "Java (Intermediate)", "Tableau", "Docker", "Kubernetes"]
   }
 ];
 
@@ -125,7 +126,7 @@ export function SkillsSection() {
           </div>
           <h2 className="text-3xl md:text-4xl font-semibold mb-4">Technical Skills & Specializations</h2>
           <p className="text-muted-foreground text-lg">
-            I specialize in building scalable data systems and machine learning applications that solve complex business problems.
+            I specialize in data engineering, machine learning, and building scalable data solutions that solve complex business problems.
           </p>
         </div>
         
