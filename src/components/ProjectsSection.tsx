@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { ExternalLinkIcon, GithubIcon } from "lucide-react";
@@ -7,7 +6,7 @@ const projects = [
   {
     title: "Predictive Analytics for Employee Attrition",
     description: "Built an ETL pipeline to process HR data with data cleaning and feature engineering, implementing Random Forest and Gradient Boosting models that achieved 91% accuracy in predicting employee attrition.",
-    image: "photo-1488590528505-98d2b5aba04b",
+    image: "photo-1487058792275-0ad4aaf24ca7",
     tags: ["Python", "scikit-learn", "SQL", "Tableau", "Random Forest", "Gradient Boosting", "K-means Clustering"],
     links: {
       demo: "#",
@@ -17,7 +16,7 @@ const projects = [
   {
     title: "Citibike Data Pipeline & Analytics",
     description: "Designed an end-to-end ETL pipeline processing 5+ years of Citibike rideshare data with weather and traffic patterns, implementing Snowflake data warehouse with optimized schema design reducing query execution by 40%.",
-    image: "photo-1518770660439-4636190af475",
+    image: "photo-1531297484001-80022131f5a1",
     tags: ["Python", "Airflow", "Snowflake", "SQL", "Predictive Models"],
     links: {
       demo: "#",
@@ -27,7 +26,7 @@ const projects = [
   {
     title: "TaxAssist Bot Agent",
     description: "Developed an ETL pipeline processing 10,000+ tax regulations into vector embeddings with LangChain and Pinecone, implementing data validation with 95% accuracy that reduced tax research time by 40%.",
-    image: "photo-1461749280684-dccba630e2f6",
+    image: "photo-1486312338219-ce68d2c6f44d",
     tags: ["Python", "LangChain", "Pinecone", "AWS Lambda", "Vector Embeddings"],
     links: {
       demo: "#",
@@ -37,7 +36,7 @@ const projects = [
   {
     title: "Food Delivery Platform (UberEats Clone)",
     description: "Built a full-stack application with React/Redux frontend and Node.js microservices architecture, containerized with Docker and Kubernetes for scalability and using Kafka for asynchronous order processing.",
-    image: "photo-1526374965328-7f61d4dc18c5",
+    image: "photo-1488590528505-98d2b5aba04b",
     tags: ["React", "Redux", "Node.js", "Docker", "Kubernetes", "Kafka", "AWS Aurora"],
     links: {
       demo: "#",
@@ -133,7 +132,6 @@ function ProjectCard({ project, index }: { project: typeof projects[0], index: n
 export function ProjectsSection() {
   return (
     <section id="projects" className="py-20 md:py-32 relative overflow-hidden">
-      {/* Background accent */}
       <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-primary/5 rounded-full blur-3xl -z-10 opacity-70"></div>
       
       <div className="container mx-auto px-6 md:px-8 relative z-10">
