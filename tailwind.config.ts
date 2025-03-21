@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -53,13 +54,16 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				material: {
-					primary: '#9b87f5',
-					secondary: '#7E69AB', 
-					tertiary: '#6E59A5',
-					dark: '#1A1F2C',
-					light: '#D6BCFA',
-					gray: '#8E9196',
-					error: '#ea384c'
+					primary: '#4285F4',   // Google Blue
+					secondary: '#34A853', // Google Green
+					tertiary: '#FBBC05',  // Google Yellow
+					error: '#EA4335',     // Google Red
+					surface: '#FFFFFF',   // White
+					background: '#F8F9FA', // Light Gray
+					onPrimary: '#FFFFFF', // White
+					onSecondary: '#FFFFFF', // White
+					onBackground: '#202124', // Almost Black
+					onSurface: '#202124'  // Almost Black
 				}
 			},
 			borderRadius: {
@@ -140,8 +144,8 @@ export default {
 				'glitch': 'glitch 0.3s ease-in-out'
 			},
 			fontFamily: {
-				sans: ['SF Pro Display', 'Inter', 'system-ui', 'sans-serif'],
-				mono: ['Fira Code', 'Space Mono', 'JetBrains Mono', 'monospace']
+				sans: ['Roboto', 'system-ui', 'sans-serif'],
+				mono: ['Roboto Mono', 'monospace']
 			}
 		}
 	},

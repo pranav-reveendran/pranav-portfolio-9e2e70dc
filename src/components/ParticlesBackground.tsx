@@ -52,10 +52,10 @@ export function ParticlesBackground() {
         },
         particles: {
           color: {
-            value: "#9b87f5", // Material primary purple
+            value: "#4285F4", // Google Blue
           },
           links: {
-            color: "#9b87f5", // Material primary purple
+            color: "#4285F4", // Google Blue
             distance: 150,
             enable: true,
             opacity: 0.3,
