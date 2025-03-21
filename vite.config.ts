@@ -20,5 +20,5 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: mode === 'production' ? '/{repo-name}/' : '/', // Replace {repo-name} with your actual repository name
+  base: mode === 'production' ? '/insight-portfolio-haven/' : '/', // Using the project name as the repository name
 }));

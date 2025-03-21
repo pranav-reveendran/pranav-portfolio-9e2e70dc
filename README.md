@@ -1,69 +1,86 @@
-# Welcome to your Lovable project
+
+# Data Engineering Portfolio
+
+A modern, interactive data engineering portfolio website featuring dynamic visualizations, particle effects, and responsive design.
 
 ## Project info
 
 **URL**: https://lovable.dev/projects/a418fa08-7968-4e2f-9eb2-f4bd8c486ad1
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+- Interactive data visualizations using Recharts
+- Animated skill showcase
+- Dynamic particle background
+- Material Design color theme
+- Responsive layout for all devices
+- GitHub Pages deployment ready
 
-**Use Lovable**
+## Deployment Instructions
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/a418fa08-7968-4e2f-9eb2-f4bd8c486ad1) and start prompting.
+### 1. Create a GitHub Repository
 
-Changes made via Lovable will be committed automatically to this repo.
+1. Go to [GitHub](https://github.com) and sign in to your account
+2. Click the "+" icon in the top right corner and select "New repository"
+3. Name your repository `insight-portfolio-haven` (or any name you prefer)
+4. Choose public visibility
+5. Click "Create repository"
 
-**Use your preferred IDE**
+### 2. Push Your Code to GitHub
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Run the following commands in your project directory:
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+```bash
+# Initialize git repository (if not already done)
+git init
 
-Follow these steps:
+# Add all files to staging
+git add .
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Commit changes
+git commit -m "Initial commit"
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Add remote repository (replace USERNAME with your GitHub username)
+git remote add origin https://github.com/USERNAME/insight-portfolio-haven.git
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+# Push code to main branch
+git push -u origin main
 ```
 
-**Edit a file directly in GitHub**
+### 3. Enable GitHub Pages
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+1. Go to your repository on GitHub
+2. Click on "Settings"
+3. Navigate to "Pages" in the left sidebar
+4. Under "Source", select "GitHub Actions"
+5. The GitHub Actions workflow will automatically build and deploy your site
 
-**Use GitHub Codespaces**
+After deployment, your site will be available at: `https://USERNAME.github.io/insight-portfolio-haven/`
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Development
 
-## What technologies are used for this project?
+```bash
+# Install dependencies
+npm i
 
-This project is built with .
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+## Technologies Used
 
 - Vite
 - TypeScript
 - React
-- shadcn-ui
 - Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/a418fa08-7968-4e2f-9eb2-f4bd8c486ad1) and click on Share -> Publish.
-
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+- shadcn/ui
+- React Router
+- Recharts for data visualization
+- Particles.js for background effects
+- React Query for data fetching
