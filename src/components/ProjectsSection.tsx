@@ -1,7 +1,8 @@
 
 import { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
-import { ExternalLinkIcon, GithubIcon } from "lucide-react";
+import { ExternalLinkIcon, GithubIcon, ChevronRightIcon } from "lucide-react";
+import { motion } from "framer-motion";
 
 const projects = [
   {
@@ -46,7 +47,7 @@ const projects = [
   }
 ];
 
-// Added new terminal component
+// Apple-style terminal component
 const Terminal = ({ command, output }: { command: string, output: string[] }) => {
   const [displayedOutput, setDisplayedOutput] = useState<string[]>([]);
   const [isTyping, setIsTyping] = useState(true);
@@ -66,122 +67,108 @@ const Terminal = ({ command, output }: { command: string, output: string[] }) =>
   }, [currentLine, output]);
   
   return (
-    <div className="bg-zinc-900 rounded-lg p-4 font-mono text-sm text-green-400 overflow-hidden">
-      <div className="flex items-center gap-1 mb-2">
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.7 }}
+      className="bg-[#1d1d1f] rounded-xl p-5 font-mono text-sm text-green-400 overflow-hidden elevation-3"
+    >
+      <div className="flex items-center gap-1.5 mb-3">
         <div className="w-3 h-3 rounded-full bg-red-500"></div>
         <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
         <div className="w-3 h-3 rounded-full bg-green-500"></div>
         <span className="ml-2 text-xs text-gray-400">data-wizard ~ terminal</span>
       </div>
-      <div className="terminal-prompt">{command}</div>
-      <div className="mt-1">
+      <div className="terminal-prompt font-medium text-white">{command}</div>
+      <div className="mt-2">
         {displayedOutput.map((line, i) => (
           <div key={i} className="py-0.5">{line}</div>
         ))}
         {isTyping && <span className="inline-block w-2 h-4 ml-1 bg-green-400 animate-pulse"></span>}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
 function ProjectCard({ project, index }: { project: typeof projects[0], index: number }) {
-  const [isVisible, setIsVisible] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
-  const cardRef = useRef<HTMLDivElement>(null);
-  
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1 }
-    );
-    
-    if (cardRef.current) {
-      observer.observe(cardRef.current);
-    }
-    
-    return () => observer.disconnect();
-  }, []);
   
   return (
-    <div 
-      ref={cardRef}
+    <motion.div 
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.7, delay: index * 0.1 }}
       className={cn(
-        "group relative rounded-lg overflow-hidden bg-card border border-border",
-        "transition-all duration-500 hover:shadow-lg hover:border-primary/20",
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10",
-        isHovered ? "transform-gpu scale-[1.02]" : ""
+        "group relative rounded-xl overflow-hidden bg-white elevation-2",
+        "transition-all duration-500",
+        isHovered ? "elevation-4 transform-gpu scale-[1.02]" : ""
       )}
-      style={{ transitionDelay: `${index * 0.1}s` }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="aspect-video w-full overflow-hidden">
-        <img 
+        <motion.img 
           src={project.image} 
           alt={project.title} 
-          className={cn(
-            "w-full h-full object-cover",
-            "transition-transform duration-700 ease-out",
-            isHovered ? "scale-110" : "scale-100"
-          )}
+          className="w-full h-full object-cover"
+          whileHover={{ scale: 1.1 }}
+          transition={{ duration: 0.7 }}
           loading="lazy"
         />
         <div className={cn(
-          "absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0",
+          "absolute inset-0 bg-gradient-to-t from-black/60 to-transparent",
           "transition-opacity duration-300",
-          isHovered ? "opacity-100" : ""
+          "opacity-0 group-hover:opacity-100"
         )}></div>
       </div>
       
       <div className="p-6">
-        <h3 className="text-xl font-medium mb-2 text-glitch">{project.title}</h3>
+        <h3 className="text-xl font-bold mb-2">{project.title}</h3>
         <p className="text-muted-foreground mb-4 text-balance">
           {project.description}
         </p>
         
         <div className="flex flex-wrap gap-2 mb-5">
           {project.tags.slice(0, 4).map((tag, i) => (
-            <span 
+            <motion.span 
               key={i} 
-              className={cn(
-                "inline-block text-xs py-1 px-2 bg-accent text-accent-foreground rounded-full",
-                "transition-all duration-300",
-                isHovered ? "bg-primary text-primary-foreground" : ""
-              )}
+              className="inline-block text-xs py-1.5 px-3 rounded-full bg-material-background text-material-primary border border-material-primary/20"
+              whileHover={{ y: -3, x: 0 }}
             >
               {tag}
-            </span>
+            </motion.span>
           ))}
           {project.tags.length > 4 && (
-            <span className="inline-block text-xs py-1 px-2 bg-primary/10 text-primary rounded-full">
+            <span className="inline-block text-xs py-1.5 px-3 rounded-full bg-material-primary/10 text-material-primary">
               +{project.tags.length - 4} more
             </span>
           )}
         </div>
         
-        <div className="flex space-x-3">
-          <a 
+        <div className="flex space-x-4">
+          <motion.a 
             href={project.links.demo} 
-            className="inline-flex items-center space-x-1 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+            className="inline-flex items-center space-x-1 text-sm font-medium text-white bg-material-primary px-4 py-2 rounded-full"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
             <span>Live Demo</span>
-            <ExternalLinkIcon className="w-4 h-4" />
-          </a>
-          <a 
+            <ExternalLinkIcon className="w-4 h-4 ml-1" />
+          </motion.a>
+          <motion.a 
             href={project.links.github} 
-            className="inline-flex items-center space-x-1 text-sm font-medium text-foreground hover:text-foreground/80 transition-colors"
+            className="inline-flex items-center space-x-1 text-sm font-medium text-material-primary border border-material-primary px-4 py-2 rounded-full"
+            whileHover={{ scale: 1.05, backgroundColor: "rgba(66, 133, 244, 0.1)" }}
+            whileTap={{ scale: 0.95 }}
           >
             <span>Source Code</span>
-            <GithubIcon className="w-4 h-4" />
-          </a>
+            <GithubIcon className="w-4 h-4 ml-1" />
+          </motion.a>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -206,54 +193,75 @@ export function ProjectsSection() {
   ];
 
   return (
-    <section id="projects" className="py-20 md:py-32 relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-primary/5 rounded-full blur-3xl -z-10 opacity-70"></div>
+    <section id="projects" className="py-20 md:py-32 bg-gradient-to-b from-white to-material-background/30 relative overflow-hidden">
+      {/* Apple-style background blur */}
+      <motion.div 
+        className="absolute top-1/4 right-0 w-96 h-96 rounded-full bg-material-tertiary/10 blur-3xl"
+        animate={{ 
+          x: [0, -30, 0],
+          y: [0, -20, 0],
+        }}
+        transition={{ 
+          duration: 20,
+          ease: "easeInOut",
+          repeat: Infinity,
+        }}
+      />
       
       <div className="container mx-auto px-6 md:px-8 relative z-10">
-        <div className="max-w-3xl mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="max-w-3xl mb-16"
+        >
           <div className="inline-block mb-3">
-            <span className="text-sm text-primary font-medium">Showcasing My Work</span>
+            <motion.span 
+              className="text-sm font-medium bg-gradient-to-r from-material-primary to-material-tertiary bg-clip-text text-transparent"
+              whileInView={{ 
+                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] 
+              }}
+              transition={{ duration: 5, repeat: Infinity }}
+            >
+              Showcasing My Work
+            </motion.span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-semibold mb-4">Featured Projects</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-material-primary to-material-tertiary bg-clip-text text-transparent">
+            Featured Projects
+          </h2>
           <p className="text-muted-foreground text-lg">
             A collection of my most significant projects in data engineering, machine learning, and data analytics.
           </p>
-        </div>
+        </motion.div>
         
         {/* Terminal UI demo before projects */}
         <div className="mb-16 max-w-3xl mx-auto">
           <Terminal command={terminalCommand} output={terminalOutput} />
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
           {projects.map((project, index) => (
             <ProjectCard key={index} project={project} index={index} />
           ))}
         </div>
         
-        <div className="mt-12 text-center">
-          <a
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="mt-14 text-center"
+        >
+          <motion.a
             href="#" 
-            className="inline-flex items-center space-x-2 text-primary hover:text-primary/80 transition-colors font-medium group"
+            className="inline-flex items-center space-x-2 text-material-primary hover:text-material-primary/80 transition-colors font-medium text-lg group px-8 py-2"
+            whileHover={{ x: 5 }}
           >
             <span>View All Projects</span>
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              width="16" 
-              height="16" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
-              strokeWidth="2" 
-              strokeLinecap="round" 
-              strokeLinejoin="round"
-              className="transition-transform group-hover:translate-x-1"
-            >
-              <path d="M5 12h14" />
-              <path d="m12 5 7 7-7 7" />
-            </svg>
-          </a>
-        </div>
+            <ChevronRightIcon className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+          </motion.a>
+        </motion.div>
       </div>
     </section>
   );

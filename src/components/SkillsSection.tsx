@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { 
@@ -9,6 +8,7 @@ import {
   BarChartIcon,
   TableIcon
 } from "lucide-react";
+import { motion } from "framer-motion";
 
 const skills = [
   {
@@ -50,54 +50,30 @@ const skills = [
 ];
 
 function SkillCard({ skill, index }: { skill: typeof skills[0], index: number }) {
-  const [isVisible, setIsVisible] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
-  const cardRef = useRef<HTMLDivElement>(null);
-  
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1 }
-    );
-    
-    if (cardRef.current) {
-      observer.observe(cardRef.current);
-    }
-    
-    return () => observer.disconnect();
-  }, []);
-  
   const Icon = skill.icon;
   
   return (
-    <div 
-      ref={cardRef}
+    <motion.div 
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
       className={cn(
-        "bg-card border border-border rounded-lg overflow-hidden transition-all",
-        "hover:shadow-md hover:border-primary/20 group",
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10",
-        "transition-all duration-700 ease-out",
-        isHovered ? "transform scale-105" : ""
+        "bg-white rounded-xl overflow-hidden elevation-2 card-3d-effect",
+        "transition-all duration-300",
+        isHovered ? "transform scale-[1.02]" : ""
       )}
-      style={{ transitionDelay: `${index * 0.1}s` }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="p-6">
+      <motion.div className="p-6 card-3d-content">
         <div className="flex items-center mb-4">
           <div className={cn(
-            "w-10 h-10 rounded-md flex items-center justify-center mr-3 transition-all duration-500",
-            isHovered ? "bg-primary text-primary-foreground" : "bg-primary/10 text-primary"
+            "w-12 h-12 rounded-full flex items-center justify-center mr-3 transition-all duration-500",
+            isHovered ? "bg-material-primary text-white" : "bg-material-primary/10 text-material-primary"
           )}>
-            <Icon className={cn(
-              "w-5 h-5 transition-all duration-500",
-              isHovered ? "animate-pulse" : ""
-            )} />
+            <Icon className="w-6 h-6" />
           </div>
           <h3 className="text-lg font-medium">{skill.category}</h3>
         </div>
@@ -108,85 +84,93 @@ function SkillCard({ skill, index }: { skill: typeof skills[0], index: number })
         
         <div className="flex flex-wrap gap-2">
           {skill.items.map((item, i) => (
-            <span 
+            <motion.span 
               key={i} 
               className={cn(
-                "inline-block text-xs py-1 px-3 rounded-full transition-all duration-300",
+                "inline-block text-xs py-1.5 px-3 rounded-full transition-all duration-300",
                 isHovered 
-                  ? "bg-primary text-primary-foreground" 
-                  : "bg-accent text-accent-foreground",
-                isHovered && "transform translate-y-[-2px]"
+                  ? "bg-material-primary text-white" 
+                  : "bg-material-background text-foreground border border-material-primary/20",
+                "hover:elevation-1"
               )}
+              whileHover={{ y: -2, x: 0 }}
               style={{ transitionDelay: `${i * 0.05}s` }}
             >
               {item}
-            </span>
+            </motion.span>
           ))}
         </div>
-      </div>
+      </motion.div>
       
       {isHovered && (
-        <div className="data-flow-line w-full h-[1px] mt-auto">
-          <div className="data-flow"></div>
-        </div>
+        <div className="h-1 bg-gradient-to-r from-material-primary via-material-secondary to-material-tertiary w-full"></div>
       )}
-    </div>
+    </motion.div>
   );
 }
 
 export function SkillsSection() {
-  const [skillsToShow, setSkillsToShow] = useState<typeof skills>([]);
-  const sectionRef = useRef<HTMLDivElement>(null);
-  
-  useEffect(() => {
-    // Show skills with a staggered effect
-    const timer = setTimeout(() => {
-      const showInterval = setInterval(() => {
-        setSkillsToShow(prev => {
-          if (prev.length >= skills.length) {
-            clearInterval(showInterval);
-            return prev;
-          }
-          return [...prev, skills[prev.length]];
-        });
-      }, 200);
-      
-      return () => clearInterval(showInterval);
-    }, 500);
-    
-    return () => clearTimeout(timer);
-  }, []);
-  
   return (
     <section 
       id="skills" 
-      ref={sectionRef}
-      className="py-20 md:py-32 bg-gradient-to-b from-secondary/50 to-background/90 relative overflow-hidden"
+      className="py-20 md:py-32 bg-material-background relative overflow-hidden"
     >
-      {/* Background patterns */}
-      <div className="absolute inset-0 opacity-5 pointer-events-none">
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:20px_20px]"></div>
-      </div>
+      <motion.div 
+        className="absolute top-1/3 -right-32 w-96 h-96 rounded-full bg-material-primary/10 blur-3xl"
+        animate={{ 
+          x: [0, -20, 0],
+          y: [0, 20, 0],
+        }}
+        transition={{ 
+          duration: 15,
+          ease: "easeInOut",
+          repeat: Infinity,
+        }}
+      />
+      
+      <motion.div 
+        className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-material-secondary/10 blur-3xl"
+        animate={{ 
+          x: [0, 30, 0],
+          y: [0, -20, 0],
+        }}
+        transition={{ 
+          duration: 18,
+          ease: "easeInOut",
+          repeat: Infinity,
+          delay: 2
+        }}
+      />
       
       <div className="container mx-auto px-6 md:px-8 relative z-10">
-        <div className="max-w-3xl mb-16 relative">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="max-w-3xl mb-16"
+        >
           <div className="inline-block mb-3">
-            <span className="text-sm text-primary font-medium animate-pulse">My Expertise</span>
+            <motion.span 
+              className="text-sm font-medium bg-gradient-to-r from-material-primary to-material-secondary bg-clip-text text-transparent"
+              whileInView={{ 
+                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] 
+              }}
+              transition={{ duration: 5, repeat: Infinity }}
+            >
+              My Expertise
+            </motion.span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-semibold mb-4 animate-fade-in">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-material-primary to-material-secondary bg-clip-text text-transparent">
             Technical Skills & Specializations
           </h2>
-          <p className="text-muted-foreground text-lg animate-fade-in-delayed">
+          <p className="text-muted-foreground text-lg">
             I specialize in data engineering, machine learning, and building scalable data solutions that solve complex business problems.
           </p>
-          
-          {/* Animated decorative elements */}
-          <div className="absolute -right-16 -top-16 w-32 h-32 bg-primary/5 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute -left-16 -bottom-16 w-32 h-32 bg-accent/5 rounded-full blur-3xl animate-pulse"></div>
-        </div>
+        </motion.div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skillsToShow.map((skill, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {skills.map((skill, index) => (
             <SkillCard key={index} skill={skill} index={index} />
           ))}
         </div>
