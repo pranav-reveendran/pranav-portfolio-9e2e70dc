@@ -1,3 +1,4 @@
+
 import { useEffect } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
@@ -6,6 +7,8 @@ import { ProjectsSection } from "@/components/ProjectsSection";
 import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
 import { DeploymentGuide } from "@/components/DeploymentGuide";
+import { DataVisualization } from "@/components/DataVisualization";
+import { ParticlesBackground } from "@/components/ParticlesBackground";
 
 const Index = () => {
   useEffect(() => {
@@ -237,12 +240,14 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-hidden matrix-bg">
+    <div className="min-h-screen bg-background text-foreground overflow-hidden">
+      <ParticlesBackground />
       <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-[-1] circuit-bg opacity-20"></div>
       <Navbar />
       <main>
         <Hero />
         <SkillsSection />
+        <DataVisualization />
         <ProjectsSection />
         <DeploymentGuide />
         <ContactSection />

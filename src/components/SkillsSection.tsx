@@ -51,6 +51,7 @@ const skills = [
 
 function SkillCard({ skill, index }: { skill: typeof skills[0], index: number }) {
   const [isVisible, setIsVisible] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
@@ -80,14 +81,23 @@ function SkillCard({ skill, index }: { skill: typeof skills[0], index: number })
         "bg-card border border-border rounded-lg overflow-hidden transition-all",
         "hover:shadow-md hover:border-primary/20 group",
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10",
-        "transition-all duration-700 ease-out"
+        "transition-all duration-700 ease-out",
+        isHovered ? "transform scale-105" : ""
       )}
       style={{ transitionDelay: `${index * 0.1}s` }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       <div className="p-6">
         <div className="flex items-center mb-4">
-          <div className="w-10 h-10 bg-primary/10 rounded-md flex items-center justify-center text-primary mr-3 transition-all group-hover:bg-primary/20">
-            <Icon className="w-5 h-5" />
+          <div className={cn(
+            "w-10 h-10 rounded-md flex items-center justify-center mr-3 transition-all duration-500",
+            isHovered ? "bg-primary text-primary-foreground" : "bg-primary/10 text-primary"
+          )}>
+            <Icon className={cn(
+              "w-5 h-5 transition-all duration-500",
+              isHovered ? "animate-pulse" : ""
+            )} />
           </div>
           <h3 className="text-lg font-medium">{skill.category}</h3>
         </div>
@@ -100,38 +110,83 @@ function SkillCard({ skill, index }: { skill: typeof skills[0], index: number })
           {skill.items.map((item, i) => (
             <span 
               key={i} 
-              className="inline-block text-xs py-1 px-3 bg-accent text-accent-foreground rounded-full"
+              className={cn(
+                "inline-block text-xs py-1 px-3 rounded-full transition-all duration-300",
+                isHovered 
+                  ? "bg-primary text-primary-foreground" 
+                  : "bg-accent text-accent-foreground",
+                isHovered && "transform translate-y-[-2px]"
+              )}
+              style={{ transitionDelay: `${i * 0.05}s` }}
             >
               {item}
             </span>
           ))}
         </div>
       </div>
+      
+      {isHovered && (
+        <div className="data-flow-line w-full h-[1px] mt-auto">
+          <div className="data-flow"></div>
+        </div>
+      )}
     </div>
   );
 }
 
 export function SkillsSection() {
+  const [skillsToShow, setSkillsToShow] = useState<typeof skills>([]);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    // Show skills with a staggered effect
+    const timer = setTimeout(() => {
+      const showInterval = setInterval(() => {
+        setSkillsToShow(prev => {
+          if (prev.length >= skills.length) {
+            clearInterval(showInterval);
+            return prev;
+          }
+          return [...prev, skills[prev.length]];
+        });
+      }, 200);
+      
+      return () => clearInterval(showInterval);
+    }, 500);
+    
+    return () => clearTimeout(timer);
+  }, []);
+  
   return (
-    <section id="skills" className="py-20 md:py-32 bg-secondary/50 relative overflow-hidden">
+    <section 
+      id="skills" 
+      ref={sectionRef}
+      className="py-20 md:py-32 bg-gradient-to-b from-secondary/50 to-background/90 relative overflow-hidden"
+    >
       {/* Background patterns */}
       <div className="absolute inset-0 opacity-5 pointer-events-none">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:20px_20px]"></div>
       </div>
       
       <div className="container mx-auto px-6 md:px-8 relative z-10">
-        <div className="max-w-3xl mb-16">
+        <div className="max-w-3xl mb-16 relative">
           <div className="inline-block mb-3">
-            <span className="text-sm text-primary font-medium">My Expertise</span>
+            <span className="text-sm text-primary font-medium animate-pulse">My Expertise</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-semibold mb-4">Technical Skills & Specializations</h2>
-          <p className="text-muted-foreground text-lg">
+          <h2 className="text-3xl md:text-4xl font-semibold mb-4 animate-fade-in">
+            Technical Skills & Specializations
+          </h2>
+          <p className="text-muted-foreground text-lg animate-fade-in-delayed">
             I specialize in data engineering, machine learning, and building scalable data solutions that solve complex business problems.
           </p>
+          
+          {/* Animated decorative elements */}
+          <div className="absolute -right-16 -top-16 w-32 h-32 bg-primary/5 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute -left-16 -bottom-16 w-32 h-32 bg-accent/5 rounded-full blur-3xl animate-pulse"></div>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skills.map((skill, index) => (
+          {skillsToShow.map((skill, index) => (
             <SkillCard key={index} skill={skill} index={index} />
           ))}
         </div>
