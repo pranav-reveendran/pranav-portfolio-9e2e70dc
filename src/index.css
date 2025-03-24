@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,35 +7,35 @@
 
 @layer base {
   :root {
-    --background: 210 20% 98%;
-    --foreground: 220 13% 13%;
+    --background: 210 30% 98%;
+    --foreground: 226 40% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 13% 13%;
+    --card-foreground: 226 40% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 13% 13%;
+    --popover-foreground: 226 40% 12%;
 
-    --primary: 217 89% 61%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 170 80% 60%;
+    --primary-foreground: 210 20% 98%;
 
-    --secondary: 142 71% 45%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 250 70% 65%;
+    --secondary-foreground: 210 20% 98%;
+
+    --accent: 330 80% 65%;
+    --accent-foreground: 210 20% 98%;
 
     --muted: 220 14% 96%;
     --muted-foreground: 220 9% 46%;
 
-    --accent: 48 96% 53%;
-    --accent-foreground: 220 13% 13%;
-
-    --destructive: 5 90% 56%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 80% 60%;
+    --destructive-foreground: 210 20% 98%;
 
     --border: 220 13% 91%;
     --input: 220 13% 91%;
-    --ring: 217 89% 61%;
+    --ring: 170 80% 60%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
   }
 }
 
@@ -48,8 +48,7 @@
 
   body {
     @apply bg-background text-foreground;
-    font-feature-settings: "ss01", "ss02", "cv01", "cv02";
-    background-image: none;
+    font-family: 'Inter', sans-serif;
     overflow-x: hidden;
   }
 
@@ -62,19 +61,19 @@
   }
 
   code {
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'JetBrains Mono', monospace;
   }
 
   .font-mono {
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'JetBrains Mono', monospace;
   }
 
   .clip-path-diagonal {
     clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
   }
 
-  .glass-morphism {
-    @apply bg-white/80 backdrop-blur-md border border-white/40 shadow-md;
+  .glassmorphism {
+    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-lg;
   }
 
   .text-balance {
@@ -94,16 +93,14 @@
 
   .circuit-bg {
     background-image: 
-      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-    background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
-    background-position: -1px -1px, -1px -1px, -1px -1px, -1px -1px;
+      radial-gradient(hsla(var(--primary) / 0.15) 1px, transparent 1px),
+      radial-gradient(hsla(var(--secondary) / 0.1) 1px, transparent 1px);
+    background-size: 24px 24px, 36px 36px;
+    background-position: 0 0, 12px 12px;
   }
 
   .data-flow-line {
-    background: linear-gradient(90deg, transparent, #4285F4, transparent);
+    background: linear-gradient(90deg, transparent, hsla(var(--primary) / 0.7), transparent);
     height: 1px;
     width: 100%;
     opacity: 0.5;
@@ -116,7 +113,7 @@
     position: absolute;
     height: 100%;
     width: 30%;
-    background: linear-gradient(90deg, transparent, hsl(var(--secondary)), transparent);
+    background: linear-gradient(90deg, transparent, hsla(var(--secondary) / 0.7), transparent);
     animation: dataFlow 3s infinite linear;
   }
 
@@ -128,9 +125,34 @@
   .hex-grid {
     background-color: hsla(var(--background));
     background-image:
-      linear-gradient(to right, rgba(66, 133, 244, 0.07) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(66, 133, 244, 0.07) 1px, transparent 1px);
+      linear-gradient(to right, hsla(var(--primary) / 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, hsla(var(--primary) / 0.05) 1px, transparent 1px);
     background-size: 30px 30px;
+  }
+
+  .neon-glow {
+    box-shadow: 0 0 10px hsla(var(--primary) / 0.5),
+                0 0 20px hsla(var(--primary) / 0.3);
+  }
+
+  .gradient-border {
+    position: relative;
+    border-radius: var(--radius);
+    background-clip: padding-box;
+    padding: 1px;
+  }
+
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: -2px;
+    border-radius: calc(var(--radius) + 2px);
+    background: linear-gradient(45deg, hsla(var(--primary) / 0.8), hsla(var(--secondary) / 0.8));
+    z-index: -1;
   }
 }
 
@@ -232,6 +254,76 @@
 
   .elevation-5 {
     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+  }
+
+  .animate-float-fast {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .animate-float-slow {
+    animation: float 8s ease-in-out infinite;
+  }
+
+  .object-shine {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .object-shine::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      to right,
+      transparent,
+      hsla(var(--primary) / 0.1),
+      transparent
+    );
+    transform: rotate(30deg);
+    animation: shine 5s ease-in-out infinite;
+  }
+
+  @keyframes shine {
+    0% { transform: translate(-100%, -100%) rotate(30deg); }
+    100% { transform: translate(100%, 100%) rotate(30deg); }
+  }
+
+  .hover-lift {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-10px);
+  }
+
+  .infinite-scroll-x {
+    animation: scroll-x 20s linear infinite;
+  }
+
+  @keyframes scroll-x {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+  }
+
+  .shadow-sharp {
+    box-shadow: 
+      rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, 
+      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  }
+
+  .shadow-dreamy {
+    box-shadow: 
+      rgba(0, 0, 0, 0.07) 0px 1px 2px,
+      rgba(0, 0, 0, 0.07) 0px 2px 4px,
+      rgba(0, 0, 0, 0.07) 0px 4px 8px,
+      rgba(0, 0, 0, 0.07) 0px 8px 16px;
+  }
+
+  .backdrop-saturate {
+    backdrop-filter: saturate(180%) blur(5px);
   }
 }
 

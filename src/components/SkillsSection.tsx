@@ -1,14 +1,15 @@
+
 import { useEffect, useRef, useState } from "react";
-import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 import { 
   DatabaseIcon, 
   ServerIcon, 
   BrainIcon, 
   CodeIcon,
-  BarChartIcon,
-  TableIcon
+  TableIcon,
+  ArrowRight,
+  CheckCircle
 } from "lucide-react";
-import { motion } from "framer-motion";
 
 const skills = [
   {
@@ -49,130 +50,221 @@ const skills = [
   }
 ];
 
-function SkillCard({ skill, index }: { skill: typeof skills[0], index: number }) {
-  const [isHovered, setIsHovered] = useState(false);
-  const Icon = skill.icon;
-  
-  return (
-    <motion.div 
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      className={cn(
-        "bg-white rounded-xl overflow-hidden elevation-2 card-3d-effect",
-        "transition-all duration-300",
-        isHovered ? "transform scale-[1.02]" : ""
-      )}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <motion.div className="p-6 card-3d-content">
-        <div className="flex items-center mb-4">
-          <div className={cn(
-            "w-12 h-12 rounded-full flex items-center justify-center mr-3 transition-all duration-500",
-            isHovered ? "bg-material-primary text-white" : "bg-material-primary/10 text-material-primary"
-          )}>
-            <Icon className="w-6 h-6" />
-          </div>
-          <h3 className="text-lg font-medium">{skill.category}</h3>
-        </div>
-        
-        <p className="text-muted-foreground mb-5 text-balance">
-          {skill.description}
-        </p>
-        
-        <div className="flex flex-wrap gap-2">
-          {skill.items.map((item, i) => (
-            <motion.span 
-              key={i} 
-              className={cn(
-                "inline-block text-xs py-1.5 px-3 rounded-full transition-all duration-300",
-                isHovered 
-                  ? "bg-material-primary text-white" 
-                  : "bg-material-background text-foreground border border-material-primary/20",
-                "hover:elevation-1"
-              )}
-              whileHover={{ y: -2, x: 0 }}
-              style={{ transitionDelay: `${i * 0.05}s` }}
-            >
-              {item}
-            </motion.span>
-          ))}
-        </div>
-      </motion.div>
-      
-      {isHovered && (
-        <div className="h-1 bg-gradient-to-r from-material-primary via-material-secondary to-material-tertiary w-full"></div>
-      )}
-    </motion.div>
-  );
-}
-
 export function SkillsSection() {
+  const [activeSkill, setActiveSkill] = useState(0);
+  const [isInView, setIsInView] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { type: "spring", stiffness: 100 }
+    }
+  };
+
   return (
     <section 
       id="skills" 
-      className="py-20 md:py-32 bg-material-background relative overflow-hidden"
+      ref={sectionRef}
+      className="py-24 relative overflow-hidden"
     >
-      <motion.div 
-        className="absolute top-1/3 -right-32 w-96 h-96 rounded-full bg-material-primary/10 blur-3xl"
-        animate={{ 
-          x: [0, -20, 0],
-          y: [0, 20, 0],
-        }}
-        transition={{ 
-          duration: 15,
-          ease: "easeInOut",
-          repeat: Infinity,
-        }}
-      />
+      {/* Dynamic background elements */}
+      <div className="absolute inset-0 bg-gradient-to-b from-theme-purple/5 to-background pointer-events-none"></div>
       
-      <motion.div 
-        className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-material-secondary/10 blur-3xl"
-        animate={{ 
-          x: [0, 30, 0],
-          y: [0, -20, 0],
-        }}
-        transition={{ 
-          duration: 18,
-          ease: "easeInOut",
-          repeat: Infinity,
-          delay: 2
-        }}
-      />
+      <div className="absolute inset-0 overflow-hidden">
+        <svg width="100%" height="100%" className="opacity-10">
+          <pattern
+            id="pattern-circles"
+            x="0"
+            y="0"
+            width="50"
+            height="50"
+            patternUnits="userSpaceOnUse"
+            patternContentUnits="userSpaceOnUse"
+          >
+            <circle cx="25" cy="25" r="1" fill="currentColor" className="text-theme-teal"></circle>
+          </pattern>
+          <rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-circles)"></rect>
+        </svg>
+      </div>
       
-      <div className="container mx-auto px-6 md:px-8 relative z-10">
+      <div className="container mx-auto px-6 relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="max-w-3xl mb-16"
+          className="flex flex-col items-center mb-16"
         >
-          <div className="inline-block mb-3">
-            <motion.span 
-              className="text-sm font-medium bg-gradient-to-r from-material-primary to-material-secondary bg-clip-text text-transparent"
-              whileInView={{ 
-                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] 
-              }}
-              transition={{ duration: 5, repeat: Infinity }}
-            >
-              My Expertise
-            </motion.span>
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-material-primary to-material-secondary bg-clip-text text-transparent">
-            Technical Skills & Specializations
+          <span className="px-4 py-2 bg-theme-purple/10 text-theme-purple rounded-full text-sm font-medium mb-3">
+            Professional Arsenal
+          </span>
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
+            Technical <span className="text-theme-purple">Expertise</span>
           </h2>
-          <p className="text-muted-foreground text-lg">
-            I specialize in data engineering, machine learning, and building scalable data solutions that solve complex business problems.
-          </p>
+          <div className="w-20 h-1 bg-gradient-to-r from-theme-teal to-theme-purple rounded-full"></div>
         </motion.div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {skills.map((skill, index) => (
-            <SkillCard key={index} skill={skill} index={index} />
-          ))}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          {/* Left side navigation */}
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-3"
+          >
+            <div className="sticky top-24 space-y-1">
+              {skills.map((skill, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveSkill(index)}
+                  className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-300 flex items-center gap-3 ${
+                    activeSkill === index 
+                      ? "bg-white shadow-dreamy font-medium text-theme-dark" 
+                      : "hover:bg-white/50 text-muted-foreground"
+                  }`}
+                >
+                  <div className={`p-2 rounded-lg ${
+                    activeSkill === index 
+                      ? "bg-gradient-to-br from-theme-purple to-theme-blue text-white" 
+                      : "bg-muted text-muted-foreground"
+                  }`}>
+                    <skill.icon size={18} />
+                  </div>
+                  <span>{skill.category}</span>
+                  {activeSkill === index && (
+                    <motion.div 
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      className="ml-auto text-theme-purple"
+                    >
+                      <ArrowRight size={16} />
+                    </motion.div>
+                  )}
+                </button>
+              ))}
+            </div>
+          </motion.div>
+          
+          {/* Right side details */}
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="lg:col-span-9"
+          >
+            <div className="glassmorphism rounded-2xl p-8">
+              <div className="flex flex-col md:flex-row gap-6 mb-8">
+                {/* Icon and category */}
+                <motion.div 
+                  key={`icon-${activeSkill}`}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="flex-shrink-0"
+                >
+                  <div className="w-16 h-16 flex items-center justify-center rounded-2xl bg-gradient-to-br from-theme-purple to-theme-blue text-white">
+                    <skills[activeSkill].icon size={32} />
+                  </div>
+                </motion.div>
+                
+                {/* Description */}
+                <div>
+                  <motion.h3 
+                    key={`title-${activeSkill}`}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="text-2xl font-bold mb-3"
+                  >
+                    {skills[activeSkill].category}
+                  </motion.h3>
+                  <motion.p 
+                    key={`desc-${activeSkill}`}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.1 }}
+                    className="text-muted-foreground"
+                  >
+                    {skills[activeSkill].description}
+                  </motion.p>
+                </div>
+              </div>
+              
+              {/* Skills list */}
+              <motion.div
+                key={`skills-${activeSkill}`}
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
+                className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-3"
+              >
+                {skills[activeSkill].items.map((item, i) => (
+                  <motion.div 
+                    key={`${item}-${i}`}
+                    variants={itemVariants}
+                    className="flex items-center gap-2 p-3 rounded-lg hover:bg-theme-purple/5 transition-colors"
+                  >
+                    <CheckCircle size={16} className="text-theme-purple flex-shrink-0" />
+                    <span>{item}</span>
+                  </motion.div>
+                ))}
+              </motion.div>
+              
+              {/* Skill level visualization */}
+              <motion.div 
+                key={`progress-${activeSkill}`}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="mt-8 pt-6 border-t border-border"
+              >
+                <div className="text-sm font-medium mb-2">Proficiency</div>
+                <div className="h-2 w-full bg-muted rounded-full overflow-hidden">
+                  <motion.div 
+                    initial={{ width: 0 }}
+                    animate={{ width: `${80 + Math.random() * 20}%` }}
+                    transition={{ delay: 0.6, duration: 1, ease: "easeOut" }}
+                    className="h-full bg-gradient-to-r from-theme-purple to-theme-blue rounded-full"
+                  />
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

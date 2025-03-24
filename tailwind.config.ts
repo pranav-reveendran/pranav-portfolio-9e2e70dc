@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -53,17 +52,14 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				material: {
-					primary: '#4285F4',   // Google Blue
-					secondary: '#34A853', // Google Green
-					tertiary: '#FBBC05',  // Google Yellow
-					error: '#EA4335',     // Google Red
-					surface: '#FFFFFF',   // White
-					background: '#F8F9FA', // Light Gray
-					onPrimary: '#FFFFFF', // White
-					onSecondary: '#FFFFFF', // White
-					onBackground: '#202124', // Almost Black
-					onSurface: '#202124'  // Almost Black
+				theme: {
+					teal: '#64ffda',
+					purple: '#bd93f9',
+					pink: '#ff79c6',
+					yellow: '#f1fa8c',
+					blue: '#8be9fd',
+					dark: '#282a36',
+					light: '#f8f8f2'
 				}
 			},
 			borderRadius: {
@@ -125,6 +121,28 @@ export default {
 					'60%': { transform: 'translate(2px, 2px)' },
 					'80%': { transform: 'translate(2px, -2px)' },
 					'100%': { transform: 'translate(0)' }
+				},
+				'breathe': {
+					'0%, 100%': { transform: 'scale(1)' },
+					'50%': { transform: 'scale(1.03)' }
+				},
+				'wave': {
+					'0%': { transform: 'rotate(0deg)' },
+					'10%': { transform: 'rotate(14deg)' },
+					'20%': { transform: 'rotate(-8deg)' },
+					'30%': { transform: 'rotate(14deg)' },
+					'40%': { transform: 'rotate(-4deg)' },
+					'50%': { transform: 'rotate(10deg)' },
+					'60%': { transform: 'rotate(0deg)' },
+					'100%': { transform: 'rotate(0deg)' }
+				},
+				'gradient-x': {
+					'0%, 100%': { backgroundPosition: '0% 50%' },
+					'50%': { backgroundPosition: '100% 50%' }
+				},
+				'gradient-y': {
+					'0%, 100%': { backgroundPosition: '50% 0%' },
+					'50%': { backgroundPosition: '50% 100%' }
 				}
 			},
 			animation: {
@@ -141,11 +159,15 @@ export default {
 				'float': 'float 6s ease-in-out infinite',
 				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
 				'data-flow': 'data-flow 3s infinite linear',
-				'glitch': 'glitch 0.3s ease-in-out'
+				'glitch': 'glitch 0.3s ease-in-out',
+				'breathe': 'breathe 4s ease-in-out infinite',
+				'wave': 'wave 2.5s ease-in-out',
+				'gradient-x': 'gradient-x 8s ease infinite',
+				'gradient-y': 'gradient-y 8s ease infinite',
 			},
 			fontFamily: {
-				sans: ['Roboto', 'system-ui', 'sans-serif'],
-				mono: ['Roboto Mono', 'monospace']
+				sans: ['Inter', 'system-ui', 'sans-serif'],
+				mono: ['JetBrains Mono', 'monospace']
 			}
 		}
 	},

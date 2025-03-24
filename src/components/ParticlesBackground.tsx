@@ -35,7 +35,7 @@ export function ParticlesBackground() {
             onHover: {
               enable: true,
               mode: "grab",
-              distance: 140,
+              // Remove the invalid distance property
             },
             resize: true,
           },
@@ -45,7 +45,7 @@ export function ParticlesBackground() {
             },
             grab: {
               distance: 150,
-              line_linked: {
+              links: {
                 opacity: 0.3,
               },
             },
@@ -53,10 +53,10 @@ export function ParticlesBackground() {
         },
         particles: {
           color: {
-            value: "#4285F4", // Google Blue
+            value: "#64ffda", // Teal accent color
           },
           links: {
-            color: "#4285F4", // Google Blue
+            color: "#64ffda", // Teal accent color
             distance: 150,
             enable: true,
             opacity: 0.15,
