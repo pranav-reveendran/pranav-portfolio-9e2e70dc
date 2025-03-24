@@ -9,6 +9,8 @@ import { Footer } from "@/components/Footer";
 import { DeploymentGuide } from "@/components/DeploymentGuide";
 import { DataVisualization } from "@/components/DataVisualization";
 import { ParticlesBackground } from "@/components/ParticlesBackground";
+import { ExperienceSection } from "@/components/ExperienceSection";
+import { EducationSection } from "@/components/EducationSection";
 
 const Index = () => {
   useEffect(() => {
@@ -247,6 +249,8 @@ const Index = () => {
       <main>
         <Hero />
         <SkillsSection />
+        <ExperienceSection />
+        <EducationSection />
         <DataVisualization />
         <ProjectsSection />
         <DeploymentGuide />
