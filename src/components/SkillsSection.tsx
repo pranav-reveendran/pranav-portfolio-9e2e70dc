@@ -96,6 +96,9 @@ export function SkillsSection() {
     }
   };
 
+  // Get the current active skill icon component
+  const ActiveSkillIcon = skills[activeSkill].icon;
+
   return (
     <section 
       id="skills" 
@@ -149,35 +152,38 @@ export function SkillsSection() {
             className="lg:col-span-3"
           >
             <div className="sticky top-24 space-y-1">
-              {skills.map((skill, index) => (
-                <button
-                  key={index}
-                  onClick={() => setActiveSkill(index)}
-                  className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-300 flex items-center gap-3 ${
-                    activeSkill === index 
-                      ? "bg-white shadow-dreamy font-medium text-theme-dark" 
-                      : "hover:bg-white/50 text-muted-foreground"
-                  }`}
-                >
-                  <div className={`p-2 rounded-lg ${
-                    activeSkill === index 
-                      ? "bg-gradient-to-br from-theme-purple to-theme-blue text-white" 
-                      : "bg-muted text-muted-foreground"
-                  }`}>
-                    <skill.icon size={18} />
-                  </div>
-                  <span>{skill.category}</span>
-                  {activeSkill === index && (
-                    <motion.div 
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      className="ml-auto text-theme-purple"
-                    >
-                      <ArrowRight size={16} />
-                    </motion.div>
-                  )}
-                </button>
-              ))}
+              {skills.map((skill, index) => {
+                const SkillIcon = skill.icon;
+                return (
+                  <button
+                    key={index}
+                    onClick={() => setActiveSkill(index)}
+                    className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-300 flex items-center gap-3 ${
+                      activeSkill === index 
+                        ? "bg-white shadow-dreamy font-medium text-theme-dark" 
+                        : "hover:bg-white/50 text-muted-foreground"
+                    }`}
+                  >
+                    <div className={`p-2 rounded-lg ${
+                      activeSkill === index 
+                        ? "bg-gradient-to-br from-theme-purple to-theme-blue text-white" 
+                        : "bg-muted text-muted-foreground"
+                    }`}>
+                      <SkillIcon size={18} />
+                    </div>
+                    <span>{skill.category}</span>
+                    {activeSkill === index && (
+                      <motion.div 
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        className="ml-auto text-theme-purple"
+                      >
+                        <ArrowRight size={16} />
+                      </motion.div>
+                    )}
+                  </button>
+                );
+              })}
             </div>
           </motion.div>
           
@@ -199,7 +205,7 @@ export function SkillsSection() {
                   className="flex-shrink-0"
                 >
                   <div className="w-16 h-16 flex items-center justify-center rounded-2xl bg-gradient-to-br from-theme-purple to-theme-blue text-white">
-                    <skills[activeSkill].icon size={32} />
+                    <ActiveSkillIcon size={32} />
                   </div>
                 </motion.div>
                 
