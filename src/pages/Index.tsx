@@ -1,5 +1,4 @@
-
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { SkillsSection } from "@/components/SkillsSection";
@@ -11,8 +10,12 @@ import { DataVisualization } from "@/components/DataVisualization";
 import { ParticlesBackground } from "@/components/ParticlesBackground";
 import { ExperienceSection } from "@/components/ExperienceSection";
 import { EducationSection } from "@/components/EducationSection";
+import { ArrowUp } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Index = () => {
+  const [scrollY, setScrollY] = useState(0);
+
   useEffect(() => {
     const style = document.createElement("style");
     style.textContent = `
@@ -235,11 +238,24 @@ const Index = () => {
     
     createDataParticles();
     
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
     return () => {
       document.head.removeChild(style);
       document.querySelectorAll('.data-particle, .circuit-line').forEach(el => el.remove());
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  };
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-hidden">
@@ -257,6 +273,23 @@ const Index = () => {
         <ContactSection />
       </main>
       <Footer />
+      
+      <AnimatePresence>
+        {scrollY > 500 && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.5 }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={scrollToTop}
+            className="fixed bottom-8 right-8 z-50 p-3 rounded-full bg-gradient-to-r from-theme-teal to-theme-purple text-white shadow-lg"
+            aria-label="Scroll to top"
+          >
+            <ArrowUp size={24} />
+          </motion.button>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
