@@ -1,3 +1,4 @@
+
 import * as React from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -6,23 +7,32 @@ const Card = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement> & { isHoverable?: boolean }
 >(({ className, isHoverable = false, ...props }, ref) => {
-  const CardComponent = isHoverable ? motion.div : "div";
+  if (isHoverable) {
+    return (
+      <motion.div
+        ref={ref}
+        className={cn(
+          "rounded-lg border bg-card text-card-foreground shadow-sm transition-all duration-300",
+          "hover:shadow-lg hover:-translate-y-1",
+          className
+        )}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
+        {...props}
+      />
+    );
+  }
   
   return (
-    <CardComponent
+    <div
       ref={ref}
       className={cn(
         "rounded-lg border bg-card text-card-foreground shadow-sm transition-all duration-300",
-        isHoverable && "hover:shadow-lg hover:-translate-y-1",
         className
       )}
-      {...(isHoverable && {
-        whileHover: { y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" },
-        initial: { opacity: 0, y: 20 },
-        whileInView: { opacity: 1, y: 0 },
-        viewport: { once: true },
-        transition: { duration: 0.5 }
-      })}
       {...props}
     />
   );

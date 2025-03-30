@@ -10,6 +10,9 @@ import { DataVisualization } from "@/components/DataVisualization";
 import { ParticlesBackground } from "@/components/ParticlesBackground";
 import { ExperienceSection } from "@/components/ExperienceSection";
 import { EducationSection } from "@/components/EducationSection";
+import { Timeline } from "@/components/Timeline";
+import { SkillCube } from "@/components/SkillCube";
+import { FeaturedStats } from "@/components/FeaturedStats";
 import { ArrowUp } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -264,7 +267,15 @@ const Index = () => {
       <Navbar />
       <main>
         <Hero />
+        
+        <FeaturedStats />
+        
+        <SkillCube />
+        
         <SkillsSection />
+        
+        <Timeline />
+        
         <ExperienceSection />
         <EducationSection />
         <DataVisualization />
