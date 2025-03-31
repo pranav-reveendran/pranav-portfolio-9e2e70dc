@@ -20,8 +20,7 @@ const Card = React.forwardRef<
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        // Using separate animation props instead of whileHover object
-        animate={{ y: 0 }}
+        whileHover={{ y: -5 }}
         whileTap={{ scale: 0.98 }}
         {...props}
       />

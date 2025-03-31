@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -53,12 +54,12 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				theme: {
-					teal: '#64ffda',
-					purple: '#bd93f9',
-					pink: '#ff79c6',
-					yellow: '#f1fa8c',
-					blue: '#8be9fd',
-					dark: '#282a36',
+					teal: '#10b981',     // Updated to a more vibrant teal
+					purple: '#8b5cf6',   // Updated to a more vibrant purple
+					pink: '#ec4899',     // Updated to a more vibrant pink
+					yellow: '#fbbf24',   // Updated to a more vibrant yellow
+					blue: '#3b82f6',     // Updated to a more vibrant blue
+					dark: '#111827',
 					light: '#f8f8f2'
 				}
 			},
@@ -66,6 +67,12 @@ export default {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
+			},
+			fontFamily: {
+				sans: ['Inter', 'system-ui', 'sans-serif'],
+				mono: ['JetBrains Mono', 'monospace'],
+				display: ['Poppins', 'sans-serif'],
+				body: ['Manrope', 'sans-serif']
 			},
 			keyframes: {
 				'accordion-down': {
@@ -103,11 +110,11 @@ export default {
 				'pulse-glow': {
 					'0%, 100%': { 
 						opacity: '1',
-						boxShadow: '0 0 5px hsla(var(--primary), 0.5)' 
+						boxShadow: '0 0 10px hsla(var(--primary), 0.5)' 
 					},
 					'50%': { 
-						opacity: '0.7',
-						boxShadow: '0 0 15px hsla(var(--primary), 0.8)' 
+						opacity: '0.8',
+						boxShadow: '0 0 25px hsla(var(--primary), 0.8)' 
 					}
 				},
 				'data-flow': {
@@ -143,6 +150,23 @@ export default {
 				'gradient-y': {
 					'0%, 100%': { backgroundPosition: '50% 0%' },
 					'50%': { backgroundPosition: '50% 100%' }
+				},
+				'shimmer': {
+					'0%': { backgroundPosition: '200% 0' },
+					'100%': { backgroundPosition: '-200% 0' }
+				},
+				'spin-slow': {
+					'0%': { transform: 'rotate(0deg)' },
+					'100%': { transform: 'rotate(360deg)' }
+				},
+				'bounce-gentle': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-5px)' }
+				},
+				'pulse-ring': {
+					'0%': { transform: 'scale(0.8)', opacity: '0.2' },
+					'50%': { transform: 'scale(1)', opacity: '0.5' },
+					'100%': { transform: 'scale(1.2)', opacity: '0' }
 				}
 			},
 			animation: {
@@ -157,6 +181,8 @@ export default {
 				'scale-in': 'scale-in 0.7s ease-out',
 				'blur-in': 'blur-in 0.7s ease-out',
 				'float': 'float 6s ease-in-out infinite',
+				'float-faster': 'float 4s ease-in-out infinite',
+				'float-slower': 'float 8s ease-in-out infinite',
 				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
 				'data-flow': 'data-flow 3s infinite linear',
 				'glitch': 'glitch 0.3s ease-in-out',
@@ -164,11 +190,11 @@ export default {
 				'wave': 'wave 2.5s ease-in-out',
 				'gradient-x': 'gradient-x 8s ease infinite',
 				'gradient-y': 'gradient-y 8s ease infinite',
+				'shimmer': 'shimmer 2s linear infinite',
+				'spin-slow': 'spin-slow 12s linear infinite',
+				'bounce-gentle': 'bounce-gentle 2s ease-in-out infinite',
+				'pulse-ring': 'pulse-ring 1.5s cubic-bezier(0.24, 0, 0.38, 1) infinite'
 			},
-			fontFamily: {
-				sans: ['Inter', 'system-ui', 'sans-serif'],
-				mono: ['JetBrains Mono', 'monospace']
-			}
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
