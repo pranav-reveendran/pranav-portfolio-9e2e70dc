@@ -1,6 +1,6 @@
 
 import * as React from "react";
-import { motion } from "framer-motion";
+import { motion, HTMLMotionProps } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 const Card = React.forwardRef<
@@ -22,7 +22,7 @@ const Card = React.forwardRef<
         transition={{ duration: 0.5 }}
         whileHover={{ y: -5 }}
         whileTap={{ scale: 0.98 }}
-        {...props}
+        {...(props as HTMLMotionProps<"div">)}
       />
     );
   }
