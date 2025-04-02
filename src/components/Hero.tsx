@@ -142,26 +142,52 @@ export function Hero() {
       <div className="container mx-auto px-6 md:px-8 relative z-10 text-white">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
           {/* Left side content */}
-          <div className="max-w-3xl mx-auto lg:mx-0 flex-1">
-            {/* Simple intro greeting */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="mb-2 text-4xl font-bold text-white"
-            >
-              Hi,
-            </motion.div>
-            
-            {/* Main headline */}
-            <motion.h1 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-4xl md:text-6xl lg:text-7xl font-bold text-balance leading-tight"
-            >
-              I'm <span className="text-[#4299e1]">Pranav Reveendran</span>
-            </motion.h1>
+          <div className="max-w-3xl mx-auto lg:mx-0 flex-1">            
+            {/* Main headline with photo positioned next to it */}
+            <div className="flex flex-col md:flex-row md:items-center md:gap-8 lg:gap-10">
+              <motion.h1 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="text-4xl md:text-6xl lg:text-7xl font-bold text-balance leading-tight"
+              >
+                I'm <span className="text-[#4299e1]">Pranav Reveendran</span>
+              </motion.h1>
+              
+              {/* Photo moved to be level with the name on desktop */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                className="hidden md:block w-32 h-32 lg:w-40 lg:h-40 my-4 md:my-0 flex-shrink-0"
+              >
+                <div className="relative w-full h-full">
+                  {/* Main photo frame with styling */}
+                  <div className="absolute inset-0 rounded-full overflow-hidden border-2 border-[#4299e1]/50 shadow-xl shadow-[#4299e1]/20">
+                    <img 
+                      src="/lovable-uploads/4bc9aeb2-8242-4a36-96c1-fc0599812028.png"
+                      alt="Pranav Reveendran" 
+                      className="w-full h-full object-cover object-center"
+                    />
+                    
+                    {/* Decorative elements */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#031b2e]/70 to-transparent opacity-50"></div>
+                  </div>
+                  
+                  {/* Subtle ring animations */}
+                  <motion.div 
+                    className="absolute -inset-2 rounded-full border border-[#4299e1]/20"
+                    animate={{ scale: [1, 1.05, 1] }}
+                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                  />
+                  <motion.div 
+                    className="absolute -inset-4 rounded-full border border-[#9f7aea]/10"
+                    animate={{ scale: [1, 1.08, 1] }}
+                    transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                  />
+                </div>
+              </motion.div>
+            </div>
             
             {/* Role tagline with animation */}
             <motion.div 
@@ -281,14 +307,14 @@ export function Hero() {
             </motion.div>
           </div>
           
-          {/* Right side - interactive personal profile/photo area */}
+          {/* Right side - photo on mobile only */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 1 }}
-            className="flex-1 w-full max-w-sm lg:max-w-md"
+            className="md:hidden w-48 h-48 my-6 mx-auto"
           >
-            <div className="relative aspect-square max-w-md mx-auto">
+            <div className="relative w-full h-full">
               {/* Main photo frame with styling */}
               <div className="absolute inset-0 rounded-full overflow-hidden border-2 border-[#4299e1]/50 shadow-xl shadow-[#4299e1]/20">
                 <img 
@@ -311,7 +337,7 @@ export function Hero() {
               ].map((item, i) => (
                 <motion.div
                   key={i}
-                  className={`absolute ${item.bg} rounded-full p-3 shadow-lg z-10`}
+                  className={`absolute ${item.bg} rounded-full p-2 shadow-lg z-10`}
                   style={{
                     top: item.top,
                     bottom: item.bottom,
@@ -329,7 +355,7 @@ export function Hero() {
                     ease: "easeInOut"
                   }}
                 >
-                  <item.Icon className="text-white" size={20} />
+                  <item.Icon className="text-white" size={16} />
                 </motion.div>
               ))}
               
