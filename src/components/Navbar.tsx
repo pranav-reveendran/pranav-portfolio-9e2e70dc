@@ -49,7 +49,7 @@ export function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-4",
         isScrolled 
-          ? "bg-background/90 backdrop-blur-xl shadow-sm" 
+          ? "bg-sjsu-blue/90 backdrop-blur-xl shadow-md" 
           : "bg-transparent"
       )}
     >
@@ -61,7 +61,7 @@ export function Navbar() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <span className="bg-gradient-to-r from-material-primary to-material-secondary bg-clip-text text-transparent font-bold">Portfolio</span>
+          <span className="bg-gradient-to-r from-white to-sjsu-gold bg-clip-text text-transparent font-bold">Portfolio</span>
         </motion.a>
         
         <NavigationMenu className="hidden md:flex">
@@ -78,14 +78,14 @@ export function Navbar() {
                     className={cn(
                       "px-4 py-2 rounded-full text-sm font-medium transition-all relative flex items-center justify-center",
                       activeSection === item.href.substring(1)
-                        ? "text-material-primary"
-                        : "text-foreground/70 hover:text-foreground"
+                        ? "text-sjsu-gold"
+                        : "text-white/80 hover:text-white"
                     )}
                   >
                     {item.label}
                     {activeSection === item.href.substring(1) && (
                       <motion.span 
-                        className="absolute -bottom-1 left-0 right-0 mx-auto h-1 bg-material-primary rounded-full"
+                        className="absolute -bottom-1 left-0 right-0 mx-auto h-1 bg-sjsu-gold rounded-full"
                         initial={{ width: 0 }}
                         animate={{ width: '50%' }}
                         transition={{ duration: 0.3 }}
@@ -101,7 +101,7 @@ export function Navbar() {
         {/* Mobile menu button */}
         <div className="md:hidden">
           <button 
-            className="p-2 rounded-full bg-material-surface elevation-1 text-foreground/70 hover:text-foreground transition-colors"
+            className="p-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
             aria-label="Toggle menu"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
@@ -128,7 +128,7 @@ export function Navbar() {
       {/* Mobile menu */}
       {mobileMenuOpen && (
         <motion.div 
-          className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-xl shadow-lg py-4"
+          className="md:hidden absolute top-full left-0 right-0 bg-sjsu-blue/95 backdrop-blur-xl shadow-lg py-4"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
@@ -142,8 +142,8 @@ export function Navbar() {
                     className={cn(
                       "block px-4 py-3 rounded-md text-sm font-medium transition-all",
                       activeSection === item.href.substring(1)
-                        ? "bg-material-primary/10 text-material-primary"
-                        : "text-foreground/70 hover:bg-material-primary/5 hover:text-foreground"
+                        ? "bg-sjsu-gold/20 text-sjsu-gold"
+                        : "text-white/80 hover:bg-white/10 hover:text-white"
                     )}
                     onClick={() => setMobileMenuOpen(false)}
                   >

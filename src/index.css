@@ -18,31 +18,33 @@
     --popover: 0 0% 100%;
     --popover-foreground: 226 40% 12%;
 
-    --primary: 210 100% 32%;    /* SJSU Blue */
-    --primary-foreground: 210 20% 98%;
+    --primary: 209 100% 32%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 165 100% 30%;  /* SJSU Teal */
-    --secondary-foreground: 210 20% 98%;
+    --secondary: 211 91% 53%;
+    --secondary-foreground: 0 0% 100%;
 
-    --accent: 43 80% 52%;       /* SJSU Gold */
-    --accent-foreground: 210 20% 98%;
+    --accent: 40 73% 52%;
+    --accent-foreground: 226 40% 12%;
 
-    --muted: 220 14% 96%;
-    --muted-foreground: 220 9% 46%;
+    --muted: 220 2% 65%;
+    --muted-foreground: 220 10% 40%;
 
     --destructive: 0 80% 60%;
     --destructive-foreground: 210 20% 98%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 210 100% 32%;
+    --border: 0 0% 82%;
+    --input: 0 0% 82%;
+    --ring: 209 100% 32%;
 
     --radius: 0.75rem;
 
-    --material-primary: #0055A2;   /* SJSU Blue */
-    --material-secondary: #009874; /* SJSU Teal */
-    --material-tertiary: #E5A823;  /* SJSU Gold */
-    --material-background: #f8f9fa;
+    --sjsu-blue: #0055A2;
+    --sjsu-gold: #E5A823;
+    --sjsu-gray: #939597;
+    --sjsu-light-gray: #D2D2D2;
+    --sjsu-dark-gray: #666666;
+    --sjsu-rollover-blue: #1C88F4;
   }
 }
 
@@ -58,8 +60,8 @@
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
     background-image: 
-      radial-gradient(hsla(var(--primary) / 0.1) 1px, transparent 1px),
-      radial-gradient(hsla(var(--secondary) / 0.08) 1px, transparent 1px);
+      radial-gradient(hsla(var(--primary) / 0.05) 1px, transparent 1px),
+      radial-gradient(hsla(var(--accent) / 0.05) 1px, transparent 1px);
     background-size: 20px 20px, 40px 40px;
     background-position: 0 0, 10px 10px;
   }
@@ -87,6 +89,30 @@
 
   .glassmorphism {
     @apply bg-white/80 backdrop-blur-md border border-white/30 shadow-lg;
+  }
+
+  .sjsu-gradient {
+    background: linear-gradient(90deg, var(--sjsu-blue), var(--sjsu-gray), var(--sjsu-gold));
+  }
+
+  .sjsu-button {
+    @apply bg-sjsu-blue text-white hover:bg-sjsu-rolloverBlue transition-colors;
+  }
+
+  .sjsu-button-gold {
+    @apply bg-sjsu-gold text-sjsu-blue hover:brightness-110 transition-all;
+  }
+
+  .sjsu-card {
+    @apply bg-white shadow-md rounded-lg border border-sjsu-lightGray overflow-hidden;
+  }
+
+  .sjsu-section-title {
+    @apply text-sjsu-blue font-bold text-2xl md:text-3xl lg:text-4xl;
+  }
+
+  .sjsu-section-subtitle {
+    @apply text-sjsu-darkGray text-lg md:text-xl;
   }
 
   .text-balance {

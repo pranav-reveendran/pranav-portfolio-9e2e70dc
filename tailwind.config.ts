@@ -52,13 +52,13 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				theme: {
+				sjsu: {
 					blue: '#0055A2',     // SJSU Blue
-					teal: '#009874',     // SJSU Teal
-					olive: '#7C7E2C',    // SJSU Olive
 					gold: '#E5A823',     // SJSU Gold
-					dark: '#111827',
-					light: '#f8f8f2'
+					gray: '#939597',     // SJSU Gray
+					lightGray: '#D2D2D2', // SJSU Light Gray
+					darkGray: '#666666',  // SJSU Dark Gray
+					rolloverBlue: '#1C88F4' // SJSU Rollover Blue
 				}
 			},
 			borderRadius: {
