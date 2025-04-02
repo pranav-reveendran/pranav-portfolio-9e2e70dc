@@ -1,43 +1,20 @@
 
 import * as React from "react";
-import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 const Card = React.forwardRef<
   HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement> & { isHoverable?: boolean }
->(({ className, isHoverable = false, ...props }, ref) => {
-  if (isHoverable) {
-    return (
-      <motion.div
-        ref={ref as React.Ref<HTMLDivElement>}
-        className={cn(
-          "rounded-lg border bg-card text-card-foreground shadow-sm transition-all duration-300",
-          "hover:shadow-lg hover:-translate-y-1",
-          className
-        )}
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        whileHover={{ y: -5 }}
-        whileTap={{ scale: 0.98 }}
-        {...props}
-      />
-    );
-  }
-  
-  return (
-    <div
-      ref={ref}
-      className={cn(
-        "rounded-lg border bg-card text-card-foreground shadow-sm transition-all duration-300",
-        className
-      )}
-      {...props}
-    />
-  );
-});
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn(
+      "rounded-lg border bg-card text-card-foreground shadow-sm",
+      className
+    )}
+    {...props}
+  />
+));
 Card.displayName = "Card";
 
 const CardHeader = React.forwardRef<
@@ -99,4 +76,11 @@ const CardFooter = React.forwardRef<
 ));
 CardFooter.displayName = "CardFooter";
 
-export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent };
+export {
+  Card,
+  CardHeader,
+  CardFooter,
+  CardTitle,
+  CardDescription,
+  CardContent,
+};

@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -54,11 +53,10 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				theme: {
-					teal: '#10b981',     // Updated to a more vibrant teal
-					purple: '#8b5cf6',   // Updated to a more vibrant purple
-					pink: '#ec4899',     // Updated to a more vibrant pink
-					yellow: '#fbbf24',   // Updated to a more vibrant yellow
-					blue: '#3b82f6',     // Updated to a more vibrant blue
+					blue: '#0055A2',     // SJSU Blue
+					teal: '#009874',     // SJSU Teal
+					olive: '#7C7E2C',    // SJSU Olive
+					gold: '#E5A823',     // SJSU Gold
 					dark: '#111827',
 					light: '#f8f8f2'
 				}

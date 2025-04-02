@@ -18,13 +18,13 @@
     --popover: 0 0% 100%;
     --popover-foreground: 226 40% 12%;
 
-    --primary: 174 84% 46%;
+    --primary: 210 100% 32%;    /* SJSU Blue */
     --primary-foreground: 210 20% 98%;
 
-    --secondary: 262 83% 58%;
+    --secondary: 165 100% 30%;  /* SJSU Teal */
     --secondary-foreground: 210 20% 98%;
 
-    --accent: 330 90% 65%;
+    --accent: 43 80% 52%;       /* SJSU Gold */
     --accent-foreground: 210 20% 98%;
 
     --muted: 220 14% 96%;
@@ -35,13 +35,13 @@
 
     --border: 220 13% 91%;
     --input: 220 13% 91%;
-    --ring: 174 84% 46%;
+    --ring: 210 100% 32%;
 
     --radius: 0.75rem;
 
-    --material-primary: #2196F3;
-    --material-secondary: #8561c5;
-    --material-tertiary: #fd5e53;
+    --material-primary: #0055A2;   /* SJSU Blue */
+    --material-secondary: #009874; /* SJSU Teal */
+    --material-tertiary: #E5A823;  /* SJSU Gold */
     --material-background: #f8f9fa;
   }
 }

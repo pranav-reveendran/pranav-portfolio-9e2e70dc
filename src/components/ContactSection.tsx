@@ -40,10 +40,10 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-32 bg-gradient-to-b from-material-background to-white relative overflow-hidden">
-      {/* Apple-style background elements */}
+    <section id="contact" className="py-20 md:py-32 bg-gradient-to-b from-background to-white relative overflow-hidden">
+      {/* Gradient background elements */}
       <motion.div 
-        className="absolute top-0 right-0 w-1/2 h-1/2 bg-material-primary/5 rounded-full blur-3xl"
+        className="absolute top-0 right-0 w-1/2 h-1/2 bg-theme-blue/5 rounded-full blur-3xl"
         animate={{ 
           x: [0, -30, 0],
           y: [0, 20, 0],
@@ -67,7 +67,7 @@ export function ContactSection() {
           >
             <div className="inline-block mb-3">
               <motion.span 
-                className="text-sm font-medium bg-gradient-to-r from-material-primary to-material-secondary bg-clip-text text-transparent"
+                className="text-sm font-medium bg-gradient-to-r from-theme-blue to-theme-teal bg-clip-text text-transparent"
                 whileInView={{ 
                   backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] 
                 }}
@@ -76,7 +76,7 @@ export function ContactSection() {
                 Get in Touch
               </motion.span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-material-primary to-material-secondary bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-theme-blue to-theme-teal bg-clip-text text-transparent">
               Let's Work Together
             </h2>
             <p className="text-muted-foreground text-lg mb-8">
@@ -91,12 +91,12 @@ export function ContactSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
-                <div className="w-12 h-12 bg-material-primary/10 rounded-full flex items-center justify-center text-material-primary mr-4">
+                <div className="w-12 h-12 bg-theme-blue/10 rounded-full flex items-center justify-center text-theme-blue mr-4">
                   <MailIcon className="w-5 h-5" />
                 </div>
                 <div>
                   <div className="text-sm text-muted-foreground mb-1">Email</div>
-                  <a href="mailto:pranav.reveendran@sjsu.edu" className="font-medium hover:text-material-primary transition-colors">
+                  <a href="mailto:pranav.reveendran@sjsu.edu" className="font-medium hover:text-theme-blue transition-colors">
                     pranav.reveendran@sjsu.edu
                   </a>
                 </div>
@@ -109,12 +109,12 @@ export function ContactSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.4 }}
               >
-                <div className="w-12 h-12 bg-material-primary/10 rounded-full flex items-center justify-center text-material-primary mr-4">
+                <div className="w-12 h-12 bg-theme-blue/10 rounded-full flex items-center justify-center text-theme-blue mr-4">
                   <PhoneIcon className="w-5 h-5" />
                 </div>
                 <div>
                   <div className="text-sm text-muted-foreground mb-1">Phone</div>
-                  <a href="tel:+16603357762" className="font-medium hover:text-material-primary transition-colors">
+                  <a href="tel:+16603357762" className="font-medium hover:text-theme-blue transition-colors">
                     +1 (660) 335-7762
                   </a>
                 </div>
@@ -132,9 +132,9 @@ export function ContactSection() {
               <div className="mb-3 text-sm text-muted-foreground">Connect with me</div>
               <div className="flex space-x-4">
                 {[
-                  { icon: LinkedinIcon, href: "#", label: "LinkedIn" },
-                  { icon: GithubIcon, href: "#", label: "GitHub" },
-                  { icon: TwitterIcon, href: "#", label: "Twitter" }
+                  { icon: LinkedinIcon, href: "#", label: "LinkedIn", color: "text-theme-blue" },
+                  { icon: GithubIcon, href: "#", label: "GitHub", color: "text-theme-olive" },
+                  { icon: TwitterIcon, href: "#", label: "Twitter", color: "text-theme-teal" }
                 ].map((social, index) => {
                   const Icon = social.icon;
                   return (
@@ -142,7 +142,7 @@ export function ContactSection() {
                       key={index}
                       href={social.href}
                       aria-label={social.label}
-                      className="w-12 h-12 bg-white elevation-1 rounded-full flex items-center justify-center text-material-primary hover:elevation-2 transition-all"
+                      className={`w-12 h-12 bg-white elevation-1 rounded-full flex items-center justify-center ${social.color} hover:elevation-2 transition-all`}
                       whileHover={{ y: -5 }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -173,7 +173,7 @@ export function ContactSection() {
                     type="text"
                     id="name"
                     placeholder="Your name"
-                    className="w-full bg-material-background border border-material-primary/10 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-material-primary/30 focus:border-material-primary transition-all"
+                    className="w-full bg-background border border-theme-blue/10 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-theme-blue/30 focus:border-theme-blue transition-all"
                     required
                   />
                 </div>
@@ -185,7 +185,7 @@ export function ContactSection() {
                     type="email"
                     id="email"
                     placeholder="Your email"
-                    className="w-full bg-material-background border border-material-primary/10 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-material-primary/30 focus:border-material-primary transition-all"
+                    className="w-full bg-background border border-theme-blue/10 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-theme-blue/30 focus:border-theme-blue transition-all"
                     required
                   />
                 </div>
@@ -199,7 +199,7 @@ export function ContactSection() {
                   type="text"
                   id="subject"
                   placeholder="How can I help you?"
-                  className="w-full bg-material-background border border-material-primary/10 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-material-primary/30 focus:border-material-primary transition-all"
+                  className="w-full bg-background border border-theme-blue/10 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-theme-blue/30 focus:border-theme-blue transition-all"
                   required
                 />
               </div>
@@ -212,14 +212,14 @@ export function ContactSection() {
                   id="message"
                   rows={5}
                   placeholder="Your message"
-                  className="w-full bg-material-background border border-material-primary/10 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-material-primary/30 focus:border-material-primary transition-all resize-none"
+                  className="w-full bg-background border border-theme-blue/10 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-theme-blue/30 focus:border-theme-blue transition-all resize-none"
                   required
                 ></textarea>
               </div>
               
               <motion.button
                 type="submit"
-                className="inline-flex items-center bg-material-primary text-white px-8 py-3 rounded-full font-medium"
+                className="inline-flex items-center bg-theme-blue text-white px-8 py-3 rounded-full font-medium"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
