@@ -21,7 +21,7 @@ const Card = React.forwardRef<
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
         whileHover={{ y: -5 }}
-        // Removed the whileTap prop that was causing the error
+        whileTap={{ scale: 0.98 }}
         {...props}
       />
     );
