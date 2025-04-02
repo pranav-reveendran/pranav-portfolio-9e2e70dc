@@ -1,6 +1,6 @@
 
 import * as React from "react";
-import { motion, HTMLMotionProps } from "framer-motion";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 const Card = React.forwardRef<
@@ -10,7 +10,7 @@ const Card = React.forwardRef<
   if (isHoverable) {
     return (
       <motion.div
-        ref={ref}
+        ref={ref as React.Ref<HTMLDivElement>}
         className={cn(
           "rounded-lg border bg-card text-card-foreground shadow-sm transition-all duration-300",
           "hover:shadow-lg hover:-translate-y-1",
@@ -22,7 +22,7 @@ const Card = React.forwardRef<
         transition={{ duration: 0.5 }}
         whileHover={{ y: -5 }}
         whileTap={{ scale: 0.98 }}
-        {...(props as HTMLMotionProps<"div">)}
+        {...props}
       />
     );
   }
