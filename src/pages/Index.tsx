@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
@@ -261,7 +262,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-sjsu-blue text-white overflow-hidden">
+    <div className="min-h-screen bg-[#f0f4f8] text-foreground overflow-hidden">
       <ParticlesBackground />
       <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-[-1] circuit-bg opacity-20"></div>
       <Navbar />
