@@ -41,6 +41,8 @@ export default {
           DEFAULT: '#1C88F4',       // Rollover Blue
           foreground: '#FFFFFF',    // White for contrast
         },
+        border: "rgb(147 149 151 / 0.2)",  // Using SJSU Gray with opacity for borders
+        input: "#D2D2D2",           // Using SJSU Light Gray for inputs
       },
       // Adding custom gradients
       backgroundImage: {
@@ -50,4 +52,3 @@ export default {
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;
-
