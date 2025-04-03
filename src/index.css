@@ -46,7 +46,9 @@
     --sjsu-dark-gray: #666666;
     --sjsu-rollover-blue: #1C88F4;
   }
+}
 
+@layer base {
   * {
     @apply border-border;
     -webkit-font-smoothing: antialiased;
@@ -89,14 +91,8 @@
     @apply bg-white/80 backdrop-blur-md border border-white/30 shadow-lg;
   }
 
-  .sjsu-bg-gradient {
+  .sjsu-gradient {
     background: linear-gradient(90deg, var(--sjsu-blue), var(--sjsu-gray), var(--sjsu-gold));
-  }
-
-  .sjsu-text-gradient {
-    background: linear-gradient(90deg, var(--sjsu-blue), var(--sjsu-gold));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
   }
 
   .sjsu-button {
