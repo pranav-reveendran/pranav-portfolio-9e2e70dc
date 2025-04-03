@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -54,7 +53,7 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				sjsu: {
-					blue: '#0055A2',     // SJSU Blue
+					blue: '#0055A2',     // Primary background color
 					gold: '#E5A823',     // SJSU Gold
 					gray: '#939597',     // SJSU Gray
 					lightGray: '#D2D2D2', // SJSU Light Gray
