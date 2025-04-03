@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -59,6 +60,14 @@ export default {
 					lightGray: '#D2D2D2', // SJSU Light Gray
 					darkGray: '#666666',  // SJSU Dark Gray
 					rolloverBlue: '#1C88F4' // SJSU Rollover Blue
+				},
+				// Define theme colors that map to SJSU colors
+				theme: {
+					purple: '#0055A2',   // Using SJSU Blue
+					blue: '#1C88F4',    // Using SJSU Rollover Blue
+					teal: '#E5A823',    // Using SJSU Gold
+					dark: '#222222',    // Dark color for text
+					light: '#FFFFFF',   // Light color for backgrounds
 				}
 			},
 			borderRadius: {
