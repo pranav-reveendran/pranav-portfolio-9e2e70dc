@@ -53,9 +53,9 @@ export function Timeline() {
   };
 
   return (
-    <div className="relative py-16">
+    <div className="relative py-16 bg-[#f0f4f8]">
       {/* Background elements */}
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent pointer-events-none"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-sjsu-blue/5 to-transparent pointer-events-none"></div>
       
       <div className="container mx-auto px-4">
         <motion.div 
@@ -65,7 +65,7 @@ export function Timeline() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <span className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">
+          <span className="px-4 py-2 bg-sjsu-blue/10 text-sjsu-blue rounded-full text-sm font-medium">
             My Journey
           </span>
           <h2 className="text-3xl font-bold mt-4 mb-2">Career Highlights</h2>
@@ -76,7 +76,7 @@ export function Timeline() {
         
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-primary via-secondary to-accent opacity-30"></div>
+          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-sjsu-blue via-sjsu-rolloverBlue to-sjsu-gold opacity-30"></div>
           
           <div className="relative">
             {events.map((event, index) => (
@@ -91,12 +91,12 @@ export function Timeline() {
                 <div className={`w-1/2 px-8 ${index % 2 === 0 ? 'text-right' : 'text-left'}`}>
                   <motion.div
                     whileHover={{ scale: 1.03 }}
-                    className="bg-white/70 backdrop-blur-sm p-6 rounded-xl shadow-dreamy border border-primary/10"
+                    className="bg-white/70 backdrop-blur-sm p-6 rounded-xl shadow-dreamy border border-sjsu-blue/10"
                   >
                     <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium mb-3 ${
-                      event.category === 'education' ? 'bg-primary/10 text-primary' :
-                      event.category === 'work' ? 'bg-secondary/10 text-secondary' :
-                      'bg-accent/10 text-accent'
+                      event.category === 'education' ? 'bg-sjsu-blue/10 text-sjsu-blue' :
+                      event.category === 'work' ? 'bg-sjsu-rolloverBlue/10 text-sjsu-rolloverBlue' :
+                      'bg-sjsu-gold/10 text-sjsu-gold'
                     }`}>
                       {event.category.charAt(0).toUpperCase() + event.category.slice(1)}
                     </span>
@@ -106,7 +106,7 @@ export function Timeline() {
                 </div>
                 
                 <div className="absolute left-1/2 transform -translate-x-1/2 flex flex-col items-center">
-                  <div className="rounded-full w-12 h-12 bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg text-white">
+                  <div className="rounded-full w-12 h-12 bg-gradient-to-br from-sjsu-blue to-sjsu-rolloverBlue flex items-center justify-center shadow-lg text-white">
                     {getIcon(event.icon)}
                   </div>
                   <div className="mt-2 bg-white py-1 px-3 rounded-full text-sm font-bold shadow-sm">

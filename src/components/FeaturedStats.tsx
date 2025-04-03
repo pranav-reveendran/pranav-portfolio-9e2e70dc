@@ -9,7 +9,7 @@ export function FeaturedStats() {
       label: "Data Pipelines Built", 
       value: "50+", 
       icon: Database,
-      color: "from-blue-500 to-cyan-500",
+      color: "from-sjsu-blue to-sjsu-rolloverBlue",
       description: "ETL/ELT pipelines for enterprise clients"
     },
     { 
@@ -30,7 +30,7 @@ export function FeaturedStats() {
       label: "GitHub Contributions", 
       value: "1,200+", 
       icon: GitBranch,
-      color: "from-orange-500 to-amber-500",
+      color: "from-sjsu-gold to-amber-500",
       description: "Active open-source contributor"
     },
     { 
@@ -46,13 +46,13 @@ export function FeaturedStats() {
     {
       title: "AWS Certified Data Engineer",
       icon: Award,
-      color: "bg-amber-500",
+      color: "bg-sjsu-gold",
       description: "Recognized expertise in cloud data engineering"
     },
     {
       title: "Reduced Processing Time by 65%",
       icon: Zap,
-      color: "bg-blue-500",
+      color: "bg-sjsu-blue",
       description: "Optimized critical data pipeline for Fortune 500 client"
     },
     {
@@ -64,9 +64,9 @@ export function FeaturedStats() {
   ];
 
   return (
-    <section className="py-16 relative overflow-hidden">
+    <section className="py-16 relative overflow-hidden bg-[#f0f4f8]">
       {/* Background patterns */}
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary/5 z-0"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-sjsu-blue/5 to-transparent z-0"></div>
       
       {/* Animated floating circles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
@@ -74,7 +74,7 @@ export function FeaturedStats() {
           <motion.div
             key={i}
             className={`absolute rounded-full ${
-              i % 2 === 0 ? 'bg-primary/10' : 'bg-secondary/10'
+              i % 2 === 0 ? 'bg-sjsu-blue/10' : 'bg-sjsu-gold/10'
             }`}
             style={{
               width: `${30 + Math.random() * 40}px`,
@@ -105,9 +105,9 @@ export function FeaturedStats() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <div className="inline-block px-3 py-1 rounded-full bg-gradient-to-r from-primary/20 to-secondary/20 text-primary font-medium text-sm mb-3">
+          <div className="inline-block px-3 py-1 rounded-full bg-gradient-to-r from-sjsu-blue/20 to-sjsu-rolloverBlue/20 text-sjsu-blue font-medium text-sm mb-3">
             <span className="flex items-center gap-2">
-              <Sparkles size={14} className="text-secondary" />
+              <Sparkles size={14} className="text-sjsu-blue" />
               Measurable Impact
             </span>
           </div>
@@ -115,7 +115,7 @@ export function FeaturedStats() {
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Transforming complex data challenges into elegant, scalable solutions that drive business decisions
           </p>
-          <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto mt-4"></div>
+          <div className="w-20 h-1 bg-gradient-to-r from-sjsu-blue to-sjsu-gold rounded-full mx-auto mt-4"></div>
         </motion.div>
         
         {/* Key achievements cards */}
@@ -129,10 +129,10 @@ export function FeaturedStats() {
               transition={{ delay: index * 0.1, duration: 0.5 }}
               className="relative overflow-hidden"
             >
-              <Card className="h-full backdrop-blur-sm border-primary/10 shadow-lg overflow-hidden relative">
+              <Card className="h-full backdrop-blur-sm border-sjsu-blue/10 shadow-lg overflow-hidden relative">
                 {/* Decorative corner accent */}
                 <div className="absolute top-0 right-0 w-20 h-20 opacity-80">
-                  <div className="absolute transform rotate-45 translate-x-1/2 -translate-y-1/2 w-20 h-4 bg-gradient-to-r from-primary/0 via-primary/20 to-secondary/30"></div>
+                  <div className="absolute transform rotate-45 translate-x-1/2 -translate-y-1/2 w-20 h-4 bg-gradient-to-r from-sjsu-blue/0 via-sjsu-blue/20 to-sjsu-gold/30"></div>
                 </div>
                 
                 <CardContent className="p-6">
@@ -163,7 +163,7 @@ export function FeaturedStats() {
               whileHover={{ y: -8, transition: { duration: 0.2 } }}
               className="relative group"
             >
-              <Card className="h-full bg-white/90 backdrop-blur-sm border border-primary/10 shadow-dreamy overflow-hidden">
+              <Card className="h-full bg-white/90 backdrop-blur-sm border border-sjsu-blue/10 shadow-dreamy overflow-hidden">
                 {/* Animated background gradient that moves on hover */}
                 <motion.div 
                   className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
@@ -199,7 +199,7 @@ export function FeaturedStats() {
                   </div>
                   
                   {/* Decorative accent line */}
-                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-sjsu-blue/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </CardContent>
               </Card>
             </motion.div>
@@ -224,7 +224,7 @@ export function FeaturedStats() {
                   ease: "easeInOut"
                 }}
                 className={`w-2 h-2 md:w-3 md:h-3 rounded-full bg-gradient-to-r ${
-                  i % 2 === 0 ? 'from-primary to-secondary' : 'from-secondary to-accent'
+                  i % 2 === 0 ? 'from-sjsu-blue to-sjsu-rolloverBlue' : 'from-sjsu-blue to-sjsu-gold'
                 }`}
               />
             ))}

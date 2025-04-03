@@ -68,7 +68,12 @@ export default {
 					teal: '#E5A823',    // Using SJSU Gold
 					dark: '#222222',    // Dark color for text
 					light: '#FFFFFF',   // Light color for backgrounds
-				}
+				},
+				// Consistent site background color
+				siteBg: '#f0f4f8',
+			},
+			backgroundColor: {
+				'site-bg': 'var(--site-bg)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

@@ -103,10 +103,10 @@ export function SkillsSection() {
     <section 
       id="skills" 
       ref={sectionRef}
-      className="py-24 relative overflow-hidden"
+      className="py-24 relative overflow-hidden bg-[#f0f4f8]"
     >
       {/* Dynamic background elements */}
-      <div className="absolute inset-0 bg-gradient-to-b from-sjsu-blue/5 to-background pointer-events-none"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-sjsu-blue/5 to-transparent pointer-events-none"></div>
       
       <div className="absolute inset-0 overflow-hidden">
         <svg width="100%" height="100%" className="opacity-10">
@@ -119,7 +119,7 @@ export function SkillsSection() {
             patternUnits="userSpaceOnUse"
             patternContentUnits="userSpaceOnUse"
           >
-            <circle cx="25" cy="25" r="1" fill="currentColor" className="text-sjsu-gold"></circle>
+            <circle cx="25" cy="25" r="1" fill="currentColor" className="text-sjsu-blue"></circle>
           </pattern>
           <rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-circles)"></rect>
         </svg>

@@ -50,10 +50,11 @@
     --theme-purple: var(--sjsu-blue);
     --theme-blue: var(--sjsu-rollover-blue);
     --theme-teal: var(--sjsu-gold);
+    
+    /* Site-wide background color */
+    --site-bg: #f0f4f8;
   }
-}
 
-@layer base {
   * {
     @apply border-sjsu-gray/20;
     -webkit-font-smoothing: antialiased;
@@ -61,7 +62,7 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-[#f0f4f8] text-foreground;
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
     background-image: 
@@ -315,6 +316,14 @@
     );
     margin: 2rem 0;
     border-radius: 2px;
+  }
+
+  .site-section {
+    @apply bg-[#f0f4f8] relative overflow-hidden;
+  }
+
+  .site-section-alt {
+    @apply bg-white relative overflow-hidden;
   }
 }
 
