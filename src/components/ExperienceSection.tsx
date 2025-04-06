@@ -77,7 +77,10 @@ const experiences = [
 
 export const ExperienceSection = () => {
   return (
-    <section id="experience" className="w-full py-24 bg-gradient-to-b from-background to-background/80">
+    <section 
+      id="experience" 
+      className="w-full py-24 bg-[#0f1e30]" // Updated background color
+    >
       <div className="container mx-auto px-4">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-foreground">
           Professional Experience

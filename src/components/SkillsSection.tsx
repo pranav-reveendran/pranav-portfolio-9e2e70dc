@@ -1,5 +1,5 @@
 
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { 
   DatabaseIcon, 
@@ -103,7 +103,7 @@ export function SkillsSection() {
     <section 
       id="expertise" 
       ref={sectionRef}
-      className="py-24 relative overflow-hidden bg-[#f0f4f8]"
+      className="py-24 relative overflow-hidden bg-[#0f1e30]" // Updated background color
     >
       {/* Dynamic background elements */}
       <div className="absolute inset-0 bg-gradient-to-b from-sjsu-blue/5 to-transparent pointer-events-none"></div>
