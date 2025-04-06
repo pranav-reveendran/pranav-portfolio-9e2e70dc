@@ -61,16 +61,21 @@ export default {
 					darkGray: '#666666',  // SJSU Dark Gray
 					rolloverBlue: '#1C88F4' // SJSU Rollover Blue
 				},
-				// Define theme colors that map to SJSU colors
+				// Define theme colors that map to the new portfolio design
 				theme: {
-					purple: '#0055A2',   // Using SJSU Blue
-					blue: '#1C88F4',    // Using SJSU Rollover Blue
-					teal: '#E5A823',    // Using SJSU Gold
-					dark: '#222222',    // Dark color for text
-					light: '#FFFFFF',   // Light color for backgrounds
+					navyDark: '#0a192f',    // Dark navy background
+					navyLight: '#112240',    // Lighter navy for elements
+					navyBorder: '#233554',   // Navy border color
+					slate: '#8892b0',        // Slate for main text color
+					slateLight: '#a8b2d1',   // Lighter slate for secondary text
+					slateWhite: '#ccd6f6',   // Whitest slate for highlights
+					brightBlue: '#00B7FF',   // Bright blue for primary accents
+					teal: '#64ffda',         // Teal for secondary accents
+					yellow: '#ffcc66',        // Yellow for tertiary accents
+					white: '#e6f1ff',        // Off-white for pure white needs
 				},
-				// Consistent site background color
-				siteBg: '#f0f4f8',
+				// Site background color updated to match reference
+				siteBg: '#0a192f',
 			},
 			backgroundColor: {
 				'site-bg': 'var(--site-bg)',

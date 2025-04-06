@@ -55,10 +55,10 @@ export function Timeline() {
   return (
     <div 
       id="career" 
-      className="relative py-16 bg-[#0f1e30]" // Updated background color
+      className="relative py-16 bg-[#0a192f]" // Updated to darker navy background
     >
       {/* Background elements */}
-      <div className="absolute inset-0 bg-gradient-to-b from-sjsu-blue/5 to-transparent pointer-events-none"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0a192f]/30 to-transparent pointer-events-none"></div>
       
       <div className="container mx-auto px-4">
         <motion.div 
@@ -68,18 +68,18 @@ export function Timeline() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <span className="px-4 py-2 bg-sjsu-blue/10 text-sjsu-blue rounded-full text-sm font-medium">
+          <span className="px-4 py-2 bg-[#00B7FF]/10 text-[#00B7FF] rounded-full text-sm font-medium">
             My Journey
           </span>
           <h2 className="text-3xl font-bold mt-4 mb-2 text-white">Career Highlights</h2>
-          <p className="text-white/70 max-w-xl mx-auto">
+          <p className="text-[#8892b0] max-w-xl mx-auto">
             A timeline of my professional and educational milestones in data engineering
           </p>
         </motion.div>
         
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-sjsu-blue via-sjsu-rolloverBlue to-sjsu-gold opacity-30"></div>
+          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-[#00B7FF] via-[#64ffda] to-[#00B7FF] opacity-30"></div>
           
           <div className="relative">
             {events.map((event, index) => (
@@ -94,28 +94,28 @@ export function Timeline() {
                 <div className={`w-1/2 px-8 ${index % 2 === 0 ? 'text-right' : 'text-left'}`}>
                   <motion.div
                     whileHover={{ scale: 1.03 }}
-                    className="bg-white/10 backdrop-blur-sm p-6 rounded-xl shadow-dreamy border border-sjsu-blue/10"
+                    className="bg-[#112240]/70 backdrop-blur-sm p-6 rounded-xl shadow-dreamy border border-[#233554]"
                   >
                     <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium mb-3 ${
-                      event.category === 'education' ? 'bg-sjsu-blue/10 text-sjsu-blue' :
-                      event.category === 'work' ? 'bg-sjsu-rolloverBlue/10 text-sjsu-rolloverBlue' :
-                      'bg-sjsu-gold/10 text-sjsu-gold'
+                      event.category === 'education' ? 'bg-[#00B7FF]/10 text-[#00B7FF]' :
+                      event.category === 'work' ? 'bg-[#64ffda]/10 text-[#64ffda]' :
+                      'bg-[#ffcc66]/10 text-[#ffcc66]'
                     }`}>
                       {event.category.charAt(0).toUpperCase() + event.category.slice(1)}
                     </span>
                     <h3 className="text-xl font-bold text-white">{event.title}</h3>
-                    <p className="text-white/70 mt-2">{event.description}</p>
+                    <p className="text-[#8892b0] mt-2">{event.description}</p>
                   </motion.div>
                 </div>
                 
                 <div className="absolute left-1/2 transform -translate-x-1/2 flex flex-col items-center">
                   <motion.div
                     whileHover={{ scale: 1.1 }}
-                    className="rounded-full w-12 h-12 bg-gradient-to-br from-sjsu-blue to-sjsu-rolloverBlue flex items-center justify-center shadow-lg text-white"
+                    className="rounded-full w-12 h-12 bg-gradient-to-br from-[#00B7FF] to-[#64ffda] flex items-center justify-center shadow-lg text-[#0a192f]"
                   >
                     {getIcon(event.icon)}
                   </motion.div>
-                  <div className="mt-2 bg-white/10 backdrop-blur-sm py-1 px-3 rounded-full text-sm font-bold text-white shadow-sm">
+                  <div className="mt-2 bg-[#112240] backdrop-blur-sm py-1 px-3 rounded-full text-sm font-bold text-white shadow-sm">
                     {event.year}
                   </div>
                 </div>

@@ -9,36 +9,49 @@
 
 @layer base {
   :root {
-    --background: 210 30% 98%;
-    --foreground: 226 40% 12%;
+    --background: 220 36% 11%;
+    --foreground: 210 40% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 226 40% 12%;
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 226 40% 12%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 209 100% 32%;  /* Matches SJSU Blue */
-    --primary-foreground: 0 0% 100%;
+    --primary: 196 100% 50%;  /* Bright blue #00B7FF */
+    --primary-foreground: 220 36% 11%;
 
-    --secondary: 211 91% 53%; /* Matches SJSU Rollover Blue */
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 160 100% 70%; /* Teal #64ffda */
+    --secondary-foreground: 220 36% 11%;
 
-    --accent: 40 73% 52%;     /* Matches SJSU Gold */
-    --accent-foreground: 226 40% 12%;
+    --accent: 40 100% 70%;     /* Yellow #ffcc66 */
+    --accent-foreground: 220 36% 11%;
 
-    --muted: 220 13% 69%;     /* Matches SJSU Gray */
-    --muted-foreground: 220 10% 40%;
+    --muted: 217 19% 63%;      /* Slate #8892b0 */
+    --muted-foreground: 215 20% 75%;
 
     --destructive: 0 80% 60%;
-    --destructive-foreground: 210 20% 98%;
+    --destructive-foreground: 210 40% 98%;
 
-    --border: 220 13% 69%;    /* Matches SJSU Gray */
-    --input: 220 13% 69%;     /* Matches SJSU Gray */
-    --ring: 209 100% 32%;     /* Matches SJSU Blue */
+    --border: 225 32% 24%;    /* Navy border #233554 */
+    --input: 225 32% 24%;     /* Navy border #233554 */
+    --ring: 196 100% 50%;     /* Bright blue #00B7FF */
 
     --radius: 0.75rem;
 
+    /* New portfolio theme colors */
+    --navy-dark: #0a192f;
+    --navy-light: #112240;
+    --navy-border: #233554;
+    --slate: #8892b0;
+    --slate-light: #a8b2d1;
+    --slate-white: #ccd6f6;
+    --bright-blue: #00B7FF;
+    --teal: #64ffda;
+    --yellow: #ffcc66;
+    --white: #e6f1ff;
+
+    /* Old SJSU colors, kept for backwards compatibility */
     --sjsu-blue: #0055A2;
     --sjsu-gold: #E5A823;
     --sjsu-gray: #939597;
@@ -46,31 +59,23 @@
     --sjsu-dark-gray: #666666;
     --sjsu-rollover-blue: #1C88F4;
     
-    /* Dark blue from image */
-    --dark-blue: #0f1e30;
-
-    /* Theme colors for components */
-    --theme-purple: var(--sjsu-blue);
-    --theme-blue: var(--sjsu-rollover-blue);
-    --theme-teal: var(--sjsu-gold);
-    
     /* Site-wide background color */
-    --site-bg: #f0f4f8;
+    --site-bg: #0a192f;
   }
 
   * {
-    @apply border-sjsu-gray/20;
+    @apply border-border;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   body {
-    @apply bg-[#0f1e30] text-white;
+    @apply bg-[#0a192f] text-[#e6f1ff];
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
     background-image: 
-      radial-gradient(hsla(var(--primary) / 0.1) 1px, transparent 1px),
-      radial-gradient(hsla(var(--accent) / 0.05) 1px, transparent 1px);
+      radial-gradient(hsla(var(--primary) / 0.05) 1px, transparent 1px),
+      radial-gradient(hsla(var(--secondary) / 0.05) 1px, transparent 1px);
     background-size: 20px 20px, 40px 40px;
     background-position: 0 0, 10px 10px;
   }
@@ -80,7 +85,7 @@
   }
 
   h1, h2, h3, h4 {
-    @apply font-sans font-medium tracking-tight;
+    @apply font-sans font-medium tracking-tight text-[#ccd6f6];
     font-family: 'Poppins', sans-serif;
   }
 
@@ -101,61 +106,61 @@
   }
 
   .glassmorphism-dark {
-    @apply bg-[#1b2e42]/80 backdrop-blur-md border border-white/10 shadow-lg;
+    @apply bg-[#112240]/80 backdrop-blur-md border border-[#233554] shadow-lg;
   }
 
   .sjsu-gradient {
-    background: linear-gradient(90deg, var(--sjsu-blue), var(--sjsu-gray), var(--sjsu-gold));
+    background: linear-gradient(90deg, var(--bright-blue), var(--slate), var(--teal));
   }
 
   .sjsu-bg-blue {
-    background-color: var(--sjsu-blue);
+    background-color: var(--bright-blue);
   }
 
   .sjsu-bg-gold {
-    background-color: var(--sjsu-gold);
+    background-color: var(--teal);
   }
 
   .sjsu-bg-gray {
-    background-color: var(--sjsu-gray);
+    background-color: var(--slate);
   }
 
   .sjsu-text-blue {
-    color: var(--sjsu-blue);
+    color: var(--bright-blue);
   }
 
   .sjsu-text-gold {
-    color: var(--sjsu-gold);
+    color: var(--teal);
   }
 
   .sjsu-text-gray {
-    color: var(--sjsu-gray);
+    color: var(--slate);
   }
 
   .sjsu-text-gradient {
-    background: linear-gradient(90deg, var(--sjsu-blue), var(--sjsu-gold));
+    background: linear-gradient(90deg, var(--bright-blue), var(--teal));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
   .sjsu-button {
-    @apply bg-sjsu-blue text-white hover:bg-sjsu-rolloverBlue transition-colors;
+    @apply bg-[#00B7FF] text-[#0a192f] hover:bg-[#00B7FF]/80 transition-colors;
   }
 
   .sjsu-button-gold {
-    @apply bg-sjsu-gold text-sjsu-blue hover:brightness-110 transition-all;
+    @apply bg-[#64ffda] text-[#0a192f] hover:brightness-110 transition-all;
   }
 
   .sjsu-card {
-    @apply bg-white shadow-md rounded-lg border border-sjsu-lightGray overflow-hidden;
+    @apply bg-[#112240] shadow-md rounded-lg border border-[#233554] overflow-hidden;
   }
 
   .sjsu-section-title {
-    @apply text-sjsu-blue font-bold text-2xl md:text-3xl lg:text-4xl;
+    @apply text-[#00B7FF] font-bold text-2xl md:text-3xl lg:text-4xl;
   }
 
   .sjsu-section-subtitle {
-    @apply text-sjsu-darkGray text-lg md:text-xl;
+    @apply text-[#8892b0] text-lg md:text-xl;
   }
 
   .text-balance {
@@ -325,15 +330,15 @@
   }
 
   .site-section {
-    @apply bg-[#f0f4f8] relative overflow-hidden;
+    @apply bg-[#0a192f] relative overflow-hidden;
   }
 
   .site-section-alt {
-    @apply bg-white relative overflow-hidden;
+    @apply bg-[#112240] relative overflow-hidden;
   }
 
   .site-section-dark {
-    @apply bg-[#0f1e30] relative overflow-hidden;
+    @apply bg-[#0a192f] relative overflow-hidden;
   }
 
   .section-transition {

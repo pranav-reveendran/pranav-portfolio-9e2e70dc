@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
@@ -37,7 +36,7 @@ const Index = () => {
         left: 0;
         width: 100%;
         height: 100%;
-        background: radial-gradient(hsla(252, 95%, 70%, 0.1) 1px, transparent 1px);
+        background: radial-gradient(rgba(0, 183, 255, 0.1) 1px, transparent 1px);
         background-size: 30px 30px;
         opacity: 0.4;
         pointer-events: none;
@@ -48,7 +47,7 @@ const Index = () => {
         position: absolute;
         width: 2px;
         height: 2px;
-        background-color: hsla(252, 95%, 70%, 0.7);
+        background-color: rgba(0, 183, 255, 0.7);
         border-radius: 50%;
         pointer-events: none;
         z-index: -1;
@@ -56,7 +55,7 @@ const Index = () => {
       
       .circuit-line {
         position: absolute;
-        background: linear-gradient(90deg, transparent, hsla(252, 95%, 70%, 0.2), transparent);
+        background: linear-gradient(90deg, transparent, rgba(0, 183, 255, 0.2), transparent);
         height: 1px;
         width: 100%;
         z-index: -1;
@@ -102,9 +101,8 @@ const Index = () => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
       
-      // Update active section based on scroll position
       const sections = document.querySelectorAll('section[id]');
-      const scrollPosition = window.scrollY + 100; // offset
+      const scrollPosition = window.scrollY + 100;
       
       sections.forEach(section => {
         const sectionTop = (section as HTMLElement).offsetTop;
@@ -132,7 +130,6 @@ const Index = () => {
     });
   };
   
-  // Define sections for the navbar with updated order
   const sections = [
     { id: "home", label: "Home" },
     { id: "skills", label: "Skills" },
@@ -142,7 +139,6 @@ const Index = () => {
     { id: "contact", label: "Contact" }
   ];
 
-  // Page transition variants
   const pageVariants = {
     initial: {
       opacity: 0,
@@ -186,11 +182,10 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#0f1e30] text-white overflow-hidden">
+    <div className="min-h-screen bg-[#0a192f] text-[#e6f1ff] overflow-hidden">
       <ParticlesBackground />
       <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-[-1] circuit-bg opacity-20"></div>
       
-      {/* Pass sections and activeSection to Navbar */}
       <Navbar activeSection={activeSection} sections={sections} />
       
       <AnimatePresence mode="wait">
@@ -200,7 +195,7 @@ const Index = () => {
             animate="in"
             exit="out"
             variants={pageVariants}
-            className="bg-[#0f1e30]"
+            className="bg-[#0a192f]"
           >
             <motion.div variants={sectionVariants} className="page-section">
               <Hero />
@@ -243,17 +238,16 @@ const Index = () => {
       
       <Footer />
       
-      {/* Interactive scroll-to-top button with improved animation */}
       <AnimatePresence>
         {scrollY > 500 && (
           <motion.button
             initial={{ opacity: 0, scale: 0.5, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.5, y: 20 }}
-            whileHover={{ scale: 1.1, boxShadow: "0 0 15px rgba(229, 168, 35, 0.5)" }}
+            whileHover={{ scale: 1.1, boxShadow: "0 0 15px rgba(0, 183, 255, 0.5)" }}
             whileTap={{ scale: 0.9 }}
             onClick={scrollToTop}
-            className="fixed bottom-8 right-8 z-50 p-3 rounded-full bg-gradient-to-r from-sjsu-gold to-sjsu-rolloverBlue text-white shadow-lg"
+            className="fixed bottom-8 right-8 z-50 p-3 rounded-full bg-gradient-to-r from-[#00B7FF] to-[#64ffda] text-[#0a192f] shadow-lg"
             aria-label="Scroll to top"
           >
             <ArrowUp size={24} />
@@ -261,9 +255,8 @@ const Index = () => {
         )}
       </AnimatePresence>
       
-      {/* Progress indicator with smoother animation */}
       <motion.div 
-        className="fixed left-0 top-0 h-1 bg-gradient-to-r from-sjsu-gold to-sjsu-blue z-50" 
+        className="fixed left-0 top-0 h-1 bg-gradient-to-r from-[#64ffda] to-[#00B7FF] z-50" 
         style={{ 
           width: `${(scrollY / (document.body.scrollHeight - window.innerHeight)) * 100}%`,
         }}
