@@ -53,7 +53,7 @@ export function Timeline() {
   };
 
   return (
-    <div id="career" className="relative py-16 bg-[#f0f4f8]">
+    <div id="career" className="relative py-16 bg-[#0f1e30]">
       {/* Background elements */}
       <div className="absolute inset-0 bg-gradient-to-b from-sjsu-blue/5 to-transparent pointer-events-none"></div>
       
@@ -68,8 +68,8 @@ export function Timeline() {
           <span className="px-4 py-2 bg-sjsu-blue/10 text-sjsu-blue rounded-full text-sm font-medium">
             My Journey
           </span>
-          <h2 className="text-3xl font-bold mt-4 mb-2">Career Highlights</h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
+          <h2 className="text-3xl font-bold mt-4 mb-2 text-white">Career Highlights</h2>
+          <p className="text-white/70 max-w-xl mx-auto">
             A timeline of my professional and educational milestones in data engineering
           </p>
         </motion.div>
@@ -91,7 +91,7 @@ export function Timeline() {
                 <div className={`w-1/2 px-8 ${index % 2 === 0 ? 'text-right' : 'text-left'}`}>
                   <motion.div
                     whileHover={{ scale: 1.03 }}
-                    className="bg-white/70 backdrop-blur-sm p-6 rounded-xl shadow-dreamy border border-sjsu-blue/10"
+                    className="bg-white/10 backdrop-blur-sm p-6 rounded-xl shadow-dreamy border border-sjsu-blue/10"
                   >
                     <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium mb-3 ${
                       event.category === 'education' ? 'bg-sjsu-blue/10 text-sjsu-blue' :
@@ -100,16 +100,19 @@ export function Timeline() {
                     }`}>
                       {event.category.charAt(0).toUpperCase() + event.category.slice(1)}
                     </span>
-                    <h3 className="text-xl font-bold">{event.title}</h3>
-                    <p className="text-muted-foreground mt-2">{event.description}</p>
+                    <h3 className="text-xl font-bold text-white">{event.title}</h3>
+                    <p className="text-white/70 mt-2">{event.description}</p>
                   </motion.div>
                 </div>
                 
                 <div className="absolute left-1/2 transform -translate-x-1/2 flex flex-col items-center">
-                  <div className="rounded-full w-12 h-12 bg-gradient-to-br from-sjsu-blue to-sjsu-rolloverBlue flex items-center justify-center shadow-lg text-white">
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    className="rounded-full w-12 h-12 bg-gradient-to-br from-sjsu-blue to-sjsu-rolloverBlue flex items-center justify-center shadow-lg text-white"
+                  >
                     {getIcon(event.icon)}
-                  </div>
-                  <div className="mt-2 bg-white py-1 px-3 rounded-full text-sm font-bold shadow-sm">
+                  </motion.div>
+                  <div className="mt-2 bg-white/10 backdrop-blur-sm py-1 px-3 rounded-full text-sm font-bold text-white shadow-sm">
                     {event.year}
                   </div>
                 </div>

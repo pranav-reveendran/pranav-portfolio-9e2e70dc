@@ -132,7 +132,7 @@ const Index = () => {
     });
   };
   
-  // Define sections for the navbar
+  // Define sections for the navbar with updated order
   const sections = [
     { id: "home", label: "Home" },
     { id: "skills", label: "Skills" },
@@ -193,47 +193,48 @@ const Index = () => {
       {/* Pass sections and activeSection to Navbar */}
       <Navbar activeSection={activeSection} sections={sections} />
       
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {pageLoaded && (
           <motion.main
             initial="initial"
             animate="in"
             exit="out"
             variants={pageVariants}
+            className="bg-[#0f1e30]"
           >
-            <motion.section variants={sectionVariants}>
+            <motion.div variants={sectionVariants} className="page-section">
               <Hero />
-            </motion.section>
+            </motion.div>
             
-            <motion.section variants={sectionVariants}>
+            <motion.div variants={sectionVariants} className="page-section">
               <FeaturedStats />
-            </motion.section>
+            </motion.div>
             
-            <motion.section id="skills" variants={sectionVariants}>
+            <motion.section id="skills" variants={sectionVariants} className="page-section">
               <SkillCube />
             </motion.section>
             
-            <motion.section id="expertise" variants={sectionVariants}>
+            <motion.section id="expertise" variants={sectionVariants} className="page-section">
               <SkillsSection />
             </motion.section>
             
-            <motion.section id="career" variants={sectionVariants}>
+            <motion.section id="career" variants={sectionVariants} className="page-section">
               <Timeline />
             </motion.section>
             
-            <motion.section variants={sectionVariants}>
+            <motion.section variants={sectionVariants} className="page-section">
               <ExperienceSection />
             </motion.section>
             
-            <motion.section variants={sectionVariants}>
+            <motion.section variants={sectionVariants} className="page-section">
               <EducationSection />
             </motion.section>
             
-            <motion.section id="projects" variants={sectionVariants}>
+            <motion.section id="projects" variants={sectionVariants} className="page-section">
               <ProjectsSection />
             </motion.section>
             
-            <motion.section id="contact" variants={sectionVariants}>
+            <motion.section id="contact" variants={sectionVariants} className="page-section">
               <ContactSection />
             </motion.section>
           </motion.main>
