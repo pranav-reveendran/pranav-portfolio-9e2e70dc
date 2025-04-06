@@ -1,6 +1,6 @@
 
 import { useState, useEffect, useRef } from 'react';
-import { motion, useAnimation, useMotionValue, useTransform } from 'framer-motion';
+import { motion, useAnimation, useMotionValue, useTransform, AnimatePresence } from 'framer-motion';
 import { Code, Database, Server, Globe, Cpu, Cloud, BarChart, Lock, Zap } from 'lucide-react';
 
 type SkillNode = {
