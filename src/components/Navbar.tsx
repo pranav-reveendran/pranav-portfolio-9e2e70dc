@@ -4,38 +4,29 @@ import { cn } from "@/lib/utils";
 import { NavigationMenu, NavigationMenuList, NavigationMenuItem, NavigationMenuLink } from "@/components/ui/navigation-menu";
 import { motion } from "framer-motion";
 
-const navItems = [
-  { label: "Home", href: "#home" },
-  { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" }
-];
+interface NavbarProps {
+  activeSection?: string;
+  sections?: Array<{ id: string; label: string; }>;
+}
 
-export function Navbar() {
+export function Navbar({ activeSection = "home", sections = [] }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const navItems = sections.length > 0 ? sections : [
+    { id: "home", label: "Home" },
+    { id: "skills", label: "Skills" },
+    { id: "expertise", label: "Technical Expertise" },
+    { id: "career", label: "Career Highlights" },
+    { id: "projects", label: "Projects" },
+    { id: "contact", label: "Contact" }
+  ];
 
   // Handle scroll effects
   useEffect(() => {
     const handleScroll = () => {
       // Update navbar transparency
       setIsScrolled(window.scrollY > 20);
-      
-      // Update active section based on scroll position
-      const sections = ["home", "skills", "projects", "contact"];
-      const currentSection = sections.find(section => {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
-        }
-        return false;
-      });
-      
-      if (currentSection) {
-        setActiveSection(currentSection);
-      }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -49,7 +40,7 @@ export function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-4",
         isScrolled 
-          ? "bg-sjsu-blue/90 backdrop-blur-xl shadow-md" 
+          ? "bg-[#0f1e30]/90 backdrop-blur-xl shadow-md" 
           : "bg-transparent"
       )}
     >
@@ -67,23 +58,23 @@ export function Navbar() {
         <NavigationMenu className="hidden md:flex">
           <NavigationMenuList className="space-x-1">
             {navItems.map((item, index) => (
-              <NavigationMenuItem key={item.href}>
+              <NavigationMenuItem key={item.id}>
                 <motion.div
                   initial={{ y: -20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.3, delay: index * 0.1 }}
                 >
                   <a
-                    href={item.href}
+                    href={`#${item.id}`}
                     className={cn(
                       "px-4 py-2 rounded-full text-sm font-medium transition-all relative flex items-center justify-center",
-                      activeSection === item.href.substring(1)
+                      activeSection === item.id
                         ? "text-sjsu-gold"
                         : "text-white/80 hover:text-white"
                     )}
                   >
                     {item.label}
-                    {activeSection === item.href.substring(1) && (
+                    {activeSection === item.id && (
                       <motion.span 
                         className="absolute -bottom-1 left-0 right-0 mx-auto h-1 bg-sjsu-gold rounded-full"
                         initial={{ width: 0 }}
@@ -128,7 +119,7 @@ export function Navbar() {
       {/* Mobile menu */}
       {mobileMenuOpen && (
         <motion.div 
-          className="md:hidden absolute top-full left-0 right-0 bg-sjsu-blue/95 backdrop-blur-xl shadow-lg py-4"
+          className="md:hidden absolute top-full left-0 right-0 bg-[#0f1e30]/95 backdrop-blur-xl shadow-lg py-4"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
@@ -136,12 +127,12 @@ export function Navbar() {
           <nav className="container mx-auto px-6">
             <ul className="flex flex-col space-y-2">
               {navItems.map((item) => (
-                <li key={item.href}>
+                <li key={item.id}>
                   <a
-                    href={item.href}
+                    href={`#${item.id}`}
                     className={cn(
                       "block px-4 py-3 rounded-md text-sm font-medium transition-all",
-                      activeSection === item.href.substring(1)
+                      activeSection === item.id
                         ? "bg-sjsu-gold/20 text-sjsu-gold"
                         : "text-white/80 hover:bg-white/10 hover:text-white"
                     )}

@@ -45,6 +45,9 @@
     --sjsu-light-gray: #D2D2D2;
     --sjsu-dark-gray: #666666;
     --sjsu-rollover-blue: #1C88F4;
+    
+    /* Dark blue from image */
+    --dark-blue: #0f1e30;
 
     /* Theme colors for components */
     --theme-purple: var(--sjsu-blue);
@@ -62,7 +65,7 @@
   }
 
   body {
-    @apply bg-sjsu-blue text-white;
+    @apply bg-[#0f1e30] text-white;
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
     background-image: 
@@ -97,11 +100,14 @@
     @apply bg-white/80 backdrop-blur-md border border-white/30 shadow-lg;
   }
 
+  .glassmorphism-dark {
+    @apply bg-[#1b2e42]/80 backdrop-blur-md border border-white/10 shadow-lg;
+  }
+
   .sjsu-gradient {
     background: linear-gradient(90deg, var(--sjsu-blue), var(--sjsu-gray), var(--sjsu-gold));
   }
 
-  /* Updated SJSU utility classes for consistent usage */
   .sjsu-bg-blue {
     background-color: var(--sjsu-blue);
   }
@@ -325,6 +331,15 @@
   .site-section-alt {
     @apply bg-white relative overflow-hidden;
   }
+
+  .site-section-dark {
+    @apply bg-[#0f1e30] relative overflow-hidden;
+  }
+
+  .section-transition {
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), 
+                opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
 }
 
 @layer components {
@@ -521,7 +536,6 @@
     backdrop-filter: saturate(180%) blur(5px);
   }
 
-  /* Updated SJSU-themed utilities */
   .sjsu-border {
     border: 1px solid var(--sjsu-gray);
   }
@@ -620,4 +634,62 @@
   top: 0;
   transform: translateY(-100%);
   --x: 0.7;
+}
+
+.page-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 500ms, transform 500ms;
+}
+
+.page-exit {
+  opacity: 1;
+}
+
+.page-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+.section-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.section-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.nav-indicator {
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 2px;
+  background: var(--sjsu-gold);
+  border-radius: 2px;
+  transition: width 0.3s ease-in-out;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-delay-100 {
+  animation-delay: 100ms;
+}
+
+.animate-delay-200 {
+  animation-delay: 200ms;
+}
+
+.animate-delay-300 {
+  animation-delay: 300ms;
 }

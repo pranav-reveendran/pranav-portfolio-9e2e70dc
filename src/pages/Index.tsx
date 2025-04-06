@@ -18,8 +18,11 @@ import { motion, AnimatePresence } from "framer-motion";
 const Index = () => {
   const [scrollY, setScrollY] = useState(0);
   const [activeSection, setActiveSection] = useState("home");
+  const [pageLoaded, setPageLoaded] = useState(false);
 
   useEffect(() => {
+    setPageLoaded(true);
+    
     const style = document.createElement("style");
     style.textContent = `
       .matrix-bg {
@@ -129,52 +132,124 @@ const Index = () => {
     });
   };
   
-  // Pass activeSection to Navbar for highlighting current section
+  // Define sections for the navbar
   const sections = [
     { id: "home", label: "Home" },
     { id: "skills", label: "Skills" },
-    { id: "experience", label: "Experience" },
-    { id: "education", label: "Education" },
+    { id: "expertise", label: "Technical Expertise" },
+    { id: "career", label: "Career Highlights" },
     { id: "projects", label: "Projects" },
     { id: "contact", label: "Contact" }
   ];
 
+  // Page transition variants
+  const pageVariants = {
+    initial: {
+      opacity: 0,
+    },
+    in: {
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        staggerChildren: 0.1,
+      }
+    },
+    out: {
+      opacity: 0,
+      transition: {
+        duration: 0.4,
+      }
+    }
+  };
+
+  const sectionVariants = {
+    initial: {
+      y: 20,
+      opacity: 0
+    },
+    in: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    },
+    out: {
+      y: -20,
+      opacity: 0,
+      transition: {
+        duration: 0.4,
+        ease: "easeIn"
+      }
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-sjsu-blue text-white overflow-hidden">
+    <div className="min-h-screen bg-[#0f1e30] text-white overflow-hidden">
       <ParticlesBackground />
       <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-[-1] circuit-bg opacity-20"></div>
       
-      {/* Pass activeSection to Navbar */}
+      {/* Pass sections and activeSection to Navbar */}
       <Navbar activeSection={activeSection} sections={sections} />
       
-      <main>
-        <Hero />
-        
-        <FeaturedStats />
-        
-        <SkillCube />
-        
-        <ExperienceSection />
-        
-        <EducationSection />
-        
-        <Timeline />
-        
-        <ProjectsSection />
-        
-        <ContactSection />
-      </main>
+      <AnimatePresence>
+        {pageLoaded && (
+          <motion.main
+            initial="initial"
+            animate="in"
+            exit="out"
+            variants={pageVariants}
+          >
+            <motion.section variants={sectionVariants}>
+              <Hero />
+            </motion.section>
+            
+            <motion.section variants={sectionVariants}>
+              <FeaturedStats />
+            </motion.section>
+            
+            <motion.section id="skills" variants={sectionVariants}>
+              <SkillCube />
+            </motion.section>
+            
+            <motion.section id="expertise" variants={sectionVariants}>
+              <SkillsSection />
+            </motion.section>
+            
+            <motion.section id="career" variants={sectionVariants}>
+              <Timeline />
+            </motion.section>
+            
+            <motion.section variants={sectionVariants}>
+              <ExperienceSection />
+            </motion.section>
+            
+            <motion.section variants={sectionVariants}>
+              <EducationSection />
+            </motion.section>
+            
+            <motion.section id="projects" variants={sectionVariants}>
+              <ProjectsSection />
+            </motion.section>
+            
+            <motion.section id="contact" variants={sectionVariants}>
+              <ContactSection />
+            </motion.section>
+          </motion.main>
+        )}
+      </AnimatePresence>
       
       <Footer />
       
-      {/* Interactive scroll-to-top button */}
+      {/* Interactive scroll-to-top button with improved animation */}
       <AnimatePresence>
         {scrollY > 500 && (
           <motion.button
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.5 }}
-            whileHover={{ scale: 1.1 }}
+            initial={{ opacity: 0, scale: 0.5, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.5, y: 20 }}
+            whileHover={{ scale: 1.1, boxShadow: "0 0 15px rgba(229, 168, 35, 0.5)" }}
             whileTap={{ scale: 0.9 }}
             onClick={scrollToTop}
             className="fixed bottom-8 right-8 z-50 p-3 rounded-full bg-gradient-to-r from-sjsu-gold to-sjsu-rolloverBlue text-white shadow-lg"
@@ -185,8 +260,14 @@ const Index = () => {
         )}
       </AnimatePresence>
       
-      {/* Progress indicator */}
-      <div className="fixed left-0 top-0 h-1 bg-sjsu-gold z-50" style={{ width: `${(scrollY / (document.body.scrollHeight - window.innerHeight)) * 100}%`, transition: 'width 0.1s' }}></div>
+      {/* Progress indicator with smoother animation */}
+      <motion.div 
+        className="fixed left-0 top-0 h-1 bg-gradient-to-r from-sjsu-gold to-sjsu-blue z-50" 
+        style={{ 
+          width: `${(scrollY / (document.body.scrollHeight - window.innerHeight)) * 100}%`,
+        }}
+        transition={{ ease: "easeOut", duration: 0.2 }}
+      />
     </div>
   );
 };

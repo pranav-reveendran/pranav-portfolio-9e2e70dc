@@ -53,7 +53,7 @@ export function Timeline() {
   };
 
   return (
-    <div className="relative py-16 bg-[#f0f4f8]">
+    <div id="career" className="relative py-16 bg-[#f0f4f8]">
       {/* Background elements */}
       <div className="absolute inset-0 bg-gradient-to-b from-sjsu-blue/5 to-transparent pointer-events-none"></div>
       

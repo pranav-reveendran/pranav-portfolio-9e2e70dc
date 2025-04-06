@@ -101,7 +101,7 @@ export function SkillsSection() {
 
   return (
     <section 
-      id="skills" 
+      id="expertise" 
       ref={sectionRef}
       className="py-24 relative overflow-hidden bg-[#f0f4f8]"
     >
