@@ -19,7 +19,7 @@ export function Hero() {
     <section 
       id="home" 
       ref={containerRef}
-      className="min-h-screen pt-24 pb-16 flex items-center relative overflow-hidden bg-sjsu-blue"
+      className="min-h-screen pt-24 pb-16 flex items-center relative overflow-hidden bg-[#0077CC]"
     >
       {/* Background with subtle pattern */}
       <div className="absolute inset-0 opacity-10">
@@ -47,7 +47,7 @@ export function Hero() {
       
       {/* Moving gradient accent circles */}
       <motion.div 
-        className="absolute top-1/4 -right-20 w-80 h-80 rounded-full bg-sjsu-gold/20 blur-3xl opacity-30"
+        className="absolute top-1/4 -right-20 w-80 h-80 rounded-full bg-[#ffb347]/20 blur-3xl opacity-30"
         animate={{ 
           x: [0, 10, 0],
           y: [0, 15, 0],
@@ -60,7 +60,7 @@ export function Hero() {
       />
       
       <motion.div 
-        className="absolute bottom-1/4 -left-20 w-72 h-72 rounded-full bg-sjsu-rolloverBlue/20 blur-3xl opacity-30"
+        className="absolute bottom-1/4 -left-20 w-72 h-72 rounded-full bg-[#4d9de0]/20 blur-3xl opacity-30"
         animate={{ 
           x: [0, -10, 0],
           y: [0, -15, 0],
@@ -87,7 +87,7 @@ export function Hero() {
                 transition={{ duration: 0.8, delay: 0.3 }}
               >
                 <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-balance leading-tight flex items-center gap-4">
-                  I'm <span className="text-sjsu-gold">Pranav</span>
+                  I'm <span className="text-[#ffb347]">Pranav</span>
                   
                   {/* Photo for mobile - only visible on smaller screens */}
                   <motion.div
@@ -96,7 +96,7 @@ export function Hero() {
                     transition={{ duration: 0.8, delay: 0.4 }}
                     className="md:hidden relative w-16 h-16 mt-2"
                   >
-                    <div className="absolute inset-0 rounded-full overflow-hidden border-2 border-sjsu-gold">
+                    <div className="absolute inset-0 rounded-full overflow-hidden border-2 border-[#ffb347]">
                       <img 
                         src="/lovable-uploads/4bc9aeb2-8242-4a36-96c1-fc0599812028.png"
                         alt="Pranav Reveendran" 
@@ -107,7 +107,7 @@ export function Hero() {
                 </h1>
                 <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-balance leading-tight mt-1 md:mt-2">
                   <motion.span 
-                    className="text-sjsu-gold"
+                    className="text-[#ffb347]"
                     animate={{
                       backgroundPosition: ["0% 0%", "100% 100%"],
                     }}
@@ -117,7 +117,7 @@ export function Hero() {
                       repeatType: "reverse"
                     }}
                     style={{
-                      backgroundImage: "linear-gradient(45deg, #E5A823, #FFD700, #E5A823)",
+                      backgroundImage: "linear-gradient(45deg, #ffb347, #FFD700, #ffb347)",
                       backgroundSize: "200% 200%",
                       WebkitBackgroundClip: "text",
                       backgroundClip: "text",
@@ -137,12 +137,12 @@ export function Hero() {
               className="mt-4 text-2xl md:text-3xl font-bold relative"
             >
               I'm a <motion.span 
-                className="text-sjsu-rolloverBlue relative inline-block"
+                className="text-[#4d9de0] relative inline-block"
                 whileHover={{ scale: 1.05 }}
               >
                 Data Engineer
                 <motion.div 
-                  className="absolute -bottom-1 left-0 h-1 bg-sjsu-rolloverBlue"
+                  className="absolute -bottom-1 left-0 h-1 bg-[#4d9de0]"
                   initial={{ width: 0 }}
                   animate={{ width: "100%" }}
                   transition={{ duration: 0.6, delay: 0.8 }}
@@ -158,9 +158,9 @@ export function Hero() {
               className="mt-4 mb-6 flex flex-wrap gap-3"
             >
               {[
-                { icon: Database, text: "Data Engineer", color: "bg-sjsu-blue/30" },
-                { icon: BrainCog, text: "ML Specialist", color: "bg-sjsu-rolloverBlue/30" },
-                { icon: LineChart, text: "Data Scientist", color: "bg-sjsu-gold/30" }
+                { icon: Database, text: "Data Engineer", color: "bg-[#0077CC]/30" },
+                { icon: BrainCog, text: "ML Specialist", color: "bg-[#4d9de0]/30" },
+                { icon: LineChart, text: "Data Scientist", color: "bg-[#ffb347]/30" }
               ].map((role, index) => (
                 <motion.span 
                   key={index}
@@ -186,9 +186,9 @@ export function Hero() {
             >
               I transform complex data challenges into{" "}
               <motion.span 
-                className="text-sjsu-rolloverBlue font-semibold"
+                className="text-[#4d9de0] font-semibold"
                 animate={{ 
-                  color: ["#1C88F4", "#8AD4FF", "#1C88F4"],
+                  color: ["#4d9de0", "#8AD4FF", "#4d9de0"],
                 }}
                 transition={{ 
                   duration: 3,
@@ -200,9 +200,9 @@ export function Hero() {
               </motion.span>{" "}
               and{" "}
               <motion.span 
-                className="text-sjsu-gold font-semibold"
+                className="text-[#ffb347] font-semibold"
                 animate={{ 
-                  color: ["#E5A823", "#FFD700", "#E5A823"],
+                  color: ["#ffb347", "#FFD700", "#ffb347"],
                 }}
                 transition={{ 
                   duration: 3,
@@ -238,31 +238,31 @@ export function Hero() {
                 { 
                   icon: PhoneIcon, 
                   content: "+1 660-335-7762", 
-                  color: "border-sjsu-gold", 
-                  iconColor: "text-sjsu-gold" 
+                  color: "border-[#ffb347]", 
+                  iconColor: "text-[#ffb347]" 
                 },
                 { 
                   icon: MailIcon, 
                   content: "pranav.reveendran@sjsu.edu", 
-                  color: "border-sjsu-rolloverBlue", 
-                  iconColor: "text-sjsu-rolloverBlue",
+                  color: "border-[#4d9de0]", 
+                  iconColor: "text-[#4d9de0]",
                   isLink: true,
                   href: "mailto:pranav.reveendran@sjsu.edu"
                 },
                 { 
                   icon: LinkedinIcon, 
                   content: "LinkedIn", 
-                  color: "border-sjsu-blue", 
-                  iconColor: "text-sjsu-blue",
+                  color: "border-[#0077CC]", 
+                  iconColor: "text-[#0077CC]",
                   isLink: true,
-                  href: "https://linkedin.com/in/",
+                  href: "https://linkedin.com/in/pranavreveendran",
                   hasExternalIcon: true
                 },
                 { 
                   icon: Github, 
                   content: "GitHub", 
-                  color: "border-sjsu-gold", 
-                  iconColor: "text-sjsu-gold",
+                  color: "border-[#ffb347]", 
+                  iconColor: "text-[#ffb347]",
                   isLink: true,
                   href: "https://github.com/",
                   hasExternalIcon: true
@@ -270,8 +270,8 @@ export function Hero() {
                 { 
                   icon: MapPinIcon, 
                   content: "San Jose, CA (Available from May 19, 2025)", 
-                  color: "border-sjsu-gray", 
-                  iconColor: "text-sjsu-gray",
+                  color: "border-[#a2adc9]", 
+                  iconColor: "text-[#a2adc9]",
                   colSpan: true
                 }
               ].map((item, index) => (
@@ -328,8 +328,8 @@ export function Hero() {
                   href={button.href} 
                   className={`${
                     button.primary 
-                      ? "bg-sjsu-rolloverBlue hover:bg-sjsu-rolloverBlue/80 text-white shadow-lg shadow-sjsu-blue/20" 
-                      : "bg-transparent border border-sjsu-gold text-sjsu-gold hover:bg-sjsu-gold/10"
+                      ? "bg-[#4d9de0] hover:bg-[#4d9de0]/80 text-white shadow-lg shadow-[#0077CC]/20" 
+                      : "bg-transparent border border-[#ffb347] text-[#ffb347] hover:bg-[#ffb347]/10"
                   } rounded-full px-8 py-3 font-medium flex items-center gap-2 transition-all duration-300`}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -350,7 +350,7 @@ export function Hero() {
             <div className="relative aspect-square max-w-md mx-auto">
               {/* Main photo with interactive hover effect */}
               <motion.div 
-                className="absolute inset-0 rounded-full overflow-hidden border-2 border-sjsu-gold/80 shadow-xl shadow-sjsu-gold/20"
+                className="absolute inset-0 rounded-full overflow-hidden border-2 border-[#ffb347]/80 shadow-xl shadow-[#ffb347]/20"
                 whileHover={{ scale: 1.03 }}
               >
                 <img 
@@ -358,16 +358,16 @@ export function Hero() {
                   alt="Pranav Reveendran" 
                   className="w-full h-full object-cover object-center"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-sjsu-blue/70 to-transparent opacity-50"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0077CC]/70 to-transparent opacity-50"></div>
               </motion.div>
               
               {/* Interactive floating technology icons */}
               {[
-                { Icon: Database, top: "10%", left: "-5%", bg: "bg-gradient-to-br from-sjsu-blue to-sjsu-rolloverBlue" },
-                { Icon: ServerIcon, top: "70%", left: "-5%", bg: "bg-gradient-to-br from-sjsu-rolloverBlue to-sjsu-blue" },
-                { Icon: BrainCog, top: "20%", right: "-5%", bg: "bg-gradient-to-br from-sjsu-blue to-sjsu-gold" },
-                { Icon: LineChart, bottom: "15%", right: "-5%", bg: "bg-gradient-to-br from-sjsu-blue to-sjsu-rolloverBlue" },
-                { Icon: Code, bottom: "40%", right: "-8%", bg: "bg-gradient-to-br from-sjsu-gold to-sjsu-blue" }
+                { Icon: Database, top: "10%", left: "-5%", bg: "bg-gradient-to-br from-[#0077CC] to-[#4d9de0]" },
+                { Icon: ServerIcon, top: "70%", left: "-5%", bg: "bg-gradient-to-br from-[#4d9de0] to-[#0077CC]" },
+                { Icon: BrainCog, top: "20%", right: "-5%", bg: "bg-gradient-to-br from-[#0077CC] to-[#ffb347]" },
+                { Icon: LineChart, bottom: "15%", right: "-5%", bg: "bg-gradient-to-br from-[#0077CC] to-[#4d9de0]" },
+                { Icon: Code, bottom: "40%", right: "-8%", bg: "bg-gradient-to-br from-[#ffb347] to-[#0077CC]" }
               ].map((item, i) => (
                 <motion.div
                   key={i}
@@ -400,12 +400,12 @@ export function Hero() {
               
               {/* Interactive decorative rings */}
               <motion.div 
-                className="absolute -inset-4 rounded-full border border-sjsu-rolloverBlue/20"
+                className="absolute -inset-4 rounded-full border border-[#4d9de0]/20"
                 animate={{ scale: [1, 1.05, 1] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
               />
               <motion.div 
-                className="absolute -inset-8 rounded-full border border-sjsu-gold/10"
+                className="absolute -inset-8 rounded-full border border-[#ffb347]/10"
                 animate={{ scale: [1, 1.08, 1] }}
                 transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
               />
@@ -430,14 +430,14 @@ export function Hero() {
               whileHover={{ y: -5 }}
             >
               <motion.div 
-                className="bg-white/10 backdrop-blur-sm overflow-hidden relative p-6 h-full rounded-xl border-l-2 border-t-2 border-sjsu-gold/30"
+                className="bg-white/10 backdrop-blur-sm overflow-hidden relative p-6 h-full rounded-xl border-l-2 border-t-2 border-[#ffb347]/30"
                 whileHover={{ 
                   backgroundColor: "rgba(255, 255, 255, 0.15)",
                   borderColor: "rgba(229, 168, 35, 0.5)"
                 }}
               >
                 {/* Top accent line */}
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-sjsu-blue to-sjsu-gold"></div>
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0077CC] to-[#ffb347]"></div>
                 
                 {/* Content */}
                 <motion.div 
@@ -453,7 +453,7 @@ export function Hero() {
                 
                 {/* Interactive hover effect */}
                 <motion.div 
-                  className="absolute inset-0 opacity-0 bg-gradient-to-r from-sjsu-blue/10 to-sjsu-gold/10 rounded-xl"
+                  className="absolute inset-0 opacity-0 bg-gradient-to-r from-[#0077CC]/10 to-[#ffb347]/10 rounded-xl"
                   initial={{ opacity: 0 }}
                   whileHover={{ opacity: 1 }}
                   transition={{ duration: 0.3 }}
@@ -479,7 +479,7 @@ export function Hero() {
           Scroll to explore
         </motion.span>
         <motion.div 
-          className="w-6 h-12 rounded-full border-2 border-sjsu-gold/50 flex justify-center pt-2 cursor-pointer"
+          className="w-6 h-12 rounded-full border-2 border-[#ffb347]/50 flex justify-center pt-2 cursor-pointer"
           animate={{ y: [0, 5, 0] }}
           transition={{ repeat: Infinity, duration: 2 }}
           whileHover={{ borderColor: "rgba(229, 168, 35, 0.8)", scale: 1.1 }}
@@ -489,7 +489,7 @@ export function Hero() {
           })}
         >
           <motion.div 
-            className="w-2 h-3 bg-sjsu-gold rounded-full"
+            className="w-2 h-3 bg-[#ffb347] rounded-full"
             animate={{ y: [0, 5, 0] }}
             transition={{ repeat: Infinity, duration: 2 }}
           ></motion.div>
@@ -497,9 +497,9 @@ export function Hero() {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 1.5, delay: 0.5 }}
-          whileHover={{ scale: 1.2, color: "#E5A823" }}
+          whileHover={{ scale: 1.2, color: "#ffb347" }}
         >
-          <ChevronDown size={24} className="mt-3 text-sjsu-gold/50" />
+          <ChevronDown size={24} className="mt-3 text-[#ffb347]/50" />
         </motion.div>
       </motion.div>
     </section>

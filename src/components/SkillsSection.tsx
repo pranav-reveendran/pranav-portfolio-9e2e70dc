@@ -103,10 +103,10 @@ export function SkillsSection() {
     <section 
       id="expertise" 
       ref={sectionRef}
-      className="py-24 relative overflow-hidden bg-[#0f1e30]" // Updated background color
+      className="py-24 relative overflow-hidden bg-[#0e1525]"
     >
       {/* Dynamic background elements */}
-      <div className="absolute inset-0 bg-gradient-to-b from-sjsu-blue/5 to-transparent pointer-events-none"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0077CC]/5 to-transparent pointer-events-none"></div>
       
       <div className="absolute inset-0 overflow-hidden">
         <svg width="100%" height="100%" className="opacity-10">
@@ -119,7 +119,7 @@ export function SkillsSection() {
             patternUnits="userSpaceOnUse"
             patternContentUnits="userSpaceOnUse"
           >
-            <circle cx="25" cy="25" r="1" fill="currentColor" className="text-sjsu-blue"></circle>
+            <circle cx="25" cy="25" r="1" fill="currentColor" className="text-[#0077CC]"></circle>
           </pattern>
           <rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-circles)"></rect>
         </svg>
@@ -133,13 +133,13 @@ export function SkillsSection() {
           transition={{ duration: 0.6 }}
           className="flex flex-col items-center mb-16"
         >
-          <span className="px-4 py-2 bg-sjsu-blue/10 text-sjsu-blue rounded-full text-sm font-medium mb-3">
+          <span className="px-4 py-2 bg-[#0077CC]/10 text-[#4d9de0] rounded-full text-sm font-medium mb-3">
             Professional Arsenal
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
-            Technical <span className="text-sjsu-blue">Expertise</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-white">
+            Technical <span className="text-[#4d9de0]">Expertise</span>
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-sjsu-gold to-sjsu-blue rounded-full"></div>
+          <div className="w-20 h-1 bg-gradient-to-r from-[#ffb347] to-[#4d9de0] rounded-full"></div>
         </motion.div>
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
@@ -160,14 +160,14 @@ export function SkillsSection() {
                     onClick={() => setActiveSkill(index)}
                     className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-300 flex items-center gap-3 ${
                       activeSkill === index 
-                        ? "bg-white shadow-dreamy font-medium text-sjsu-darkGray" 
-                        : "hover:bg-white/50 text-muted-foreground"
+                        ? "bg-white shadow-dreamy font-medium text-[#0e1525]" 
+                        : "hover:bg-white/50 text-gray-300"
                     }`}
                   >
                     <div className={`p-2 rounded-lg ${
                       activeSkill === index 
-                        ? "bg-gradient-to-br from-sjsu-blue to-sjsu-rolloverBlue text-white" 
-                        : "bg-muted text-muted-foreground"
+                        ? "bg-gradient-to-br from-[#0077CC] to-[#4d9de0] text-white" 
+                        : "bg-[#1a2030] text-gray-400"
                     }`}>
                       <SkillIcon size={18} />
                     </div>
@@ -176,7 +176,7 @@ export function SkillsSection() {
                       <motion.div 
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
-                        className="ml-auto text-sjsu-blue"
+                        className="ml-auto text-[#4d9de0]"
                       >
                         <ArrowRight size={16} />
                       </motion.div>
@@ -195,7 +195,7 @@ export function SkillsSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="lg:col-span-9"
           >
-            <div className="glassmorphism rounded-2xl p-8">
+            <div className="glassmorphism rounded-2xl p-8 bg-white/80">
               <div className="flex flex-col md:flex-row gap-6 mb-8">
                 {/* Icon and category */}
                 <motion.div 
@@ -204,7 +204,7 @@ export function SkillsSection() {
                   animate={{ opacity: 1, scale: 1 }}
                   className="flex-shrink-0"
                 >
-                  <div className="w-16 h-16 flex items-center justify-center rounded-2xl bg-gradient-to-br from-sjsu-blue to-sjsu-rolloverBlue text-white">
+                  <div className="w-16 h-16 flex items-center justify-center rounded-2xl bg-gradient-to-br from-[#0077CC] to-[#4d9de0] text-white">
                     <ActiveSkillIcon size={32} />
                   </div>
                 </motion.div>
@@ -215,7 +215,7 @@ export function SkillsSection() {
                     key={`title-${activeSkill}`}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="text-2xl font-bold mb-3 text-sjsu-darkGray"
+                    className="text-2xl font-bold mb-3 text-[#0e1525]"
                   >
                     {skills[activeSkill].category}
                   </motion.h3>
@@ -224,7 +224,7 @@ export function SkillsSection() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.1 }}
-                    className="text-muted-foreground"
+                    className="text-[#1a2030]"
                   >
                     {skills[activeSkill].description}
                   </motion.p>
@@ -243,10 +243,10 @@ export function SkillsSection() {
                   <motion.div 
                     key={`${item}-${i}`}
                     variants={itemVariants}
-                    className="flex items-center gap-2 p-3 rounded-lg hover:bg-sjsu-blue/5 transition-colors"
+                    className="flex items-center gap-2 p-3 rounded-lg hover:bg-[#0077CC]/5 transition-colors"
                   >
-                    <CheckCircle size={16} className="text-sjsu-blue flex-shrink-0" />
-                    <span className="text-sjsu-darkGray">{item}</span>
+                    <CheckCircle size={16} className="text-[#4d9de0] flex-shrink-0" />
+                    <span className="text-[#0e1525]">{item}</span>
                   </motion.div>
                 ))}
               </motion.div>
@@ -257,15 +257,15 @@ export function SkillsSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="mt-8 pt-6 border-t border-sjsu-lightGray/50"
+                className="mt-8 pt-6 border-t border-[#d2d2d2]/50"
               >
-                <div className="text-sm font-medium mb-2 text-sjsu-darkGray">Proficiency</div>
-                <div className="h-2 w-full bg-sjsu-lightGray/50 rounded-full overflow-hidden">
+                <div className="text-sm font-medium mb-2 text-[#0e1525]">Proficiency</div>
+                <div className="h-2 w-full bg-[#d2d2d2]/50 rounded-full overflow-hidden">
                   <motion.div 
                     initial={{ width: 0 }}
                     animate={{ width: `${80 + Math.random() * 20}%` }}
                     transition={{ delay: 0.6, duration: 1, ease: "easeOut" }}
-                    className="h-full bg-gradient-to-r from-sjsu-blue to-sjsu-gold rounded-full"
+                    className="h-full bg-gradient-to-r from-[#0077CC] to-[#ffb347] rounded-full"
                   />
                 </div>
               </motion.div>

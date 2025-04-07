@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -54,27 +55,27 @@ export default {
 				},
 				sjsu: {
 					blue: '#0077CC',     // Updated SJSU Blue
-					gold: '#E5A823',     // SJSU Gold
+					gold: '#ffb347',     // Updated to gold accent
 					gray: '#939597',     // SJSU Gray
 					lightGray: '#D2D2D2', // SJSU Light Gray
 					darkGray: '#666666',  // SJSU Dark Gray
-					rolloverBlue: '#2d9cdb' // Updated SJSU Rollover Blue
+					rolloverBlue: '#4d9de0' // Updated SJSU Rollover Blue
 				},
 				// Define theme colors that map to the new portfolio design
 				theme: {
-					navyDark: '#05101f',    // Updated Dark navy background
+					navyDark: '#0e1525',    // Updated Dark navy background
 					navyLight: '#071426',    // Updated Lighter navy for elements
 					navyBorder: '#1e3756',   // Updated Navy border color
 					slate: '#a2adc9',        // Updated slate for main text color
 					slateLight: '#becde0',   // Updated lighter slate for secondary text
 					slateWhite: '#e1e7f4',   // Updated whitest slate for highlights
-					brightBlue: '#0077CC',   // Updated bright blue for primary accents
-					teal: '#2d9cdb',         // Updated secondary blue
-					yellow: '#56ccf2',       // Updated accent blue
+					brightBlue: '#0077CC',   // Main blue
+					lightBlue: '#4d9de0',    // Light blue accent
+					gold: '#ffb347',         // Gold accent
 					white: '#ffffff',        // Pure white
 				},
 				// Site background color updated to match reference
-				siteBg: '#05101f',
+				siteBg: '#0e1525',
 			},
 			backgroundColor: {
 				'site-bg': 'var(--site-bg)',

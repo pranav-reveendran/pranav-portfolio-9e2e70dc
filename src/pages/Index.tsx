@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
@@ -36,7 +37,7 @@ const Index = () => {
         left: 0;
         width: 100%;
         height: 100%;
-        background: radial-gradient(rgba(0, 183, 255, 0.1) 1px, transparent 1px);
+        background: radial-gradient(rgba(77, 157, 224, 0.1) 1px, transparent 1px);
         background-size: 30px 30px;
         opacity: 0.4;
         pointer-events: none;
@@ -47,7 +48,7 @@ const Index = () => {
         position: absolute;
         width: 2px;
         height: 2px;
-        background-color: rgba(0, 183, 255, 0.7);
+        background-color: rgba(77, 157, 224, 0.7);
         border-radius: 50%;
         pointer-events: none;
         z-index: -1;
@@ -55,7 +56,7 @@ const Index = () => {
       
       .circuit-line {
         position: absolute;
-        background: linear-gradient(90deg, transparent, rgba(0, 183, 255, 0.2), transparent);
+        background: linear-gradient(90deg, transparent, rgba(77, 157, 224, 0.2), transparent);
         height: 1px;
         width: 100%;
         z-index: -1;
@@ -182,7 +183,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a192f] text-[#e6f1ff] overflow-hidden">
+    <div className="min-h-screen bg-[#0e1525] text-white overflow-hidden">
       <ParticlesBackground />
       <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-[-1] circuit-bg opacity-20"></div>
       
@@ -195,7 +196,7 @@ const Index = () => {
             animate="in"
             exit="out"
             variants={pageVariants}
-            className="bg-[#0a192f]"
+            className="bg-[#0e1525]"
           >
             <motion.div variants={sectionVariants} className="page-section">
               <Hero />
@@ -244,10 +245,10 @@ const Index = () => {
             initial={{ opacity: 0, scale: 0.5, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.5, y: 20 }}
-            whileHover={{ scale: 1.1, boxShadow: "0 0 15px rgba(0, 183, 255, 0.5)" }}
+            whileHover={{ scale: 1.1, boxShadow: "0 0 15px rgba(77, 157, 224, 0.5)" }}
             whileTap={{ scale: 0.9 }}
             onClick={scrollToTop}
-            className="fixed bottom-8 right-8 z-50 p-3 rounded-full bg-gradient-to-r from-[#00B7FF] to-[#64ffda] text-[#0a192f] shadow-lg"
+            className="fixed bottom-8 right-8 z-50 p-3 rounded-full bg-gradient-to-r from-[#4d9de0] to-[#ffb347] text-[#0e1525] shadow-lg"
             aria-label="Scroll to top"
           >
             <ArrowUp size={24} />
@@ -256,7 +257,7 @@ const Index = () => {
       </AnimatePresence>
       
       <motion.div 
-        className="fixed left-0 top-0 h-1 bg-gradient-to-r from-[#64ffda] to-[#00B7FF] z-50" 
+        className="fixed left-0 top-0 h-1 bg-gradient-to-r from-[#4d9de0] to-[#ffb347] z-50" 
         style={{ 
           width: `${(scrollY / (document.body.scrollHeight - window.innerHeight)) * 100}%`,
         }}

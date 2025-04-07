@@ -55,10 +55,10 @@ export function Timeline() {
   return (
     <div 
       id="career" 
-      className="relative py-16 bg-[#05101f] transition-colors duration-500"
+      className="relative py-16 bg-[#0e1525] transition-colors duration-500"
     >
       {/* Background elements */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#05101f]/30 to-transparent pointer-events-none"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0e1525]/30 to-transparent pointer-events-none"></div>
       
       <div className="container mx-auto px-4">
         <motion.div 
@@ -68,7 +68,7 @@ export function Timeline() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <span className="px-4 py-2 bg-[#0077CC]/10 text-[#0077CC] rounded-full text-sm font-medium">
+          <span className="px-4 py-2 bg-[#0077CC]/10 text-[#4d9de0] rounded-full text-sm font-medium">
             My Journey
           </span>
           <h2 className="text-3xl font-bold mt-4 mb-2 text-white">Career Highlights</h2>
@@ -79,7 +79,7 @@ export function Timeline() {
         
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-[#0077CC] via-[#2d9cdb] to-[#0077CC] opacity-30"></div>
+          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-[#4d9de0] via-[#4d9de0] to-[#4d9de0] opacity-30"></div>
           
           <div className="relative">
             {events.map((event, index) => (
@@ -97,9 +97,9 @@ export function Timeline() {
                     className="bg-[#071426]/80 backdrop-blur-sm p-6 rounded-xl shadow-dreamy border border-[#1e3756]"
                   >
                     <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium mb-3 ${
-                      event.category === 'education' ? 'bg-[#0077CC]/10 text-[#2d9cdb]' :
-                      event.category === 'work' ? 'bg-[#2d9cdb]/10 text-[#2d9cdb]' :
-                      'bg-[#56ccf2]/10 text-[#56ccf2]'
+                      event.category === 'education' ? 'bg-[#4d9de0]/10 text-[#4d9de0]' :
+                      event.category === 'work' ? 'bg-[#ffb347]/10 text-[#ffb347]' :
+                      'bg-[#a2adc9]/10 text-[#a2adc9]'
                     }`}>
                       {event.category.charAt(0).toUpperCase() + event.category.slice(1)}
                     </span>
@@ -111,7 +111,7 @@ export function Timeline() {
                 <div className="absolute left-1/2 transform -translate-x-1/2 flex flex-col items-center">
                   <motion.div
                     whileHover={{ scale: 1.1 }}
-                    className="rounded-full w-12 h-12 bg-gradient-to-br from-[#0077CC] to-[#56ccf2] flex items-center justify-center shadow-lg text-[#05101f]"
+                    className="rounded-full w-12 h-12 bg-gradient-to-br from-[#4d9de0] to-[#ffb347] flex items-center justify-center shadow-lg text-[#0e1525]"
                   >
                     {getIcon(event.icon)}
                   </motion.div>

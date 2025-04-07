@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
@@ -21,13 +22,13 @@
     --primary: 203 100% 40%;  /* Updated blue #0077CC */
     --primary-foreground: 217 60% 7%;
 
-    --secondary: 204 69% 52%; /* Updated secondary blue #2d9cdb */
+    --secondary: 206 71% 59%; /* Updated to #4d9de0 */
     --secondary-foreground: 217 60% 7%;
 
-    --accent: 199 89% 64%;     /* Updated accent blue #56ccf2 */
+    --accent: 37 100% 64%;    /* Updated to #ffb347 gold */
     --accent-foreground: 217 60% 7%;
 
-    --muted: 218 18% 71%;      /* Updated slate #a2adc9 */
+    --muted: 218 18% 71%;     /* Updated slate #a2adc9 */
     --muted-foreground: 215 20% 75%;
 
     --destructive: 0 80% 60%;
@@ -40,27 +41,19 @@
     --radius: 0.75rem;
 
     /* New portfolio theme colors */
-    --navy-dark: #05101f;
+    --navy-dark: #0e1525;
     --navy-light: #071426;
     --navy-border: #1e3756;
     --slate: #a2adc9;
     --slate-light: #becde0;
     --slate-white: #e1e7f4;
     --bright-blue: #0077CC;
-    --blue-secondary: #2d9cdb;
-    --blue-accent: #56ccf2;
+    --blue-secondary: #4d9de0;
+    --gold: #ffb347;
     --white: #ffffff;
 
-    /* Old SJSU colors, kept for backwards compatibility */
-    --sjsu-blue: #0055A2;
-    --sjsu-gold: #E5A823;
-    --sjsu-gray: #939597;
-    --sjsu-light-gray: #D2D2D2;
-    --sjsu-dark-gray: #666666;
-    --sjsu-rollover-blue: #1C88F4;
-    
     /* Site-wide background color */
-    --site-bg: #05101f;
+    --site-bg: #0e1525;
   }
 
   * {
@@ -70,7 +63,7 @@
   }
 
   body {
-    @apply bg-[#05101f] text-white;
+    @apply bg-[#0e1525] text-white;
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
     background-image: 
@@ -110,58 +103,72 @@
     @apply bg-[#071426]/80 backdrop-blur-md border border-[#1e3756] shadow-lg;
   }
 
-  .sjsu-gradient {
-    background: linear-gradient(90deg, var(--bright-blue), var(--blue-secondary), var(--blue-accent));
+  .portfolio-gradient {
+    background: linear-gradient(90deg, var(--bright-blue), var(--blue-secondary), var(--gold));
   }
 
-  .sjsu-bg-blue {
+  .portfolio-bg-blue {
     background-color: var(--bright-blue);
   }
 
-  .sjsu-bg-gold {
+  .portfolio-bg-lightblue {
     background-color: var(--blue-secondary);
   }
 
-  .sjsu-bg-gray {
+  .portfolio-bg-gold {
+    background-color: var(--gold);
+  }
+
+  .portfolio-bg-gray {
     background-color: var(--slate);
   }
 
-  .sjsu-text-blue {
+  .portfolio-text-blue {
     color: var(--bright-blue);
   }
 
-  .sjsu-text-gold {
+  .portfolio-text-lightblue {
     color: var(--blue-secondary);
   }
 
-  .sjsu-text-gray {
+  .portfolio-text-gold {
+    color: var(--gold);
+  }
+
+  .portfolio-text-gray {
     color: var(--slate);
   }
 
-  .sjsu-text-gradient {
-    background: linear-gradient(90deg, var(--bright-blue), var(--blue-accent));
+  .portfolio-text-gradient {
+    background: linear-gradient(90deg, var(--bright-blue), var(--blue-secondary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
-  .sjsu-button {
+  .portfolio-text-gradient-gold {
+    background: linear-gradient(90deg, var(--bright-blue), var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .portfolio-button {
     @apply bg-[#0077CC] text-white hover:bg-[#0077CC]/80 transition-colors;
   }
 
-  .sjsu-button-gold {
-    @apply bg-[#2d9cdb] text-white hover:brightness-110 transition-all;
+  .portfolio-button-gold {
+    @apply bg-[#ffb347] text-white hover:brightness-110 transition-all;
   }
 
-  .sjsu-card {
+  .portfolio-card {
     @apply bg-[#071426] shadow-md rounded-lg border border-[#1e3756] overflow-hidden;
   }
 
-  .sjsu-section-title {
-    @apply text-[#0077CC] font-bold text-2xl md:text-3xl lg:text-4xl;
+  .portfolio-section-title {
+    @apply text-[#4d9de0] font-bold text-2xl md:text-3xl lg:text-4xl;
   }
 
-  .sjsu-section-subtitle {
-    @apply text-[#8892b0] text-lg md:text-xl;
+  .portfolio-section-subtitle {
+    @apply text-[#a2adc9] text-lg md:text-xl;
   }
 
   .text-balance {
@@ -206,7 +213,7 @@
   }
 
   .data-flow-line {
-    background: linear-gradient(90deg, transparent, var(--sjsu-blue), transparent);
+    background: linear-gradient(90deg, transparent, var(--bright-blue), transparent);
     height: 1px;
     width: 100%;
     opacity: 0.7;
@@ -219,7 +226,7 @@
     position: absolute;
     height: 100%;
     width: 30%;
-    background: linear-gradient(90deg, transparent, var(--sjsu-rollover-blue), transparent);
+    background: linear-gradient(90deg, transparent, var(--blue-secondary), transparent);
     animation: dataFlow 3s infinite linear;
   }
 
@@ -263,7 +270,7 @@
     bottom: 0;
     margin: -2px;
     border-radius: calc(var(--radius) + 2px);
-    background: linear-gradient(45deg, var(--sjsu-blue), var(--sjsu-gold));
+    background: linear-gradient(45deg, var(--bright-blue), var(--gold));
     z-index: -1;
     animation: gradient-rotate 8s linear infinite;
   }
@@ -287,7 +294,7 @@
   }
 
   .bg-gradient-mixed {
-    background: linear-gradient(135deg, hsla(var(--primary) / 0.7), hsla(var(--secondary) / 0.7));
+    background: linear-gradient(135deg, hsla(var(--primary) / 0.7), hsla(var(--accent) / 0.7));
   }
 
   .glass-card {
@@ -322,7 +329,6 @@
       to right,
       transparent,
       hsla(var(--primary) / 0.7),
-      hsla(var(--secondary) / 0.7),
       hsla(var(--accent) / 0.7),
       transparent
     );
@@ -331,7 +337,7 @@
   }
 
   .site-section {
-    @apply bg-[#05101f] relative overflow-hidden transition-colors duration-500;
+    @apply bg-[#0e1525] relative overflow-hidden transition-colors duration-500;
   }
 
   .site-section-alt {
@@ -339,13 +345,29 @@
   }
 
   .site-section-dark {
-    @apply bg-[#030a14] relative overflow-hidden transition-colors duration-500;
+    @apply bg-[#08101c] relative overflow-hidden transition-colors duration-500;
   }
 
   .section-transition {
     transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), 
                 opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
                 background-color 0.5s ease-in-out;
+  }
+
+  /* Updated blue/gold accent bar for card elements */
+  .accent-bar-top {
+    position: relative;
+  }
+  
+  .accent-bar-top::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(to right, var(--blue-secondary), var(--gold));
+    border-radius: 3px 3px 0 0;
   }
 }
 
@@ -366,10 +388,40 @@
   .bg-waves-pattern {
     background-color: transparent;
     background-image: 
-      repeating-radial-gradient(circle at 0 0, transparent 0, rgba(0, 85, 162, 0.9) 40px),
-      repeating-linear-gradient(rgba(28, 136, 244, 0.1), rgba(28, 136, 244, 0.1));
+      repeating-radial-gradient(circle at 0 0, transparent 0, rgba(77, 157, 224, 0.9) 40px),
+      repeating-linear-gradient(rgba(77, 157, 224, 0.1), rgba(77, 157, 224, 0.1));
     background-blend-mode: multiply;
     opacity: 0.05;
+  }
+
+  /* Card styles for consistent UI */
+  .portfolio-card-dark {
+    @apply bg-[#071426] border border-[#1e3756] rounded-xl p-6 shadow-lg transition-all duration-300;
+  }
+  
+  .portfolio-card-light {
+    @apply bg-white/90 backdrop-blur-sm border border-white/30 rounded-xl p-6 shadow-lg transition-all duration-300;
+  }
+  
+  .portfolio-button-primary {
+    @apply bg-[#0077CC] hover:bg-[#4d9de0] text-white px-4 py-2 rounded-lg transition-colors duration-300;
+  }
+  
+  .portfolio-button-secondary {
+    @apply bg-transparent border border-[#4d9de0] text-[#4d9de0] hover:bg-[#4d9de0]/10 px-4 py-2 rounded-lg transition-colors duration-300;
+  }
+  
+  .portfolio-button-accent {
+    @apply bg-[#ffb347] hover:bg-[#ffb347]/80 text-[#0e1525] px-4 py-2 rounded-lg transition-colors duration-300;
+  }
+  
+  /* Gradient text styles */
+  .text-gradient-primary {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#0077CC] to-[#4d9de0];
+  }
+  
+  .text-gradient-accent {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#0077CC] to-[#ffb347];
   }
 }
 
@@ -384,12 +436,12 @@
   }
 
   .glow {
-    box-shadow: 0 0 10px rgba(66, 133, 244, 0.5);
+    box-shadow: 0 0 10px rgba(77, 157, 224, 0.5);
     transition: box-shadow 0.3s ease;
   }
 
   .glow:hover {
-    box-shadow: 0 0 20px rgba(66, 133, 244, 0.7);
+    box-shadow: 0 0 20px rgba(77, 157, 224, 0.7);
   }
 
   .cyberpunk-border {
@@ -444,11 +496,11 @@
   }
   
   .material-btn {
-    @apply bg-[#4285F4] text-white px-4 py-2 rounded-md shadow-md transition-all duration-300;
+    @apply bg-[#4d9de0] text-white px-4 py-2 rounded-md shadow-md transition-all duration-300;
   }
   
   .material-btn:hover {
-    @apply bg-[#3367D6];
+    @apply bg-[#0077CC];
     transform: translateY(-1px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
@@ -543,42 +595,46 @@
     backdrop-filter: saturate(180%) blur(5px);
   }
 
-  .sjsu-border {
-    border: 1px solid var(--sjsu-gray);
+  .portfolio-border {
+    border: 1px solid var(--slate);
   }
 
-  .sjsu-border-blue {
-    border-color: var(--sjsu-blue);
+  .portfolio-border-blue {
+    border-color: var(--bright-blue);
   }
 
-  .sjsu-border-gold {
-    border-color: var(--sjsu-gold);
+  .portfolio-border-lightblue {
+    border-color: var(--blue-secondary);
   }
 
-  .sjsu-shadow {
-    box-shadow: 0 4px 12px rgba(0, 85, 162, 0.15);
+  .portfolio-border-gold {
+    border-color: var(--gold);
   }
 
-  .sjsu-gradient-hover {
+  .portfolio-shadow {
+    box-shadow: 0 4px 12px rgba(77, 157, 224, 0.15);
+  }
+
+  .portfolio-gradient-hover {
     position: relative;
     overflow: hidden;
     z-index: 1;
   }
 
-  .sjsu-gradient-hover::before {
+  .portfolio-gradient-hover::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, var(--sjsu-blue), var(--sjsu-gold));
+    background: linear-gradient(45deg, var(--bright-blue), var(--gold));
     z-index: -1;
     opacity: 0;
     transition: opacity 0.3s ease;
   }
 
-  .sjsu-gradient-hover:hover::before {
+  .portfolio-gradient-hover:hover::before {
     opacity: 1;
   }
 }
@@ -593,11 +649,11 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-primary/30 rounded-full;
+  @apply bg-[#4d9de0]/30 rounded-full;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-primary/50;
+  @apply bg-[#4d9de0]/50;
 }
 
 @keyframes float {
@@ -624,7 +680,7 @@
 
 .matrix-rain::before {
   content: "01010101010101010101010101";
-  @apply font-mono text-primary/20 absolute whitespace-nowrap;
+  @apply font-mono text-[#4d9de0]/20 absolute whitespace-nowrap;
   animation: matrixRain 8s linear infinite;
   left: calc(100% * var(--x, 0));
   top: 0;
@@ -634,7 +690,7 @@
 
 .matrix-rain::after {
   content: "10101010101010101010101010";
-  @apply font-mono text-primary/20 absolute whitespace-nowrap;
+  @apply font-mono text-[#4d9de0]/20 absolute whitespace-nowrap;
   animation: matrixRain 10s linear infinite;
   animation-delay: -5s;
   left: calc(100% * var(--x, 0));
@@ -678,7 +734,7 @@
   left: 50%;
   transform: translateX(-50%);
   height: 2px;
-  background: var(--sjsu-gold);
+  background: var(--gold);
   border-radius: 2px;
   transition: width 0.3s ease-in-out;
 }
@@ -697,4 +753,16 @@
 
 .animate-delay-300 {
   animation-delay: 300ms;
+}
+
+/* Add LinkedIn Badge styles to ensure it appears correctly */
+.LI-profile-badge {
+  display: inline-block;
+  max-width: 100%;
+}
+
+.badge-base__link {
+  color: #4d9de0 !important;
+  text-decoration: underline !important;
+  font-weight: 500 !important;
 }

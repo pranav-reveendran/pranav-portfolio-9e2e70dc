@@ -9,6 +9,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import { FloatingElements } from "./components/FloatingElements";
 
+// Create a client
 const queryClient = new QueryClient();
 
 const App = () => (
