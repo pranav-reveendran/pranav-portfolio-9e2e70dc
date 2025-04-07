@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
@@ -10,33 +9,33 @@
 
 @layer base {
   :root {
-    --background: 217 60% 7%;
-    --foreground: 210 40% 98%;
+    --background: 217 60% 7%;     /* #0e1525 - dark navy background */
+    --foreground: 210 40% 98%;    /* White text for contrast */
 
-    --card: 217 47% 9%;
+    --card: 217 47% 9%;           /* Slightly lighter navy for cards */
     --card-foreground: 210 40% 98%;
 
     --popover: 217 47% 9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 203 100% 40%;  /* Updated blue #0077CC */
+    --primary: 203 100% 40%;      /* #0077CC - bright blue */
     --primary-foreground: 217 60% 7%;
 
-    --secondary: 206 71% 59%; /* Updated to #4d9de0 */
+    --secondary: 206 71% 59%;     /* #4d9de0 - light blue */
     --secondary-foreground: 217 60% 7%;
 
-    --accent: 37 100% 64%;    /* Updated to #ffb347 gold */
+    --accent: 37 100% 64%;        /* #ffb347 - gold */
     --accent-foreground: 217 60% 7%;
 
-    --muted: 218 18% 71%;     /* Updated slate #a2adc9 */
+    --muted: 218 18% 71%;         /* #a2adc9 - slate */
     --muted-foreground: 215 20% 75%;
 
     --destructive: 0 80% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 215 37% 23%;    /* Updated navy border #1e3756 */
-    --input: 215 37% 23%;     /* Updated navy border #1e3756 */
-    --ring: 203 100% 40%;     /* Updated blue #0077CC */
+    --border: 215 37% 23%;        /* #1e3756 - navy border */
+    --input: 215 37% 23%;
+    --ring: 203 100% 40%;
 
     --radius: 0.75rem;
 
@@ -79,7 +78,7 @@
   }
 
   h1, h2, h3, h4 {
-    @apply font-sans font-medium tracking-tight text-[#e1e7f4];
+    @apply font-sans font-medium tracking-tight text-white;
     font-family: 'Poppins', sans-serif;
   }
 
@@ -96,7 +95,7 @@
   }
 
   .glassmorphism {
-    @apply bg-white/80 backdrop-blur-md border border-white/30 shadow-lg;
+    @apply bg-[#071426]/80 backdrop-blur-md border border-[#1e3756] shadow-lg text-white;
   }
 
   .glassmorphism-dark {
@@ -354,7 +353,6 @@
                 background-color 0.5s ease-in-out;
   }
 
-  /* Updated blue/gold accent bar for card elements */
   .accent-bar-top {
     position: relative;
   }
@@ -385,22 +383,12 @@
     background-size: 20px 20px;
   }
 
-  .bg-waves-pattern {
-    background-color: transparent;
-    background-image: 
-      repeating-radial-gradient(circle at 0 0, transparent 0, rgba(77, 157, 224, 0.9) 40px),
-      repeating-linear-gradient(rgba(77, 157, 224, 0.1), rgba(77, 157, 224, 0.1));
-    background-blend-mode: multiply;
-    opacity: 0.05;
-  }
-
-  /* Card styles for consistent UI */
   .portfolio-card-dark {
-    @apply bg-[#071426] border border-[#1e3756] rounded-xl p-6 shadow-lg transition-all duration-300;
+    @apply bg-[#071426] border border-[#1e3756] rounded-xl p-6 shadow-lg transition-all duration-300 text-white;
   }
   
   .portfolio-card-light {
-    @apply bg-white/90 backdrop-blur-sm border border-white/30 rounded-xl p-6 shadow-lg transition-all duration-300;
+    @apply bg-[#071426]/90 backdrop-blur-sm border border-[#1e3756] rounded-xl p-6 shadow-lg transition-all duration-300 text-white;
   }
   
   .portfolio-button-primary {
@@ -414,14 +402,13 @@
   .portfolio-button-accent {
     @apply bg-[#ffb347] hover:bg-[#ffb347]/80 text-[#0e1525] px-4 py-2 rounded-lg transition-colors duration-300;
   }
-  
-  /* Gradient text styles */
+
   .text-gradient-primary {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#0077CC] to-[#4d9de0];
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#4d9de0] to-[#ffffff];
   }
   
   .text-gradient-accent {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#0077CC] to-[#ffb347];
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#4d9de0] to-[#ffb347];
   }
 }
 
@@ -755,10 +742,12 @@
   animation-delay: 300ms;
 }
 
-/* Add LinkedIn Badge styles to ensure it appears correctly */
 .LI-profile-badge {
   display: inline-block;
   max-width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 0 auto;
 }
 
 .badge-base__link {

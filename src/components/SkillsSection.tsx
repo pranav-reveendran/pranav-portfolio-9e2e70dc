@@ -139,7 +139,7 @@ export function SkillsSection() {
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-white">
             Technical <span className="text-[#4d9de0]">Expertise</span>
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-[#ffb347] to-[#4d9de0] rounded-full"></div>
+          <div className="w-20 h-1 bg-gradient-to-r from-[#4d9de0] to-[#ffb347] rounded-full"></div>
         </motion.div>
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
@@ -160,14 +160,14 @@ export function SkillsSection() {
                     onClick={() => setActiveSkill(index)}
                     className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-300 flex items-center gap-3 ${
                       activeSkill === index 
-                        ? "bg-white shadow-dreamy font-medium text-[#0e1525]" 
-                        : "hover:bg-white/50 text-gray-300"
+                        ? "bg-[#071426] border border-[#1e3756] shadow-dreamy font-medium text-white" 
+                        : "hover:bg-[#071426]/50 text-[#a2adc9]"
                     }`}
                   >
                     <div className={`p-2 rounded-lg ${
                       activeSkill === index 
                         ? "bg-gradient-to-br from-[#0077CC] to-[#4d9de0] text-white" 
-                        : "bg-[#1a2030] text-gray-400"
+                        : "bg-[#1a2030] text-[#a2adc9]"
                     }`}>
                       <SkillIcon size={18} />
                     </div>
@@ -195,7 +195,7 @@ export function SkillsSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="lg:col-span-9"
           >
-            <div className="glassmorphism rounded-2xl p-8 bg-white/80">
+            <div className="bg-[#071426]/80 backdrop-blur-sm border border-[#1e3756] rounded-2xl p-8 shadow-lg">
               <div className="flex flex-col md:flex-row gap-6 mb-8">
                 {/* Icon and category */}
                 <motion.div 
@@ -215,7 +215,7 @@ export function SkillsSection() {
                     key={`title-${activeSkill}`}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="text-2xl font-bold mb-3 text-[#0e1525]"
+                    className="text-2xl font-bold mb-3 text-white"
                   >
                     {skills[activeSkill].category}
                   </motion.h3>
@@ -224,7 +224,7 @@ export function SkillsSection() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.1 }}
-                    className="text-[#1a2030]"
+                    className="text-[#becde0]"
                   >
                     {skills[activeSkill].description}
                   </motion.p>
@@ -246,7 +246,7 @@ export function SkillsSection() {
                     className="flex items-center gap-2 p-3 rounded-lg hover:bg-[#0077CC]/5 transition-colors"
                   >
                     <CheckCircle size={16} className="text-[#4d9de0] flex-shrink-0" />
-                    <span className="text-[#0e1525]">{item}</span>
+                    <span className="text-white">{item}</span>
                   </motion.div>
                 ))}
               </motion.div>
@@ -257,10 +257,10 @@ export function SkillsSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="mt-8 pt-6 border-t border-[#d2d2d2]/50"
+                className="mt-8 pt-6 border-t border-[#1e3756]"
               >
-                <div className="text-sm font-medium mb-2 text-[#0e1525]">Proficiency</div>
-                <div className="h-2 w-full bg-[#d2d2d2]/50 rounded-full overflow-hidden">
+                <div className="text-sm font-medium mb-2 text-white">Proficiency</div>
+                <div className="h-2 w-full bg-[#1e3756] rounded-full overflow-hidden">
                   <motion.div 
                     initial={{ width: 0 }}
                     animate={{ width: `${80 + Math.random() * 20}%` }}

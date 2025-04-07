@@ -79,28 +79,28 @@ export const ExperienceSection = () => {
   return (
     <section 
       id="experience" 
-      className="w-full py-24 bg-[#0f1e30]" // Updated background color
+      className="w-full py-24 bg-[#0e1525]"
     >
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-foreground">
-          Professional Experience
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-white">
+          Professional <span className="text-[#4d9de0]">Experience</span>
         </h2>
         
         <div className="space-y-12">
           {experiences.map((experience, index) => (
             <div key={index} 
                  className="card-3d-effect group hover:transform hover:scale-[1.01] transition-all duration-300">
-              <Card className="card-3d-content overflow-hidden border border-muted/20 shadow-md bg-card/80 backdrop-blur-sm">
+              <Card className="card-3d-content overflow-hidden border border-[#1e3756] shadow-md bg-[#071426]/80 backdrop-blur-sm">
                 <CardHeader className="pb-3">
                   <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4">
                     <div>
-                      <CardTitle className="text-xl md:text-2xl font-bold">{experience.title}</CardTitle>
-                      <CardDescription className="text-lg font-medium flex items-center gap-1 mt-1">
+                      <CardTitle className="text-xl md:text-2xl font-bold text-white">{experience.title}</CardTitle>
+                      <CardDescription className="text-lg font-medium flex items-center gap-1 mt-1 text-[#becde0]">
                         <Building className="h-4 w-4" />
-                        {experience.company} · <span className="text-muted-foreground text-sm">{experience.type}</span>
+                        {experience.company} · <span className="text-[#a2adc9] text-sm">{experience.type}</span>
                       </CardDescription>
                     </div>
-                    <div className="space-y-1 text-sm text-muted-foreground">
+                    <div className="space-y-1 text-sm text-[#a2adc9]">
                       <div className="flex items-center gap-1">
                         <Calendar className="h-4 w-4" />
                         <span>{experience.date}</span>
@@ -114,14 +114,14 @@ export const ExperienceSection = () => {
                 </CardHeader>
                 <CardContent className="pt-1">
                   {experience.description && (
-                    <div className="mt-2 text-sm text-foreground/90 whitespace-pre-line">
+                    <div className="mt-2 text-sm text-[#becde0] whitespace-pre-line">
                       {experience.description}
                     </div>
                   )}
                   {experience.skills.length > 0 && (
                     <div className="mt-4 flex flex-wrap gap-2">
                       {experience.skills.map((skill, i) => (
-                        <span key={i} className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs">
+                        <span key={i} className="px-3 py-1 bg-[#0077CC]/10 text-[#4d9de0] rounded-full text-xs">
                           {skill}
                         </span>
                       ))}

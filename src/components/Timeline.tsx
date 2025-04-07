@@ -55,7 +55,7 @@ export function Timeline() {
   return (
     <div 
       id="career" 
-      className="relative py-16 bg-[#0e1525] transition-colors duration-500"
+      className="relative py-16 bg-[#0e1525]"
     >
       {/* Background elements */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#0e1525]/30 to-transparent pointer-events-none"></div>
@@ -104,7 +104,7 @@ export function Timeline() {
                       {event.category.charAt(0).toUpperCase() + event.category.slice(1)}
                     </span>
                     <h3 className="text-xl font-bold text-white">{event.title}</h3>
-                    <p className="text-[#a2adc9] mt-2">{event.description}</p>
+                    <p className="text-[#becde0] mt-2">{event.description}</p>
                   </motion.div>
                 </div>
                 

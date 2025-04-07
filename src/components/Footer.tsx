@@ -6,7 +6,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="py-10 border-t border-[#1e3756] bg-[#0e1525] transition-colors duration-500">
+    <footer className="py-10 border-t border-[#1e3756] bg-[#0e1525]">
       <div className="container mx-auto px-6 md:px-8">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
@@ -17,13 +17,13 @@ export function Footer() {
           </div>
           
           <div className="flex space-x-4 mb-4 md:mb-0">
-            <a href="mailto:pranav.reveendran@sjsu.edu" className="text-[#a2adc9] hover:text-[#4d9de0] transition-colors">
+            <a href="mailto:pranav.reveendran@sjsu.edu" className="text-[#a2adc9] hover:text-[#4d9de0] transition-colors" aria-label="Email">
               <MailIcon className="w-5 h-5" />
             </a>
-            <a href="tel:+16603357762" className="text-[#a2adc9] hover:text-[#4d9de0] transition-colors">
+            <a href="tel:+16603357762" className="text-[#a2adc9] hover:text-[#4d9de0] transition-colors" aria-label="Phone">
               <PhoneIcon className="w-5 h-5" />
             </a>
-            <a href="https://linkedin.com/in/pranavreveendran" className="text-[#a2adc9] hover:text-[#4d9de0] transition-colors">
+            <a href="https://linkedin.com/in/pranavreveendran" className="text-[#a2adc9] hover:text-[#4d9de0] transition-colors" aria-label="LinkedIn">
               <LinkedinIcon className="w-5 h-5" />
             </a>
           </div>

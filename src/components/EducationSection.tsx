@@ -42,15 +42,15 @@ export const EducationSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section id="education" className="w-full py-24 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-theme-teal/5 to-background/20 z-0"></div>
+    <section id="education" className="w-full py-24 relative overflow-hidden bg-[#0e1525]">
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0077CC]/5 to-transparent z-0"></div>
       
       {/* Floating elements for interactive background */}
       <div className="absolute w-full h-full overflow-hidden z-0">
         {[...Array(8)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute rounded-full bg-theme-teal/10 backdrop-blur-3xl"
+            className="absolute rounded-full bg-[#4d9de0]/10 backdrop-blur-3xl"
             style={{
               width: `${Math.random() * 200 + 50}px`,
               height: `${Math.random() * 200 + 50}px`,
@@ -78,13 +78,13 @@ export const EducationSection = () => {
           transition={{ duration: 0.7 }}
           className="flex flex-col items-center mb-16"
         >
-          <span className="px-4 py-2 bg-theme-teal/10 text-theme-teal rounded-full text-sm font-medium mb-3">
+          <span className="px-4 py-2 bg-[#0077CC]/10 text-[#4d9de0] rounded-full text-sm font-medium mb-3">
             Educational Journey
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
-            Academic <span className="text-theme-teal">Background</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-white">
+            Academic <span className="text-[#4d9de0]">Background</span>
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-theme-teal to-theme-purple rounded-full"></div>
+          <div className="w-20 h-1 bg-gradient-to-r from-[#4d9de0] to-[#ffb347] rounded-full"></div>
         </motion.div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -97,8 +97,8 @@ export const EducationSection = () => {
             className="md:col-span-1"
           >
             <div className="sticky top-24 space-y-4">
-              <h3 className="text-xl font-semibold mb-6 flex items-center">
-                <GraduationCap className="mr-2 text-theme-teal" />
+              <h3 className="text-xl font-semibold mb-6 flex items-center text-white">
+                <GraduationCap className="mr-2 text-[#4d9de0]" />
                 Timeline
               </h3>
               
@@ -109,23 +109,25 @@ export const EducationSection = () => {
                     onClick={() => setActiveIndex(index)}
                     className={`relative pl-8 py-4 text-left rounded-lg transition-all duration-300 ${
                       activeIndex === index 
-                        ? "bg-white shadow-dreamy text-theme-dark font-medium" 
-                        : "hover:bg-white/50"
+                        ? "bg-[#071426] shadow-dreamy border border-[#1e3756] text-white font-medium" 
+                        : "hover:bg-[#071426]/50 text-[#a2adc9]"
                     }`}
                   >
                     <div 
                       className={`absolute left-0 top-0 bottom-0 w-1 my-4 rounded-r-full transition-all duration-300 ${
-                        activeIndex === index ? "bg-theme-teal h-[calc(100%-2rem)]" : "bg-gray-200 h-[calc(70%-1rem)] my-6"
+                        activeIndex === index ? "bg-[#4d9de0] h-[calc(100%-2rem)]" : "bg-[#1e3756] h-[calc(70%-1rem)] my-6"
                       }`}
                     ></div>
-                    <div className="text-sm text-muted-foreground mb-1">{education.date}</div>
-                    <div className="font-medium">{education.school}</div>
+                    <div className="text-sm text-[#a2adc9] mb-1">{education.date}</div>
+                    <div className={`font-medium ${activeIndex === index ? "text-white" : "text-[#becde0]"}`}>
+                      {education.school}
+                    </div>
                     
                     {activeIndex === index && (
                       <motion.div 
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        className="absolute right-3 top-1/2 transform -translate-y-1/2 text-theme-teal"
+                        className="absolute right-3 top-1/2 transform -translate-y-1/2 text-[#4d9de0]"
                       >
                         <ArrowRight size={16} />
                       </motion.div>
@@ -144,14 +146,14 @@ export const EducationSection = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="md:col-span-2"
           >
-            <div className="glassmorphism rounded-2xl p-8 h-full">
+            <div className="bg-[#071426]/80 backdrop-blur-sm border border-[#1e3756] rounded-2xl p-8 h-full shadow-lg">
               <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-6">
                 <div>
                   <motion.h3 
                     key={`title-${activeIndex}`}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="text-2xl font-bold"
+                    className="text-2xl font-bold text-white"
                   >
                     {educations[activeIndex].school}
                   </motion.h3>
@@ -160,9 +162,9 @@ export const EducationSection = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 }}
-                    className="text-lg flex items-center gap-2 mt-2"
+                    className="text-lg flex items-center gap-2 mt-2 text-[#e1e7f4]"
                   >
-                    <GraduationCap className="text-theme-teal" size={18} />
+                    <GraduationCap className="text-[#4d9de0]" size={18} />
                     <span>{educations[activeIndex].degree}</span>
                   </motion.div>
                 </div>
@@ -171,7 +173,7 @@ export const EducationSection = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.2 }}
-                  className="px-4 py-2 bg-theme-teal/10 text-theme-teal rounded-full text-sm flex items-center whitespace-nowrap"
+                  className="px-4 py-2 bg-[#0077CC]/10 text-[#4d9de0] rounded-full text-sm flex items-center whitespace-nowrap"
                 >
                   <Calendar className="mr-2" size={14} />
                   {educations[activeIndex].date}
@@ -186,11 +188,11 @@ export const EducationSection = () => {
                   transition={{ delay: 0.3 }}
                   className="mt-6 prose prose-slate max-w-none"
                 >
-                  <h4 className="text-lg font-semibold flex items-center mb-3">
-                    <BookOpen className="mr-2 text-theme-purple" size={18} />
+                  <h4 className="text-lg font-semibold flex items-center mb-3 text-white">
+                    <BookOpen className="mr-2 text-[#ffb347]" size={18} />
                     Details
                   </h4>
-                  <div className="text-muted-foreground whitespace-pre-line">
+                  <div className="text-[#becde0] whitespace-pre-line">
                     {educations[activeIndex].description}
                   </div>
                 </motion.div>
@@ -204,8 +206,8 @@ export const EducationSection = () => {
                   transition={{ delay: 0.4 }}
                   className="mt-8"
                 >
-                  <h4 className="text-lg font-semibold flex items-center mb-4">
-                    <Award className="mr-2 text-theme-pink" size={18} />
+                  <h4 className="text-lg font-semibold flex items-center mb-4 text-white">
+                    <Award className="mr-2 text-[#ffb347]" size={18} />
                     Skills & Technologies
                   </h4>
                   <div className="flex flex-wrap gap-2">
@@ -215,7 +217,7 @@ export const EducationSection = () => {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.5 + (i * 0.05) }}
-                        className="px-3 py-1.5 bg-gradient-to-r from-theme-teal/20 to-theme-blue/20 hover:from-theme-teal/30 hover:to-theme-blue/30 rounded-full text-xs font-medium backdrop-blur-sm hover:scale-105 transition-all"
+                        className="px-3 py-1.5 bg-gradient-to-r from-[#0077CC]/20 to-[#4d9de0]/20 hover:from-[#0077CC]/30 hover:to-[#4d9de0]/30 rounded-full text-xs font-medium backdrop-blur-sm hover:scale-105 transition-all text-white"
                       >
                         {skill}
                       </motion.span>
