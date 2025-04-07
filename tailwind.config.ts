@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -54,28 +53,28 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				sjsu: {
-					blue: '#0055A2',     // SJSU Blue
+					blue: '#0077CC',     // Updated SJSU Blue
 					gold: '#E5A823',     // SJSU Gold
 					gray: '#939597',     // SJSU Gray
 					lightGray: '#D2D2D2', // SJSU Light Gray
 					darkGray: '#666666',  // SJSU Dark Gray
-					rolloverBlue: '#1C88F4' // SJSU Rollover Blue
+					rolloverBlue: '#2d9cdb' // Updated SJSU Rollover Blue
 				},
 				// Define theme colors that map to the new portfolio design
 				theme: {
-					navyDark: '#0a192f',    // Dark navy background
-					navyLight: '#112240',    // Lighter navy for elements
-					navyBorder: '#233554',   // Navy border color
-					slate: '#8892b0',        // Slate for main text color
-					slateLight: '#a8b2d1',   // Lighter slate for secondary text
-					slateWhite: '#ccd6f6',   // Whitest slate for highlights
-					brightBlue: '#00B7FF',   // Bright blue for primary accents
-					teal: '#64ffda',         // Teal for secondary accents
-					yellow: '#ffcc66',        // Yellow for tertiary accents
-					white: '#e6f1ff',        // Off-white for pure white needs
+					navyDark: '#05101f',    // Updated Dark navy background
+					navyLight: '#071426',    // Updated Lighter navy for elements
+					navyBorder: '#1e3756',   // Updated Navy border color
+					slate: '#a2adc9',        // Updated slate for main text color
+					slateLight: '#becde0',   // Updated lighter slate for secondary text
+					slateWhite: '#e1e7f4',   // Updated whitest slate for highlights
+					brightBlue: '#0077CC',   // Updated bright blue for primary accents
+					teal: '#2d9cdb',         // Updated secondary blue
+					yellow: '#56ccf2',       // Updated accent blue
+					white: '#ffffff',        // Pure white
 				},
 				// Site background color updated to match reference
-				siteBg: '#0a192f',
+				siteBg: '#05101f',
 			},
 			backgroundColor: {
 				'site-bg': 'var(--site-bg)',
@@ -184,6 +183,10 @@ export default {
 					'0%': { transform: 'scale(0.8)', opacity: '0.2' },
 					'50%': { transform: 'scale(1)', opacity: '0.5' },
 					'100%': { transform: 'scale(1.2)', opacity: '0' }
+				},
+				'smooth-fade': {
+					'0%': { opacity: '0', filter: 'blur(10px)' },
+					'100%': { opacity: '1', filter: 'blur(0)' }
 				}
 			},
 			animation: {
@@ -210,7 +213,8 @@ export default {
 				'shimmer': 'shimmer 2s linear infinite',
 				'spin-slow': 'spin-slow 12s linear infinite',
 				'bounce-gentle': 'bounce-gentle 2s ease-in-out infinite',
-				'pulse-ring': 'pulse-ring 1.5s cubic-bezier(0.24, 0, 0.38, 1) infinite'
+				'pulse-ring': 'pulse-ring 1.5s cubic-bezier(0.24, 0, 0.38, 1) infinite',
+				'smooth-fade': 'smooth-fade 0.5s ease-in-out'
 			},
 		}
 	},

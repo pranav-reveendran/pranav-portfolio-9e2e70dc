@@ -9,47 +9,47 @@
 
 @layer base {
   :root {
-    --background: 220 36% 11%;
+    --background: 217 60% 7%;
     --foreground: 210 40% 98%;
 
-    --card: 222 47% 11%;
+    --card: 217 47% 9%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 222 47% 11%;
+    --popover: 217 47% 9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 196 100% 50%;  /* Bright blue #00B7FF */
-    --primary-foreground: 220 36% 11%;
+    --primary: 203 100% 40%;  /* Updated blue #0077CC */
+    --primary-foreground: 217 60% 7%;
 
-    --secondary: 160 100% 70%; /* Teal #64ffda */
-    --secondary-foreground: 220 36% 11%;
+    --secondary: 204 69% 52%; /* Updated secondary blue #2d9cdb */
+    --secondary-foreground: 217 60% 7%;
 
-    --accent: 40 100% 70%;     /* Yellow #ffcc66 */
-    --accent-foreground: 220 36% 11%;
+    --accent: 199 89% 64%;     /* Updated accent blue #56ccf2 */
+    --accent-foreground: 217 60% 7%;
 
-    --muted: 217 19% 63%;      /* Slate #8892b0 */
+    --muted: 218 18% 71%;      /* Updated slate #a2adc9 */
     --muted-foreground: 215 20% 75%;
 
     --destructive: 0 80% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 225 32% 24%;    /* Navy border #233554 */
-    --input: 225 32% 24%;     /* Navy border #233554 */
-    --ring: 196 100% 50%;     /* Bright blue #00B7FF */
+    --border: 215 37% 23%;    /* Updated navy border #1e3756 */
+    --input: 215 37% 23%;     /* Updated navy border #1e3756 */
+    --ring: 203 100% 40%;     /* Updated blue #0077CC */
 
     --radius: 0.75rem;
 
     /* New portfolio theme colors */
-    --navy-dark: #0a192f;
-    --navy-light: #112240;
-    --navy-border: #233554;
-    --slate: #8892b0;
-    --slate-light: #a8b2d1;
-    --slate-white: #ccd6f6;
-    --bright-blue: #00B7FF;
-    --teal: #64ffda;
-    --yellow: #ffcc66;
-    --white: #e6f1ff;
+    --navy-dark: #05101f;
+    --navy-light: #071426;
+    --navy-border: #1e3756;
+    --slate: #a2adc9;
+    --slate-light: #becde0;
+    --slate-white: #e1e7f4;
+    --bright-blue: #0077CC;
+    --blue-secondary: #2d9cdb;
+    --blue-accent: #56ccf2;
+    --white: #ffffff;
 
     /* Old SJSU colors, kept for backwards compatibility */
     --sjsu-blue: #0055A2;
@@ -60,7 +60,7 @@
     --sjsu-rollover-blue: #1C88F4;
     
     /* Site-wide background color */
-    --site-bg: #0a192f;
+    --site-bg: #05101f;
   }
 
   * {
@@ -70,14 +70,15 @@
   }
 
   body {
-    @apply bg-[#0a192f] text-[#e6f1ff];
+    @apply bg-[#05101f] text-white;
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
     background-image: 
-      radial-gradient(hsla(var(--primary) / 0.05) 1px, transparent 1px),
-      radial-gradient(hsla(var(--secondary) / 0.05) 1px, transparent 1px);
+      radial-gradient(hsla(var(--primary) / 0.03) 1px, transparent 1px),
+      radial-gradient(hsla(var(--secondary) / 0.03) 1px, transparent 1px);
     background-size: 20px 20px, 40px 40px;
     background-position: 0 0, 10px 10px;
+    transition: background-color 0.5s ease;
   }
 
   html {
@@ -85,7 +86,7 @@
   }
 
   h1, h2, h3, h4 {
-    @apply font-sans font-medium tracking-tight text-[#ccd6f6];
+    @apply font-sans font-medium tracking-tight text-[#e1e7f4];
     font-family: 'Poppins', sans-serif;
   }
 
@@ -106,11 +107,11 @@
   }
 
   .glassmorphism-dark {
-    @apply bg-[#112240]/80 backdrop-blur-md border border-[#233554] shadow-lg;
+    @apply bg-[#071426]/80 backdrop-blur-md border border-[#1e3756] shadow-lg;
   }
 
   .sjsu-gradient {
-    background: linear-gradient(90deg, var(--bright-blue), var(--slate), var(--teal));
+    background: linear-gradient(90deg, var(--bright-blue), var(--blue-secondary), var(--blue-accent));
   }
 
   .sjsu-bg-blue {
@@ -118,7 +119,7 @@
   }
 
   .sjsu-bg-gold {
-    background-color: var(--teal);
+    background-color: var(--blue-secondary);
   }
 
   .sjsu-bg-gray {
@@ -130,7 +131,7 @@
   }
 
   .sjsu-text-gold {
-    color: var(--teal);
+    color: var(--blue-secondary);
   }
 
   .sjsu-text-gray {
@@ -138,25 +139,25 @@
   }
 
   .sjsu-text-gradient {
-    background: linear-gradient(90deg, var(--bright-blue), var(--teal));
+    background: linear-gradient(90deg, var(--bright-blue), var(--blue-accent));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
   .sjsu-button {
-    @apply bg-[#00B7FF] text-[#0a192f] hover:bg-[#00B7FF]/80 transition-colors;
+    @apply bg-[#0077CC] text-white hover:bg-[#0077CC]/80 transition-colors;
   }
 
   .sjsu-button-gold {
-    @apply bg-[#64ffda] text-[#0a192f] hover:brightness-110 transition-all;
+    @apply bg-[#2d9cdb] text-white hover:brightness-110 transition-all;
   }
 
   .sjsu-card {
-    @apply bg-[#112240] shadow-md rounded-lg border border-[#233554] overflow-hidden;
+    @apply bg-[#071426] shadow-md rounded-lg border border-[#1e3756] overflow-hidden;
   }
 
   .sjsu-section-title {
-    @apply text-[#00B7FF] font-bold text-2xl md:text-3xl lg:text-4xl;
+    @apply text-[#0077CC] font-bold text-2xl md:text-3xl lg:text-4xl;
   }
 
   .sjsu-section-subtitle {
@@ -330,20 +331,21 @@
   }
 
   .site-section {
-    @apply bg-[#0a192f] relative overflow-hidden;
+    @apply bg-[#05101f] relative overflow-hidden transition-colors duration-500;
   }
 
   .site-section-alt {
-    @apply bg-[#112240] relative overflow-hidden;
+    @apply bg-[#071426] relative overflow-hidden transition-colors duration-500;
   }
 
   .site-section-dark {
-    @apply bg-[#0a192f] relative overflow-hidden;
+    @apply bg-[#030a14] relative overflow-hidden transition-colors duration-500;
   }
 
   .section-transition {
-    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), 
-                opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), 
+                opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                background-color 0.5s ease-in-out;
   }
 }
 
@@ -643,13 +645,11 @@
 
 .page-enter {
   opacity: 0;
-  transform: translateY(20px);
 }
 
 .page-enter-active {
   opacity: 1;
-  transform: translateY(0);
-  transition: opacity 500ms, transform 500ms;
+  transition: opacity 500ms ease-in-out;
 }
 
 .page-exit {
@@ -658,7 +658,7 @@
 
 .page-exit-active {
   opacity: 0;
-  transition: opacity 300ms;
+  transition: opacity 300ms ease-in-out;
 }
 
 .section-reveal {
