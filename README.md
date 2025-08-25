@@ -5,7 +5,6 @@ A modern, interactive data engineering portfolio website featuring dynamic visua
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/a418fa08-7968-4e2f-9eb2-f4bd8c486ad1
 
 ## Features
 
